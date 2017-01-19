@@ -1,0 +1,2732 @@
+"compiler.ml" 3 17 21 "compiler.ml" 3 17 33
+type(
+  int -> unit
+)
+ident(
+  def compile_push "compiler.ml" 6 99 99 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 3 17 34 "compiler.ml" 3 17 35
+type(
+  int
+)
+ident(
+  def x "compiler.ml" 4 38 40 "compiler.ml" 4 38 97
+)
+"compiler.ml" 4 38 40 "compiler.ml" 4 38 53
+type(
+  (int -> unit, out_channel, unit) format -> int -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"compiler.ml" 4 38 54 "compiler.ml" 4 38 95
+type(
+  (int -> unit, out_channel, unit) format
+)
+"compiler.ml" 4 38 96 "compiler.ml" 4 38 97
+type(
+  int
+)
+ident(
+  int_ref x "compiler.ml" 3 17 34 "compiler.ml" 3 17 35
+)
+"compiler.ml" 4 38 40 "compiler.ml" 4 38 97
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 6 99 103 "compiler.ml" 6 99 114
+type(
+  int -> unit
+)
+ident(
+  def compile_pop "compiler.ml" 10 188 188 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 6 99 115 "compiler.ml" 6 99 116
+type(
+  int
+)
+ident(
+  def x "compiler.ml" 7 119 121 "compiler.ml" 7 119 178
+)
+"compiler.ml" 7 119 121 "compiler.ml" 7 119 134
+type(
+  (int -> unit, out_channel, unit) format -> int -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"compiler.ml" 7 119 135 "compiler.ml" 7 119 176
+type(
+  (int -> unit, out_channel, unit) format
+)
+"compiler.ml" 7 119 177 "compiler.ml" 7 119 178
+type(
+  int
+)
+ident(
+  int_ref x "compiler.ml" 6 99 115 "compiler.ml" 6 99 116
+)
+"compiler.ml" 7 119 121 "compiler.ml" 7 119 178
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 10 188 192 "compiler.ml" 10 188 205
+type(
+  int -> int -> unit
+)
+ident(
+  def compiler_to_a "compiler.ml" 15 302 302 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 10 188 206 "compiler.ml" 10 188 207
+type(
+  int
+)
+ident(
+  def x "compiler.ml" 10 188 208 "compiler.ml" 12 252 297
+)
+"compiler.ml" 10 188 208 "compiler.ml" 10 188 209
+type(
+  int
+)
+ident(
+  def i "compiler.ml" 11 212 214 "compiler.ml" 12 252 297
+)
+"compiler.ml" 11 212 218 "compiler.ml" 11 212 219
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 10 188 208 "compiler.ml" 10 188 209
+)
+"compiler.ml" 11 212 219 "compiler.ml" 11 212 220
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( > )
+)
+"compiler.ml" 11 212 220 "compiler.ml" 11 212 221
+type(
+  int
+)
+"compiler.ml" 11 212 218 "compiler.ml" 11 212 221
+type(
+  bool
+)
+"compiler.ml" 11 212 227 "compiler.ml" 11 212 239
+type(
+  int -> unit
+)
+ident(
+  int_ref compile_push "compiler.ml" 3 17 21 "compiler.ml" 3 17 33
+)
+"compiler.ml" 11 212 241 "compiler.ml" 11 212 242
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 10 188 208 "compiler.ml" 10 188 209
+)
+"compiler.ml" 11 212 243 "compiler.ml" 11 212 246
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( mod )
+)
+"compiler.ml" 11 212 247 "compiler.ml" 11 212 248
+type(
+  int
+)
+"compiler.ml" 11 212 240 "compiler.ml" 11 212 249
+type(
+  int
+)
+"compiler.ml" 11 212 227 "compiler.ml" 11 212 249
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 11 212 214 "compiler.ml" 11 212 250
+type(
+  unit
+)
+"compiler.ml" 12 252 254 "compiler.ml" 12 252 267
+type(
+  (int -> int -> unit, out_channel, unit) format -> int -> int -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"compiler.ml" 12 252 268 "compiler.ml" 12 252 285
+type(
+  (int -> int -> unit, out_channel, unit) format
+)
+"compiler.ml" 12 252 287 "compiler.ml" 12 252 288
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 10 188 208 "compiler.ml" 10 188 209
+)
+"compiler.ml" 12 252 289 "compiler.ml" 12 252 292
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( mod )
+)
+"compiler.ml" 12 252 293 "compiler.ml" 12 252 294
+type(
+  int
+)
+"compiler.ml" 12 252 286 "compiler.ml" 12 252 295
+type(
+  int
+)
+"compiler.ml" 12 252 296 "compiler.ml" 12 252 297
+type(
+  int
+)
+ident(
+  int_ref x "compiler.ml" 10 188 206 "compiler.ml" 10 188 207
+)
+"compiler.ml" 12 252 254 "compiler.ml" 12 252 297
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 11 212 214 "compiler.ml" 12 252 297
+type(
+  unit
+)
+"compiler.ml" 15 302 306 "compiler.ml" 15 302 313
+type(
+  Ast.binop -> int -> bool -> unit
+)
+ident(
+  def make_op "compiler.ml" 24 666 666 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 15 302 314 "compiler.ml" 15 302 316
+type(
+  Ast.binop
+)
+ident(
+  def op "compiler.ml" 15 302 317 "compiler.ml" 22 594 651
+)
+"compiler.ml" 15 302 317 "compiler.ml" 15 302 318
+type(
+  int
+)
+ident(
+  def i "compiler.ml" 15 302 319 "compiler.ml" 22 594 651
+)
+"compiler.ml" 15 302 319 "compiler.ml" 15 302 322
+type(
+  bool
+)
+ident(
+  def res "compiler.ml" 16 325 327 "compiler.ml" 22 594 651
+)
+"compiler.ml" 16 325 331 "compiler.ml" 16 325 332
+type(
+  int
+)
+ident(
+  def j "compiler.ml" 17 368 370 "compiler.ml" 22 594 651
+)
+"compiler.ml" 16 325 336 "compiler.ml" 16 325 337
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 15 302 317 "compiler.ml" 15 302 318
+)
+"compiler.ml" 16 325 338 "compiler.ml" 16 325 339
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"compiler.ml" 16 325 340 "compiler.ml" 16 325 341
+type(
+  int
+)
+"compiler.ml" 16 325 335 "compiler.ml" 16 325 342
+type(
+  int
+)
+"compiler.ml" 16 325 343 "compiler.ml" 16 325 346
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( mod )
+)
+"compiler.ml" 16 325 347 "compiler.ml" 16 325 348
+type(
+  int
+)
+"compiler.ml" 16 325 335 "compiler.ml" 16 325 348
+type(
+  int
+)
+"compiler.ml" 16 325 353 "compiler.ml" 16 325 354
+type(
+  int
+)
+ident(
+  def i "compiler.ml" 17 368 370 "compiler.ml" 22 594 651
+)
+"compiler.ml" 16 325 357 "compiler.ml" 16 325 358
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 15 302 317 "compiler.ml" 15 302 318
+)
+"compiler.ml" 16 325 359 "compiler.ml" 16 325 362
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( mod )
+)
+"compiler.ml" 16 325 363 "compiler.ml" 16 325 364
+type(
+  int
+)
+"compiler.ml" 16 325 357 "compiler.ml" 16 325 364
+type(
+  int
+)
+"compiler.ml" 17 368 374 "compiler.ml" 17 368 377
+type(
+  bool
+)
+ident(
+  int_ref res "compiler.ml" 15 302 319 "compiler.ml" 15 302 322
+)
+"compiler.ml" 17 368 383 "compiler.ml" 17 368 394
+type(
+  int -> unit
+)
+ident(
+  int_ref compile_pop "compiler.ml" 6 99 103 "compiler.ml" 6 99 114
+)
+"compiler.ml" 17 368 395 "compiler.ml" 17 368 396
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 16 325 353 "compiler.ml" 16 325 354
+)
+"compiler.ml" 17 368 383 "compiler.ml" 17 368 396
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 17 368 370 "compiler.ml" 17 368 397
+type(
+  unit
+)
+"compiler.ml" 18 399 407 "compiler.ml" 18 399 409
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "compiler.ml" 15 302 314 "compiler.ml" 15 302 316
+)
+"compiler.ml" 19 415 419 "compiler.ml" 19 415 423
+type(
+  Ast.binop
+)
+"compiler.ml" 19 415 427 "compiler.ml" 19 415 440
+type(
+  (int -> int -> int -> unit, out_channel, unit) format ->
+  int -> int -> int -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"compiler.ml" 19 415 441 "compiler.ml" 19 415 467
+type(
+  (int -> int -> int -> unit, out_channel, unit) format
+)
+"compiler.ml" 19 415 468 "compiler.ml" 19 415 469
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 16 325 353 "compiler.ml" 16 325 354
+)
+"compiler.ml" 19 415 470 "compiler.ml" 19 415 471
+type(
+  int
+)
+ident(
+  int_ref j "compiler.ml" 16 325 331 "compiler.ml" 16 325 332
+)
+"compiler.ml" 19 415 472 "compiler.ml" 19 415 473
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 16 325 353 "compiler.ml" 16 325 354
+)
+"compiler.ml" 19 415 427 "compiler.ml" 19 415 473
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 20 474 478 "compiler.ml" 20 474 483
+type(
+  Ast.binop
+)
+"compiler.ml" 20 474 488 "compiler.ml" 20 474 501
+type(
+  (int -> int -> int -> unit, out_channel, unit) format ->
+  int -> int -> int -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"compiler.ml" 20 474 502 "compiler.ml" 20 474 528
+type(
+  (int -> int -> int -> unit, out_channel, unit) format
+)
+"compiler.ml" 20 474 529 "compiler.ml" 20 474 530
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 16 325 353 "compiler.ml" 16 325 354
+)
+"compiler.ml" 20 474 531 "compiler.ml" 20 474 532
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 16 325 353 "compiler.ml" 16 325 354
+)
+"compiler.ml" 20 474 533 "compiler.ml" 20 474 534
+type(
+  int
+)
+ident(
+  int_ref j "compiler.ml" 16 325 331 "compiler.ml" 16 325 332
+)
+"compiler.ml" 20 474 488 "compiler.ml" 20 474 534
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 21 535 539 "compiler.ml" 21 535 543
+type(
+  Ast.binop
+)
+"compiler.ml" 21 535 547 "compiler.ml" 21 535 560
+type(
+  (int -> int -> int -> unit, out_channel, unit) format ->
+  int -> int -> int -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"compiler.ml" 21 535 561 "compiler.ml" 21 535 587
+type(
+  (int -> int -> int -> unit, out_channel, unit) format
+)
+"compiler.ml" 21 535 588 "compiler.ml" 21 535 589
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 16 325 353 "compiler.ml" 16 325 354
+)
+"compiler.ml" 21 535 590 "compiler.ml" 21 535 591
+type(
+  int
+)
+ident(
+  int_ref j "compiler.ml" 16 325 331 "compiler.ml" 16 325 332
+)
+"compiler.ml" 21 535 592 "compiler.ml" 21 535 593
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 16 325 353 "compiler.ml" 16 325 354
+)
+"compiler.ml" 21 535 547 "compiler.ml" 21 535 593
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 22 594 598 "compiler.ml" 22 594 601
+type(
+  Ast.binop
+)
+"compiler.ml" 22 594 605 "compiler.ml" 22 594 618
+type(
+  (int -> int -> int -> unit, out_channel, unit) format ->
+  int -> int -> int -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"compiler.ml" 22 594 619 "compiler.ml" 22 594 645
+type(
+  (int -> int -> int -> unit, out_channel, unit) format
+)
+"compiler.ml" 22 594 646 "compiler.ml" 22 594 647
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 16 325 353 "compiler.ml" 16 325 354
+)
+"compiler.ml" 22 594 648 "compiler.ml" 22 594 649
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 16 325 353 "compiler.ml" 16 325 354
+)
+"compiler.ml" 22 594 650 "compiler.ml" 22 594 651
+type(
+  int
+)
+ident(
+  int_ref j "compiler.ml" 16 325 331 "compiler.ml" 16 325 332
+)
+"compiler.ml" 22 594 605 "compiler.ml" 22 594 651
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 18 399 401 "compiler.ml" 22 594 651
+type(
+  unit
+)
+"compiler.ml" 17 368 370 "compiler.ml" 22 594 651
+type(
+  unit
+)
+"compiler.ml" 16 325 327 "compiler.ml" 22 594 651
+type(
+  unit
+)
+"compiler.ml" 24 666 670 "compiler.ml" 24 666 681
+type(
+  Ast.binop -> int -> int -> bool -> unit
+)
+ident(
+  def make_op_num "compiler.ml" 35 1014 1014 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 24 666 682 "compiler.ml" 24 666 684
+type(
+  Ast.binop
+)
+ident(
+  def op "compiler.ml" 24 666 685 "compiler.ml" 31 936 991
+)
+"compiler.ml" 24 666 685 "compiler.ml" 24 666 686
+type(
+  int
+)
+ident(
+  def i "compiler.ml" 24 666 687 "compiler.ml" 31 936 991
+)
+"compiler.ml" 24 666 687 "compiler.ml" 24 666 688
+type(
+  int
+)
+ident(
+  def x "compiler.ml" 24 666 689 "compiler.ml" 31 936 991
+)
+"compiler.ml" 24 666 689 "compiler.ml" 24 666 692
+type(
+  bool
+)
+ident(
+  def res "compiler.ml" 25 695 697 "compiler.ml" 31 936 991
+)
+"compiler.ml" 25 695 701 "compiler.ml" 25 695 702
+type(
+  int
+)
+ident(
+  def i "compiler.ml" 26 716 718 "compiler.ml" 31 936 991
+)
+"compiler.ml" 25 695 705 "compiler.ml" 25 695 706
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 24 666 685 "compiler.ml" 24 666 686
+)
+"compiler.ml" 25 695 707 "compiler.ml" 25 695 710
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( mod )
+)
+"compiler.ml" 25 695 711 "compiler.ml" 25 695 712
+type(
+  int
+)
+"compiler.ml" 25 695 705 "compiler.ml" 25 695 712
+type(
+  int
+)
+"compiler.ml" 26 716 722 "compiler.ml" 26 716 725
+type(
+  bool
+)
+ident(
+  int_ref res "compiler.ml" 24 666 689 "compiler.ml" 24 666 692
+)
+"compiler.ml" 26 716 731 "compiler.ml" 26 716 742
+type(
+  int -> unit
+)
+ident(
+  int_ref compile_pop "compiler.ml" 6 99 103 "compiler.ml" 6 99 114
+)
+"compiler.ml" 26 716 743 "compiler.ml" 26 716 744
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 25 695 701 "compiler.ml" 25 695 702
+)
+"compiler.ml" 26 716 731 "compiler.ml" 26 716 744
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 26 716 718 "compiler.ml" 26 716 745
+type(
+  unit
+)
+"compiler.ml" 27 747 755 "compiler.ml" 27 747 757
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "compiler.ml" 24 666 682 "compiler.ml" 24 666 684
+)
+"compiler.ml" 28 763 767 "compiler.ml" 28 763 771
+type(
+  Ast.binop
+)
+"compiler.ml" 28 763 775 "compiler.ml" 28 763 788
+type(
+  (int -> int -> int -> unit, out_channel, unit) format ->
+  int -> int -> int -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"compiler.ml" 28 763 789 "compiler.ml" 28 763 813
+type(
+  (int -> int -> int -> unit, out_channel, unit) format
+)
+"compiler.ml" 28 763 814 "compiler.ml" 28 763 815
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 25 695 701 "compiler.ml" 25 695 702
+)
+"compiler.ml" 28 763 816 "compiler.ml" 28 763 817
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 25 695 701 "compiler.ml" 25 695 702
+)
+"compiler.ml" 28 763 818 "compiler.ml" 28 763 819
+type(
+  int
+)
+ident(
+  int_ref x "compiler.ml" 24 666 687 "compiler.ml" 24 666 688
+)
+"compiler.ml" 28 763 775 "compiler.ml" 28 763 819
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 29 820 824 "compiler.ml" 29 820 829
+type(
+  Ast.binop
+)
+"compiler.ml" 29 820 834 "compiler.ml" 29 820 847
+type(
+  (int -> int -> int -> unit, out_channel, unit) format ->
+  int -> int -> int -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"compiler.ml" 29 820 848 "compiler.ml" 29 820 872
+type(
+  (int -> int -> int -> unit, out_channel, unit) format
+)
+"compiler.ml" 29 820 873 "compiler.ml" 29 820 874
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 25 695 701 "compiler.ml" 25 695 702
+)
+"compiler.ml" 29 820 875 "compiler.ml" 29 820 876
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 25 695 701 "compiler.ml" 25 695 702
+)
+"compiler.ml" 29 820 877 "compiler.ml" 29 820 878
+type(
+  int
+)
+ident(
+  int_ref x "compiler.ml" 24 666 687 "compiler.ml" 24 666 688
+)
+"compiler.ml" 29 820 834 "compiler.ml" 29 820 878
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 30 879 883 "compiler.ml" 30 879 887
+type(
+  Ast.binop
+)
+"compiler.ml" 30 879 891 "compiler.ml" 30 879 904
+type(
+  (int -> int -> int -> unit, out_channel, unit) format ->
+  int -> int -> int -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"compiler.ml" 30 879 905 "compiler.ml" 30 879 929
+type(
+  (int -> int -> int -> unit, out_channel, unit) format
+)
+"compiler.ml" 30 879 930 "compiler.ml" 30 879 931
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 25 695 701 "compiler.ml" 25 695 702
+)
+"compiler.ml" 30 879 932 "compiler.ml" 30 879 933
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 25 695 701 "compiler.ml" 25 695 702
+)
+"compiler.ml" 30 879 934 "compiler.ml" 30 879 935
+type(
+  int
+)
+ident(
+  int_ref x "compiler.ml" 24 666 687 "compiler.ml" 24 666 688
+)
+"compiler.ml" 30 879 891 "compiler.ml" 30 879 935
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 31 936 940 "compiler.ml" 31 936 943
+type(
+  Ast.binop
+)
+"compiler.ml" 31 936 947 "compiler.ml" 31 936 960
+type(
+  (int -> int -> int -> unit, out_channel, unit) format ->
+  int -> int -> int -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"compiler.ml" 31 936 961 "compiler.ml" 31 936 985
+type(
+  (int -> int -> int -> unit, out_channel, unit) format
+)
+"compiler.ml" 31 936 986 "compiler.ml" 31 936 987
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 25 695 701 "compiler.ml" 25 695 702
+)
+"compiler.ml" 31 936 988 "compiler.ml" 31 936 989
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 25 695 701 "compiler.ml" 25 695 702
+)
+"compiler.ml" 31 936 990 "compiler.ml" 31 936 991
+type(
+  int
+)
+ident(
+  int_ref x "compiler.ml" 24 666 687 "compiler.ml" 24 666 688
+)
+"compiler.ml" 31 936 947 "compiler.ml" 31 936 991
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 27 747 749 "compiler.ml" 31 936 991
+type(
+  unit
+)
+"compiler.ml" 26 716 718 "compiler.ml" 31 936 991
+type(
+  unit
+)
+"compiler.ml" 25 695 697 "compiler.ml" 31 936 991
+type(
+  unit
+)
+"compiler.ml" 35 1014 1022 "compiler.ml" 35 1014 1029
+type(
+  Ast.expr -> int
+)
+ident(
+  def require "compiler.ml" 35 1014 1014 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 35 1014 1031 "compiler.ml" 35 1014 1032
+type(
+  Ast.expr
+)
+ident(
+  def e "compiler.ml" 36 1047 1049 "compiler.ml" 56 1496 1504
+)
+"compiler.ml" 36 1047 1055 "compiler.ml" 36 1047 1056
+type(
+  Ast.expr
+)
+ident(
+  int_ref e "compiler.ml" 35 1014 1031 "compiler.ml" 35 1014 1032
+)
+"compiler.ml" 37 1062 1071 "compiler.ml" 37 1062 1072
+type(
+  int
+)
+"compiler.ml" 37 1062 1066 "compiler.ml" 37 1062 1072
+type(
+  Ast.expr
+)
+"compiler.ml" 37 1062 1076 "compiler.ml" 37 1062 1078
+type(
+  int
+)
+"compiler.ml" 38 1079 1091 "compiler.ml" 38 1079 1093
+type(
+  Ast.binop
+)
+ident(
+  def op "compiler.ml" 39 1104 1109 "compiler.ml" 56 1496 1504
+)
+"compiler.ml" 38 1079 1094 "compiler.ml" 38 1079 1096
+type(
+  Ast.expr
+)
+ident(
+  def o1 "compiler.ml" 39 1104 1109 "compiler.ml" 56 1496 1504
+)
+"compiler.ml" 38 1079 1097 "compiler.ml" 38 1079 1099
+type(
+  Ast.expr
+)
+ident(
+  def o2 "compiler.ml" 39 1104 1109 "compiler.ml" 56 1496 1504
+)
+"compiler.ml" 38 1079 1083 "compiler.ml" 38 1079 1100
+type(
+  Ast.expr
+)
+"compiler.ml" 40 1115 1126 "compiler.ml" 40 1115 1128
+type(
+  Ast.expr
+)
+ident(
+  int_ref o1 "compiler.ml" 38 1079 1094 "compiler.ml" 38 1079 1096
+)
+"compiler.ml" 40 1115 1129 "compiler.ml" 40 1115 1131
+type(
+  Ast.expr
+)
+ident(
+  int_ref o2 "compiler.ml" 38 1079 1097 "compiler.ml" 38 1079 1099
+)
+"compiler.ml" 40 1115 1126 "compiler.ml" 40 1115 1131
+type(
+  Ast.expr * Ast.expr
+)
+"compiler.ml" 41 1137 1149 "compiler.ml" 41 1137 1151
+type(
+  int
+)
+ident(
+  def i1 "compiler.ml" 41 1137 1164 "compiler.ml" 41 1137 1165
+)
+"compiler.ml" 41 1137 1144 "compiler.ml" 41 1137 1151
+type(
+  Ast.expr
+)
+"compiler.ml" 41 1137 1158 "compiler.ml" 41 1137 1160
+type(
+  int
+)
+ident(
+  def i2 "compiler.ml" 41 1137 1164 "compiler.ml" 41 1137 1165
+)
+"compiler.ml" 41 1137 1153 "compiler.ml" 41 1137 1160
+type(
+  Ast.expr
+)
+"compiler.ml" 41 1137 1144 "compiler.ml" 41 1137 1160
+type(
+  Ast.expr * Ast.expr
+)
+"compiler.ml" 41 1137 1164 "compiler.ml" 41 1137 1165
+type(
+  int
+)
+"compiler.ml" 42 1166 1178 "compiler.ml" 42 1166 1179
+type(
+  int
+)
+ident(
+  def o "compiler.ml" 43 1193 1194 "compiler.ml" 47 1267 1271
+)
+"compiler.ml" 42 1166 1173 "compiler.ml" 42 1166 1179
+type(
+  Ast.expr
+)
+"compiler.ml" 42 1166 1188 "compiler.ml" 42 1166 1189
+type(
+  Ast.expr
+)
+type(
+  Ast.expr
+)
+type(
+  Ast.binop
+)
+"compiler.ml" 42 1166 1181 "compiler.ml" 42 1166 1189
+type(
+  Ast.expr
+)
+"compiler.ml" 42 1166 1173 "compiler.ml" 42 1166 1189
+type(
+  Ast.expr * Ast.expr
+)
+"compiler.ml" 44 1200 1207 "compiler.ml" 44 1200 1209
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "compiler.ml" 38 1079 1091 "compiler.ml" 38 1079 1093
+)
+"compiler.ml" 45 1215 1218 "compiler.ml" 45 1215 1222
+type(
+  Ast.binop
+)
+"compiler.ml" 45 1215 1225 "compiler.ml" 45 1215 1229
+type(
+  Ast.binop
+)
+"compiler.ml" 45 1215 1218 "compiler.ml" 45 1215 1229
+type(
+  Ast.binop
+)
+"compiler.ml" 45 1215 1233 "compiler.ml" 45 1215 1240
+type(
+  Ast.expr -> int
+)
+ident(
+  int_ref require "compiler.ml" 35 1014 1022 "compiler.ml" 35 1014 1029
+)
+"compiler.ml" 45 1215 1241 "compiler.ml" 45 1215 1243
+type(
+  Ast.expr
+)
+ident(
+  int_ref o1 "compiler.ml" 38 1079 1094 "compiler.ml" 38 1079 1096
+)
+"compiler.ml" 45 1215 1233 "compiler.ml" 45 1215 1243
+call(
+  tail
+)
+type(
+  int
+)
+"compiler.ml" 46 1244 1247 "compiler.ml" 46 1244 1248
+type(
+  Ast.binop
+)
+"compiler.ml" 46 1244 1252 "compiler.ml" 46 1244 1259
+type(
+  Ast.expr -> int
+)
+ident(
+  int_ref require "compiler.ml" 35 1014 1022 "compiler.ml" 35 1014 1029
+)
+"compiler.ml" 46 1244 1260 "compiler.ml" 46 1244 1262
+type(
+  Ast.expr
+)
+ident(
+  int_ref o2 "compiler.ml" 38 1079 1097 "compiler.ml" 38 1079 1099
+)
+"compiler.ml" 46 1244 1252 "compiler.ml" 46 1244 1262
+call(
+  stack
+)
+type(
+  int
+)
+"compiler.ml" 46 1244 1263 "compiler.ml" 46 1244 1264
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"compiler.ml" 46 1244 1265 "compiler.ml" 46 1244 1266
+type(
+  int
+)
+"compiler.ml" 46 1244 1252 "compiler.ml" 46 1244 1266
+type(
+  int
+)
+"compiler.ml" 43 1193 1194 "compiler.ml" 47 1267 1271
+type(
+  int
+)
+"compiler.ml" 48 1272 1286 "compiler.ml" 48 1272 1287
+type(
+  Ast.expr
+)
+type(
+  Ast.expr
+)
+type(
+  Ast.binop
+)
+"compiler.ml" 48 1272 1279 "compiler.ml" 48 1272 1287
+type(
+  Ast.expr
+)
+"compiler.ml" 48 1272 1294 "compiler.ml" 48 1272 1295
+type(
+  int
+)
+ident(
+  def o "compiler.ml" 48 1272 1299 "compiler.ml" 48 1272 1309
+)
+"compiler.ml" 48 1272 1289 "compiler.ml" 48 1272 1295
+type(
+  Ast.expr
+)
+"compiler.ml" 48 1272 1279 "compiler.ml" 48 1272 1295
+type(
+  Ast.expr * Ast.expr
+)
+"compiler.ml" 48 1272 1299 "compiler.ml" 48 1272 1306
+type(
+  Ast.expr -> int
+)
+ident(
+  int_ref require "compiler.ml" 35 1014 1022 "compiler.ml" 35 1014 1029
+)
+"compiler.ml" 48 1272 1307 "compiler.ml" 48 1272 1309
+type(
+  Ast.expr
+)
+ident(
+  int_ref o1 "compiler.ml" 38 1079 1094 "compiler.ml" 38 1079 1096
+)
+"compiler.ml" 48 1272 1299 "compiler.ml" 48 1272 1309
+call(
+  tail
+)
+type(
+  int
+)
+"compiler.ml" 49 1310 1324 "compiler.ml" 49 1310 1325
+type(
+  Ast.expr
+)
+type(
+  Ast.expr
+)
+type(
+  Ast.binop
+)
+"compiler.ml" 49 1310 1317 "compiler.ml" 49 1310 1325
+type(
+  Ast.expr
+)
+"compiler.ml" 49 1310 1334 "compiler.ml" 49 1310 1335
+type(
+  Ast.expr
+)
+type(
+  Ast.expr
+)
+type(
+  Ast.binop
+)
+"compiler.ml" 49 1310 1327 "compiler.ml" 49 1310 1335
+type(
+  Ast.expr
+)
+"compiler.ml" 49 1310 1317 "compiler.ml" 49 1310 1335
+type(
+  Ast.expr * Ast.expr
+)
+"compiler.ml" 51 1346 1353 "compiler.ml" 51 1346 1357
+type(
+  int
+)
+ident(
+  def req1 "compiler.ml" 52 1396 1399 "compiler.ml" 54 1473 1490
+)
+"compiler.ml" 51 1346 1360 "compiler.ml" 51 1346 1367
+type(
+  Ast.expr -> int
+)
+ident(
+  int_ref require "compiler.ml" 35 1014 1022 "compiler.ml" 35 1014 1029
+)
+"compiler.ml" 51 1346 1368 "compiler.ml" 51 1346 1370
+type(
+  Ast.expr
+)
+ident(
+  int_ref o1 "compiler.ml" 38 1079 1094 "compiler.ml" 38 1079 1096
+)
+"compiler.ml" 51 1346 1360 "compiler.ml" 51 1346 1370
+call(
+  stack
+)
+type(
+  int
+)
+"compiler.ml" 51 1346 1375 "compiler.ml" 51 1346 1379
+type(
+  int
+)
+ident(
+  def req2 "compiler.ml" 52 1396 1399 "compiler.ml" 54 1473 1490
+)
+"compiler.ml" 51 1346 1382 "compiler.ml" 51 1346 1389
+type(
+  Ast.expr -> int
+)
+ident(
+  int_ref require "compiler.ml" 35 1014 1022 "compiler.ml" 35 1014 1029
+)
+"compiler.ml" 51 1346 1390 "compiler.ml" 51 1346 1392
+type(
+  Ast.expr
+)
+ident(
+  int_ref o2 "compiler.ml" 38 1079 1097 "compiler.ml" 38 1079 1099
+)
+"compiler.ml" 51 1346 1382 "compiler.ml" 51 1346 1392
+call(
+  stack
+)
+type(
+  int
+)
+"compiler.ml" 52 1396 1405 "compiler.ml" 52 1396 1407
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "compiler.ml" 38 1079 1091 "compiler.ml" 38 1079 1093
+)
+"compiler.ml" 53 1413 1418 "compiler.ml" 53 1413 1422
+type(
+  Ast.binop
+)
+"compiler.ml" 53 1413 1425 "compiler.ml" 53 1413 1429
+type(
+  Ast.binop
+)
+"compiler.ml" 53 1413 1418 "compiler.ml" 53 1413 1429
+type(
+  Ast.binop
+)
+"compiler.ml" 53 1413 1437 "compiler.ml" 53 1413 1441
+type(
+  int
+)
+ident(
+  int_ref req1 "compiler.ml" 51 1346 1353 "compiler.ml" 51 1346 1357
+)
+"compiler.ml" 53 1413 1441 "compiler.ml" 53 1413 1443
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( >= )
+)
+"compiler.ml" 53 1413 1443 "compiler.ml" 53 1413 1447
+type(
+  int
+)
+ident(
+  int_ref req2 "compiler.ml" 51 1346 1375 "compiler.ml" 51 1346 1379
+)
+"compiler.ml" 53 1413 1437 "compiler.ml" 53 1413 1447
+type(
+  bool
+)
+"compiler.ml" 53 1413 1453 "compiler.ml" 53 1413 1457
+type(
+  int
+)
+ident(
+  int_ref req2 "compiler.ml" 51 1346 1375 "compiler.ml" 51 1346 1379
+)
+"compiler.ml" 53 1413 1457 "compiler.ml" 53 1413 1458
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"compiler.ml" 53 1413 1458 "compiler.ml" 53 1413 1459
+type(
+  int
+)
+"compiler.ml" 53 1413 1453 "compiler.ml" 53 1413 1459
+type(
+  int
+)
+"compiler.ml" 53 1413 1465 "compiler.ml" 53 1413 1469
+type(
+  int
+)
+ident(
+  int_ref req1 "compiler.ml" 51 1346 1353 "compiler.ml" 51 1346 1357
+)
+"compiler.ml" 53 1413 1469 "compiler.ml" 53 1413 1470
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"compiler.ml" 53 1413 1470 "compiler.ml" 53 1413 1471
+type(
+  int
+)
+"compiler.ml" 53 1413 1465 "compiler.ml" 53 1413 1471
+type(
+  int
+)
+"compiler.ml" 53 1413 1434 "compiler.ml" 53 1413 1472
+type(
+  int
+)
+"compiler.ml" 54 1473 1478 "compiler.ml" 54 1473 1479
+type(
+  Ast.binop
+)
+"compiler.ml" 54 1473 1483 "compiler.ml" 54 1473 1487
+type(
+  int
+)
+ident(
+  int_ref req2 "compiler.ml" 51 1346 1375 "compiler.ml" 51 1346 1379
+)
+"compiler.ml" 54 1473 1487 "compiler.ml" 54 1473 1488
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"compiler.ml" 54 1473 1488 "compiler.ml" 54 1473 1489
+type(
+  int
+)
+"compiler.ml" 54 1473 1483 "compiler.ml" 54 1473 1490
+type(
+  int
+)
+"compiler.ml" 52 1396 1399 "compiler.ml" 54 1473 1490
+type(
+  int
+)
+"compiler.ml" 50 1339 1340 "compiler.ml" 55 1491 1495
+type(
+  int
+)
+"compiler.ml" 39 1104 1109 "compiler.ml" 56 1496 1504
+type(
+  int
+)
+"compiler.ml" 36 1047 1049 "compiler.ml" 56 1496 1504
+type(
+  int
+)
+"compiler.ml" 58 1511 1519 "compiler.ml" 58 1511 1531
+type(
+  Ast.expr -> int -> unit
+)
+ident(
+  def compile_expr "compiler.ml" 58 1511 1511 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 58 1511 1533 "compiler.ml" 58 1511 1534
+type(
+  Ast.expr
+)
+ident(
+  def e "compiler.ml" 58 1511 1547 "compiler.ml" 79 2491 2499
+)
+"compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+type(
+  int
+)
+ident(
+  def i "compiler.ml" 59 1551 1553 "compiler.ml" 79 2491 2499
+)
+"compiler.ml" 59 1551 1559 "compiler.ml" 59 1551 1560
+type(
+  Ast.expr
+)
+ident(
+  int_ref e "compiler.ml" 58 1511 1533 "compiler.ml" 58 1511 1534
+)
+"compiler.ml" 60 1566 1575 "compiler.ml" 60 1566 1576
+type(
+  int
+)
+ident(
+  def o "compiler.ml" 60 1566 1580 "compiler.ml" 60 1566 1597
+)
+"compiler.ml" 60 1566 1570 "compiler.ml" 60 1566 1576
+type(
+  Ast.expr
+)
+"compiler.ml" 60 1566 1580 "compiler.ml" 60 1566 1593
+type(
+  int -> int -> unit
+)
+ident(
+  int_ref compiler_to_a "compiler.ml" 10 188 192 "compiler.ml" 10 188 205
+)
+"compiler.ml" 60 1566 1594 "compiler.ml" 60 1566 1595
+type(
+  int
+)
+ident(
+  int_ref o "compiler.ml" 60 1566 1575 "compiler.ml" 60 1566 1576
+)
+"compiler.ml" 60 1566 1596 "compiler.ml" 60 1566 1597
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 60 1566 1580 "compiler.ml" 60 1566 1597
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 61 1598 1610 "compiler.ml" 61 1598 1612
+type(
+  Ast.binop
+)
+ident(
+  def op "compiler.ml" 62 1623 1628 "compiler.ml" 79 2491 2499
+)
+"compiler.ml" 61 1598 1613 "compiler.ml" 61 1598 1615
+type(
+  Ast.expr
+)
+ident(
+  def o1 "compiler.ml" 62 1623 1628 "compiler.ml" 79 2491 2499
+)
+"compiler.ml" 61 1598 1616 "compiler.ml" 61 1598 1618
+type(
+  Ast.expr
+)
+ident(
+  def o2 "compiler.ml" 62 1623 1628 "compiler.ml" 79 2491 2499
+)
+"compiler.ml" 61 1598 1602 "compiler.ml" 61 1598 1619
+type(
+  Ast.expr
+)
+"compiler.ml" 63 1634 1645 "compiler.ml" 63 1634 1647
+type(
+  Ast.expr
+)
+ident(
+  int_ref o1 "compiler.ml" 61 1598 1613 "compiler.ml" 61 1598 1615
+)
+"compiler.ml" 63 1634 1648 "compiler.ml" 63 1634 1650
+type(
+  Ast.expr
+)
+ident(
+  int_ref o2 "compiler.ml" 61 1598 1616 "compiler.ml" 61 1598 1618
+)
+"compiler.ml" 63 1634 1645 "compiler.ml" 63 1634 1650
+type(
+  Ast.expr * Ast.expr
+)
+"compiler.ml" 64 1656 1668 "compiler.ml" 64 1656 1670
+type(
+  int
+)
+ident(
+  def i1 "compiler.ml" 64 1656 1683 "compiler.ml" 64 1656 1729
+)
+"compiler.ml" 64 1656 1663 "compiler.ml" 64 1656 1670
+type(
+  Ast.expr
+)
+"compiler.ml" 64 1656 1677 "compiler.ml" 64 1656 1679
+type(
+  int
+)
+ident(
+  def i2 "compiler.ml" 64 1656 1683 "compiler.ml" 64 1656 1729
+)
+"compiler.ml" 64 1656 1672 "compiler.ml" 64 1656 1679
+type(
+  Ast.expr
+)
+"compiler.ml" 64 1656 1663 "compiler.ml" 64 1656 1679
+type(
+  Ast.expr * Ast.expr
+)
+"compiler.ml" 64 1656 1683 "compiler.ml" 64 1656 1696
+type(
+  int -> int -> unit
+)
+ident(
+  int_ref compiler_to_a "compiler.ml" 10 188 192 "compiler.ml" 10 188 205
+)
+"compiler.ml" 64 1656 1697 "compiler.ml" 64 1656 1699
+type(
+  int
+)
+ident(
+  int_ref i1 "compiler.ml" 64 1656 1668 "compiler.ml" 64 1656 1670
+)
+"compiler.ml" 64 1656 1700 "compiler.ml" 64 1656 1701
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 64 1656 1683 "compiler.ml" 64 1656 1701
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 64 1656 1703 "compiler.ml" 64 1656 1714
+type(
+  Ast.binop -> int -> int -> bool -> unit
+)
+ident(
+  int_ref make_op_num "compiler.ml" 24 666 670 "compiler.ml" 24 666 681
+)
+"compiler.ml" 64 1656 1715 "compiler.ml" 64 1656 1717
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "compiler.ml" 61 1598 1610 "compiler.ml" 61 1598 1612
+)
+"compiler.ml" 64 1656 1718 "compiler.ml" 64 1656 1719
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 64 1656 1720 "compiler.ml" 64 1656 1722
+type(
+  int
+)
+ident(
+  int_ref i2 "compiler.ml" 64 1656 1677 "compiler.ml" 64 1656 1679
+)
+"compiler.ml" 64 1656 1723 "compiler.ml" 64 1656 1728
+type(
+  bool
+)
+"compiler.ml" 64 1656 1703 "compiler.ml" 64 1656 1729
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 64 1656 1683 "compiler.ml" 64 1656 1729
+type(
+  unit
+)
+"compiler.ml" 65 1730 1742 "compiler.ml" 65 1730 1743
+type(
+  int
+)
+ident(
+  def o "compiler.ml" 66 1757 1758 "compiler.ml" 70 1930 1934
+)
+"compiler.ml" 65 1730 1737 "compiler.ml" 65 1730 1743
+type(
+  Ast.expr
+)
+"compiler.ml" 65 1730 1752 "compiler.ml" 65 1730 1753
+type(
+  Ast.expr
+)
+type(
+  Ast.expr
+)
+type(
+  Ast.binop
+)
+"compiler.ml" 65 1730 1745 "compiler.ml" 65 1730 1753
+type(
+  Ast.expr
+)
+"compiler.ml" 65 1730 1737 "compiler.ml" 65 1730 1753
+type(
+  Ast.expr * Ast.expr
+)
+"compiler.ml" 67 1764 1771 "compiler.ml" 67 1764 1773
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "compiler.ml" 61 1598 1610 "compiler.ml" 61 1598 1612
+)
+"compiler.ml" 68 1779 1782 "compiler.ml" 68 1779 1786
+type(
+  Ast.binop
+)
+"compiler.ml" 68 1779 1789 "compiler.ml" 68 1779 1793
+type(
+  Ast.binop
+)
+"compiler.ml" 68 1779 1782 "compiler.ml" 68 1779 1793
+type(
+  Ast.binop
+)
+"compiler.ml" 68 1779 1797 "compiler.ml" 68 1779 1809
+type(
+  Ast.expr -> int -> unit
+)
+ident(
+  int_ref compile_expr "compiler.ml" 58 1511 1519 "compiler.ml" 58 1511 1531
+)
+"compiler.ml" 68 1779 1819 "compiler.ml" 68 1779 1821
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "compiler.ml" 61 1598 1610 "compiler.ml" 61 1598 1612
+)
+"compiler.ml" 68 1779 1822 "compiler.ml" 68 1779 1824
+type(
+  Ast.expr
+)
+ident(
+  int_ref o2 "compiler.ml" 61 1598 1616 "compiler.ml" 61 1598 1618
+)
+"compiler.ml" 68 1779 1825 "compiler.ml" 68 1779 1827
+type(
+  Ast.expr
+)
+ident(
+  int_ref o1 "compiler.ml" 61 1598 1613 "compiler.ml" 61 1598 1615
+)
+"compiler.ml" 68 1779 1810 "compiler.ml" 68 1779 1829
+type(
+  Ast.expr
+)
+"compiler.ml" 68 1779 1830 "compiler.ml" 68 1779 1831
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 68 1779 1797 "compiler.ml" 68 1779 1831
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 69 1832 1835 "compiler.ml" 69 1832 1836
+type(
+  Ast.binop
+)
+"compiler.ml" 69 1832 1840 "compiler.ml" 69 1832 1853
+type(
+  int -> int -> unit
+)
+ident(
+  int_ref compiler_to_a "compiler.ml" 10 188 192 "compiler.ml" 10 188 205
+)
+"compiler.ml" 69 1832 1854 "compiler.ml" 69 1832 1855
+type(
+  int
+)
+ident(
+  int_ref o "compiler.ml" 65 1730 1742 "compiler.ml" 65 1730 1743
+)
+"compiler.ml" 69 1832 1856 "compiler.ml" 69 1832 1857
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 69 1832 1840 "compiler.ml" 69 1832 1857
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 69 1832 1859 "compiler.ml" 69 1832 1871
+type(
+  Ast.expr -> int -> unit
+)
+ident(
+  int_ref compile_expr "compiler.ml" 58 1511 1519 "compiler.ml" 58 1511 1531
+)
+"compiler.ml" 69 1832 1872 "compiler.ml" 69 1832 1874
+type(
+  Ast.expr
+)
+ident(
+  int_ref o2 "compiler.ml" 61 1598 1616 "compiler.ml" 61 1598 1618
+)
+"compiler.ml" 69 1832 1876 "compiler.ml" 69 1832 1877
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 69 1832 1877 "compiler.ml" 69 1832 1878
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"compiler.ml" 69 1832 1878 "compiler.ml" 69 1832 1879
+type(
+  int
+)
+"compiler.ml" 69 1832 1875 "compiler.ml" 69 1832 1880
+type(
+  int
+)
+"compiler.ml" 69 1832 1859 "compiler.ml" 69 1832 1880
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 69 1832 1886 "compiler.ml" 69 1832 1889
+type(
+  bool
+)
+ident(
+  def res "compiler.ml" 69 1832 1912 "compiler.ml" 69 1832 1929
+)
+"compiler.ml" 69 1832 1893 "compiler.ml" 69 1832 1900
+type(
+  Ast.expr -> int
+)
+ident(
+  int_ref require "compiler.ml" 35 1014 1022 "compiler.ml" 35 1014 1029
+)
+"compiler.ml" 69 1832 1901 "compiler.ml" 69 1832 1903
+type(
+  Ast.expr
+)
+ident(
+  int_ref o2 "compiler.ml" 61 1598 1616 "compiler.ml" 61 1598 1618
+)
+"compiler.ml" 69 1832 1893 "compiler.ml" 69 1832 1903
+call(
+  stack
+)
+type(
+  int
+)
+"compiler.ml" 69 1832 1904 "compiler.ml" 69 1832 1905
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( > )
+)
+"compiler.ml" 69 1832 1906 "compiler.ml" 69 1832 1907
+type(
+  int
+)
+"compiler.ml" 69 1832 1892 "compiler.ml" 69 1832 1908
+type(
+  bool
+)
+"compiler.ml" 69 1832 1912 "compiler.ml" 69 1832 1919
+type(
+  Ast.binop -> int -> bool -> unit
+)
+ident(
+  int_ref make_op "compiler.ml" 15 302 306 "compiler.ml" 15 302 313
+)
+"compiler.ml" 69 1832 1920 "compiler.ml" 69 1832 1922
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "compiler.ml" 61 1598 1610 "compiler.ml" 61 1598 1612
+)
+"compiler.ml" 69 1832 1923 "compiler.ml" 69 1832 1924
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 69 1832 1925 "compiler.ml" 69 1832 1928
+type(
+  bool
+)
+ident(
+  int_ref res "compiler.ml" 69 1832 1886 "compiler.ml" 69 1832 1889
+)
+"compiler.ml" 69 1832 1912 "compiler.ml" 69 1832 1929
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 69 1832 1882 "compiler.ml" 69 1832 1929
+type(
+  unit
+)
+"compiler.ml" 69 1832 1859 "compiler.ml" 69 1832 1929
+type(
+  unit
+)
+"compiler.ml" 69 1832 1840 "compiler.ml" 69 1832 1929
+type(
+  unit
+)
+"compiler.ml" 66 1757 1758 "compiler.ml" 70 1930 1934
+type(
+  unit
+)
+"compiler.ml" 71 1935 1949 "compiler.ml" 71 1935 1950
+type(
+  Ast.expr
+)
+type(
+  Ast.expr
+)
+type(
+  Ast.binop
+)
+"compiler.ml" 71 1935 1942 "compiler.ml" 71 1935 1950
+type(
+  Ast.expr
+)
+"compiler.ml" 71 1935 1957 "compiler.ml" 71 1935 1958
+type(
+  int
+)
+ident(
+  def o "compiler.ml" 71 1935 1962 "compiler.ml" 71 1935 2034
+)
+"compiler.ml" 71 1935 1952 "compiler.ml" 71 1935 1958
+type(
+  Ast.expr
+)
+"compiler.ml" 71 1935 1942 "compiler.ml" 71 1935 1958
+type(
+  Ast.expr * Ast.expr
+)
+"compiler.ml" 71 1935 1962 "compiler.ml" 71 1935 1974
+type(
+  Ast.expr -> int -> unit
+)
+ident(
+  int_ref compile_expr "compiler.ml" 58 1511 1519 "compiler.ml" 58 1511 1531
+)
+"compiler.ml" 71 1935 1975 "compiler.ml" 71 1935 1977
+type(
+  Ast.expr
+)
+ident(
+  int_ref o1 "compiler.ml" 61 1598 1613 "compiler.ml" 61 1598 1615
+)
+"compiler.ml" 71 1935 1978 "compiler.ml" 71 1935 1979
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 71 1935 1962 "compiler.ml" 71 1935 1979
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 71 1935 1985 "compiler.ml" 71 1935 1988
+type(
+  bool
+)
+ident(
+  def res "compiler.ml" 71 1935 2011 "compiler.ml" 71 1935 2034
+)
+"compiler.ml" 71 1935 1992 "compiler.ml" 71 1935 1999
+type(
+  Ast.expr -> int
+)
+ident(
+  int_ref require "compiler.ml" 35 1014 1022 "compiler.ml" 35 1014 1029
+)
+"compiler.ml" 71 1935 2000 "compiler.ml" 71 1935 2002
+type(
+  Ast.expr
+)
+ident(
+  int_ref o1 "compiler.ml" 61 1598 1613 "compiler.ml" 61 1598 1615
+)
+"compiler.ml" 71 1935 1992 "compiler.ml" 71 1935 2002
+call(
+  stack
+)
+type(
+  int
+)
+"compiler.ml" 71 1935 2003 "compiler.ml" 71 1935 2004
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( > )
+)
+"compiler.ml" 71 1935 2005 "compiler.ml" 71 1935 2006
+type(
+  int
+)
+"compiler.ml" 71 1935 1991 "compiler.ml" 71 1935 2007
+type(
+  bool
+)
+"compiler.ml" 71 1935 2011 "compiler.ml" 71 1935 2022
+type(
+  Ast.binop -> int -> int -> bool -> unit
+)
+ident(
+  int_ref make_op_num "compiler.ml" 24 666 670 "compiler.ml" 24 666 681
+)
+"compiler.ml" 71 1935 2023 "compiler.ml" 71 1935 2025
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "compiler.ml" 61 1598 1610 "compiler.ml" 61 1598 1612
+)
+"compiler.ml" 71 1935 2026 "compiler.ml" 71 1935 2027
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 71 1935 2028 "compiler.ml" 71 1935 2029
+type(
+  int
+)
+ident(
+  int_ref o "compiler.ml" 71 1935 1957 "compiler.ml" 71 1935 1958
+)
+"compiler.ml" 71 1935 2030 "compiler.ml" 71 1935 2033
+type(
+  bool
+)
+ident(
+  int_ref res "compiler.ml" 71 1935 1985 "compiler.ml" 71 1935 1988
+)
+"compiler.ml" 71 1935 2011 "compiler.ml" 71 1935 2034
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 71 1935 1981 "compiler.ml" 71 1935 2034
+type(
+  unit
+)
+"compiler.ml" 71 1935 1962 "compiler.ml" 71 1935 2034
+type(
+  unit
+)
+"compiler.ml" 72 2035 2049 "compiler.ml" 72 2035 2050
+type(
+  Ast.expr
+)
+type(
+  Ast.expr
+)
+type(
+  Ast.binop
+)
+"compiler.ml" 72 2035 2042 "compiler.ml" 72 2035 2050
+type(
+  Ast.expr
+)
+"compiler.ml" 72 2035 2059 "compiler.ml" 72 2035 2060
+type(
+  Ast.expr
+)
+type(
+  Ast.expr
+)
+type(
+  Ast.binop
+)
+"compiler.ml" 72 2035 2052 "compiler.ml" 72 2035 2060
+type(
+  Ast.expr
+)
+"compiler.ml" 72 2035 2042 "compiler.ml" 72 2035 2060
+type(
+  Ast.expr * Ast.expr
+)
+"compiler.ml" 74 2071 2078 "compiler.ml" 74 2071 2082
+type(
+  int
+)
+ident(
+  def req1 "compiler.ml" 75 2121 2124 "compiler.ml" 77 2325 2485
+)
+"compiler.ml" 74 2071 2085 "compiler.ml" 74 2071 2092
+type(
+  Ast.expr -> int
+)
+ident(
+  int_ref require "compiler.ml" 35 1014 1022 "compiler.ml" 35 1014 1029
+)
+"compiler.ml" 74 2071 2093 "compiler.ml" 74 2071 2095
+type(
+  Ast.expr
+)
+ident(
+  int_ref o1 "compiler.ml" 61 1598 1613 "compiler.ml" 61 1598 1615
+)
+"compiler.ml" 74 2071 2085 "compiler.ml" 74 2071 2095
+call(
+  stack
+)
+type(
+  int
+)
+"compiler.ml" 74 2071 2100 "compiler.ml" 74 2071 2104
+type(
+  int
+)
+ident(
+  def req2 "compiler.ml" 75 2121 2124 "compiler.ml" 77 2325 2485
+)
+"compiler.ml" 74 2071 2107 "compiler.ml" 74 2071 2114
+type(
+  Ast.expr -> int
+)
+ident(
+  int_ref require "compiler.ml" 35 1014 1022 "compiler.ml" 35 1014 1029
+)
+"compiler.ml" 74 2071 2115 "compiler.ml" 74 2071 2117
+type(
+  Ast.expr
+)
+ident(
+  int_ref o2 "compiler.ml" 61 1598 1616 "compiler.ml" 61 1598 1618
+)
+"compiler.ml" 74 2071 2107 "compiler.ml" 74 2071 2117
+call(
+  stack
+)
+type(
+  int
+)
+"compiler.ml" 75 2121 2130 "compiler.ml" 75 2121 2132
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "compiler.ml" 61 1598 1610 "compiler.ml" 61 1598 1612
+)
+"compiler.ml" 76 2138 2143 "compiler.ml" 76 2138 2147
+type(
+  Ast.binop
+)
+"compiler.ml" 76 2138 2150 "compiler.ml" 76 2138 2154
+type(
+  Ast.binop
+)
+"compiler.ml" 76 2138 2143 "compiler.ml" 76 2138 2154
+type(
+  Ast.binop
+)
+"compiler.ml" 76 2138 2160 "compiler.ml" 76 2138 2164
+type(
+  int
+)
+ident(
+  int_ref req1 "compiler.ml" 74 2071 2078 "compiler.ml" 74 2071 2082
+)
+"compiler.ml" 76 2138 2164 "compiler.ml" 76 2138 2165
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( < )
+)
+"compiler.ml" 76 2138 2165 "compiler.ml" 76 2138 2169
+type(
+  int
+)
+ident(
+  int_ref req2 "compiler.ml" 74 2071 2100 "compiler.ml" 74 2071 2104
+)
+"compiler.ml" 76 2138 2160 "compiler.ml" 76 2138 2169
+type(
+  bool
+)
+"compiler.ml" 76 2138 2173 "compiler.ml" 76 2138 2185
+type(
+  Ast.expr -> int -> unit
+)
+ident(
+  int_ref compile_expr "compiler.ml" 58 1511 1519 "compiler.ml" 58 1511 1531
+)
+"compiler.ml" 76 2138 2186 "compiler.ml" 76 2138 2188
+type(
+  Ast.expr
+)
+ident(
+  int_ref o2 "compiler.ml" 61 1598 1616 "compiler.ml" 61 1598 1618
+)
+"compiler.ml" 76 2138 2189 "compiler.ml" 76 2138 2190
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 76 2138 2173 "compiler.ml" 76 2138 2190
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 76 2138 2196 "compiler.ml" 76 2138 2200
+type(
+  int
+)
+ident(
+  int_ref req2 "compiler.ml" 74 2071 2100 "compiler.ml" 74 2071 2104
+)
+"compiler.ml" 76 2138 2200 "compiler.ml" 76 2138 2201
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( > )
+)
+"compiler.ml" 76 2138 2201 "compiler.ml" 76 2138 2202
+type(
+  int
+)
+"compiler.ml" 76 2138 2196 "compiler.ml" 76 2138 2202
+type(
+  bool
+)
+"compiler.ml" 76 2138 2208 "compiler.ml" 76 2138 2220
+type(
+  int -> unit
+)
+ident(
+  int_ref compile_push "compiler.ml" 3 17 21 "compiler.ml" 3 17 33
+)
+"compiler.ml" 76 2138 2222 "compiler.ml" 76 2138 2223
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 76 2138 2224 "compiler.ml" 76 2138 2227
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( mod )
+)
+"compiler.ml" 76 2138 2228 "compiler.ml" 76 2138 2229
+type(
+  int
+)
+"compiler.ml" 76 2138 2221 "compiler.ml" 76 2138 2230
+type(
+  int
+)
+"compiler.ml" 76 2138 2208 "compiler.ml" 76 2138 2230
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 76 2138 2192 "compiler.ml" 76 2138 2231
+type(
+  unit
+)
+"compiler.ml" 76 2138 2233 "compiler.ml" 76 2138 2245
+type(
+  Ast.expr -> int -> unit
+)
+ident(
+  int_ref compile_expr "compiler.ml" 58 1511 1519 "compiler.ml" 58 1511 1531
+)
+"compiler.ml" 76 2138 2246 "compiler.ml" 76 2138 2248
+type(
+  Ast.expr
+)
+ident(
+  int_ref o1 "compiler.ml" 61 1598 1613 "compiler.ml" 61 1598 1615
+)
+"compiler.ml" 76 2138 2250 "compiler.ml" 76 2138 2251
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 76 2138 2251 "compiler.ml" 76 2138 2252
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"compiler.ml" 76 2138 2252 "compiler.ml" 76 2138 2253
+type(
+  int
+)
+"compiler.ml" 76 2138 2249 "compiler.ml" 76 2138 2254
+type(
+  int
+)
+"compiler.ml" 76 2138 2233 "compiler.ml" 76 2138 2254
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 76 2138 2260 "compiler.ml" 76 2138 2264
+type(
+  int
+)
+ident(
+  int_ref req1 "compiler.ml" 74 2071 2078 "compiler.ml" 74 2071 2082
+)
+"compiler.ml" 76 2138 2264 "compiler.ml" 76 2138 2265
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( > )
+)
+"compiler.ml" 76 2138 2265 "compiler.ml" 76 2138 2266
+type(
+  int
+)
+"compiler.ml" 76 2138 2260 "compiler.ml" 76 2138 2266
+type(
+  bool
+)
+"compiler.ml" 76 2138 2272 "compiler.ml" 76 2138 2283
+type(
+  int -> unit
+)
+ident(
+  int_ref compile_pop "compiler.ml" 6 99 103 "compiler.ml" 6 99 114
+)
+"compiler.ml" 76 2138 2286 "compiler.ml" 76 2138 2287
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 76 2138 2287 "compiler.ml" 76 2138 2288
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"compiler.ml" 76 2138 2288 "compiler.ml" 76 2138 2289
+type(
+  int
+)
+"compiler.ml" 76 2138 2285 "compiler.ml" 76 2138 2290
+type(
+  int
+)
+"compiler.ml" 76 2138 2291 "compiler.ml" 76 2138 2294
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( mod )
+)
+"compiler.ml" 76 2138 2295 "compiler.ml" 76 2138 2296
+type(
+  int
+)
+"compiler.ml" 76 2138 2284 "compiler.ml" 76 2138 2297
+type(
+  int
+)
+"compiler.ml" 76 2138 2272 "compiler.ml" 76 2138 2297
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 76 2138 2256 "compiler.ml" 76 2138 2298
+type(
+  unit
+)
+"compiler.ml" 76 2138 2302 "compiler.ml" 76 2138 2309
+type(
+  Ast.binop -> int -> bool -> unit
+)
+ident(
+  int_ref make_op "compiler.ml" 15 302 306 "compiler.ml" 15 302 313
+)
+"compiler.ml" 76 2138 2310 "compiler.ml" 76 2138 2312
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "compiler.ml" 61 1598 1610 "compiler.ml" 61 1598 1612
+)
+"compiler.ml" 76 2138 2313 "compiler.ml" 76 2138 2314
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 76 2138 2316 "compiler.ml" 76 2138 2320
+type(
+  int
+)
+ident(
+  int_ref req2 "compiler.ml" 74 2071 2100 "compiler.ml" 74 2071 2104
+)
+"compiler.ml" 76 2138 2320 "compiler.ml" 76 2138 2321
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( > )
+)
+"compiler.ml" 76 2138 2321 "compiler.ml" 76 2138 2322
+type(
+  int
+)
+"compiler.ml" 76 2138 2315 "compiler.ml" 76 2138 2323
+type(
+  bool
+)
+"compiler.ml" 76 2138 2302 "compiler.ml" 76 2138 2324
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 76 2138 2256 "compiler.ml" 76 2138 2324
+type(
+  unit
+)
+"compiler.ml" 76 2138 2233 "compiler.ml" 76 2138 2324
+type(
+  unit
+)
+"compiler.ml" 76 2138 2192 "compiler.ml" 76 2138 2324
+type(
+  unit
+)
+"compiler.ml" 76 2138 2173 "compiler.ml" 76 2138 2324
+type(
+  unit
+)
+"compiler.ml" 77 2325 2330 "compiler.ml" 77 2325 2331
+type(
+  Ast.binop
+)
+"compiler.ml" 77 2325 2335 "compiler.ml" 77 2325 2347
+type(
+  Ast.expr -> int -> unit
+)
+ident(
+  int_ref compile_expr "compiler.ml" 58 1511 1519 "compiler.ml" 58 1511 1531
+)
+"compiler.ml" 77 2325 2348 "compiler.ml" 77 2325 2350
+type(
+  Ast.expr
+)
+ident(
+  int_ref o1 "compiler.ml" 61 1598 1613 "compiler.ml" 61 1598 1615
+)
+"compiler.ml" 77 2325 2351 "compiler.ml" 77 2325 2352
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 77 2325 2335 "compiler.ml" 77 2325 2352
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 77 2325 2358 "compiler.ml" 77 2325 2362
+type(
+  int
+)
+ident(
+  int_ref req1 "compiler.ml" 74 2071 2078 "compiler.ml" 74 2071 2082
+)
+"compiler.ml" 77 2325 2362 "compiler.ml" 77 2325 2363
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( > )
+)
+"compiler.ml" 77 2325 2363 "compiler.ml" 77 2325 2364
+type(
+  int
+)
+"compiler.ml" 77 2325 2358 "compiler.ml" 77 2325 2364
+type(
+  bool
+)
+"compiler.ml" 77 2325 2370 "compiler.ml" 77 2325 2382
+type(
+  int -> unit
+)
+ident(
+  int_ref compile_push "compiler.ml" 3 17 21 "compiler.ml" 3 17 33
+)
+"compiler.ml" 77 2325 2384 "compiler.ml" 77 2325 2385
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 77 2325 2386 "compiler.ml" 77 2325 2389
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( mod )
+)
+"compiler.ml" 77 2325 2390 "compiler.ml" 77 2325 2391
+type(
+  int
+)
+"compiler.ml" 77 2325 2383 "compiler.ml" 77 2325 2392
+type(
+  int
+)
+"compiler.ml" 77 2325 2370 "compiler.ml" 77 2325 2392
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 77 2325 2354 "compiler.ml" 77 2325 2393
+type(
+  unit
+)
+"compiler.ml" 77 2325 2396 "compiler.ml" 77 2325 2408
+type(
+  Ast.expr -> int -> unit
+)
+ident(
+  int_ref compile_expr "compiler.ml" 58 1511 1519 "compiler.ml" 58 1511 1531
+)
+"compiler.ml" 77 2325 2409 "compiler.ml" 77 2325 2411
+type(
+  Ast.expr
+)
+ident(
+  int_ref o2 "compiler.ml" 61 1598 1616 "compiler.ml" 61 1598 1618
+)
+"compiler.ml" 77 2325 2413 "compiler.ml" 77 2325 2414
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 77 2325 2414 "compiler.ml" 77 2325 2415
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"compiler.ml" 77 2325 2415 "compiler.ml" 77 2325 2416
+type(
+  int
+)
+"compiler.ml" 77 2325 2412 "compiler.ml" 77 2325 2417
+type(
+  int
+)
+"compiler.ml" 77 2325 2396 "compiler.ml" 77 2325 2417
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 77 2325 2422 "compiler.ml" 77 2325 2426
+type(
+  int
+)
+ident(
+  int_ref req2 "compiler.ml" 74 2071 2100 "compiler.ml" 74 2071 2104
+)
+"compiler.ml" 77 2325 2426 "compiler.ml" 77 2325 2427
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( > )
+)
+"compiler.ml" 77 2325 2427 "compiler.ml" 77 2325 2428
+type(
+  int
+)
+"compiler.ml" 77 2325 2422 "compiler.ml" 77 2325 2428
+type(
+  bool
+)
+"compiler.ml" 77 2325 2434 "compiler.ml" 77 2325 2445
+type(
+  int -> unit
+)
+ident(
+  int_ref compile_pop "compiler.ml" 6 99 103 "compiler.ml" 6 99 114
+)
+"compiler.ml" 77 2325 2448 "compiler.ml" 77 2325 2449
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 77 2325 2449 "compiler.ml" 77 2325 2450
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( + )
+)
+"compiler.ml" 77 2325 2450 "compiler.ml" 77 2325 2451
+type(
+  int
+)
+"compiler.ml" 77 2325 2447 "compiler.ml" 77 2325 2452
+type(
+  int
+)
+"compiler.ml" 77 2325 2453 "compiler.ml" 77 2325 2456
+type(
+  int -> int -> int
+)
+ident(
+  ext_ref Pervasives.( mod )
+)
+"compiler.ml" 77 2325 2457 "compiler.ml" 77 2325 2458
+type(
+  int
+)
+"compiler.ml" 77 2325 2446 "compiler.ml" 77 2325 2459
+type(
+  int
+)
+"compiler.ml" 77 2325 2434 "compiler.ml" 77 2325 2459
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 77 2325 2418 "compiler.ml" 77 2325 2460
+type(
+  unit
+)
+"compiler.ml" 77 2325 2463 "compiler.ml" 77 2325 2470
+type(
+  Ast.binop -> int -> bool -> unit
+)
+ident(
+  int_ref make_op "compiler.ml" 15 302 306 "compiler.ml" 15 302 313
+)
+"compiler.ml" 77 2325 2471 "compiler.ml" 77 2325 2473
+type(
+  Ast.binop
+)
+ident(
+  int_ref op "compiler.ml" 61 1598 1610 "compiler.ml" 61 1598 1612
+)
+"compiler.ml" 77 2325 2474 "compiler.ml" 77 2325 2475
+type(
+  int
+)
+ident(
+  int_ref i "compiler.ml" 58 1511 1547 "compiler.ml" 58 1511 1548
+)
+"compiler.ml" 77 2325 2477 "compiler.ml" 77 2325 2481
+type(
+  int
+)
+ident(
+  int_ref req1 "compiler.ml" 74 2071 2078 "compiler.ml" 74 2071 2082
+)
+"compiler.ml" 77 2325 2481 "compiler.ml" 77 2325 2482
+type(
+  int -> int -> bool
+)
+ident(
+  ext_ref Pervasives.( > )
+)
+"compiler.ml" 77 2325 2482 "compiler.ml" 77 2325 2483
+type(
+  int
+)
+"compiler.ml" 77 2325 2476 "compiler.ml" 77 2325 2484
+type(
+  bool
+)
+"compiler.ml" 77 2325 2463 "compiler.ml" 77 2325 2485
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 77 2325 2418 "compiler.ml" 77 2325 2485
+type(
+  unit
+)
+"compiler.ml" 77 2325 2396 "compiler.ml" 77 2325 2485
+type(
+  unit
+)
+"compiler.ml" 77 2325 2354 "compiler.ml" 77 2325 2485
+type(
+  unit
+)
+"compiler.ml" 77 2325 2335 "compiler.ml" 77 2325 2485
+type(
+  unit
+)
+"compiler.ml" 75 2121 2124 "compiler.ml" 77 2325 2485
+type(
+  unit
+)
+"compiler.ml" 73 2064 2065 "compiler.ml" 78 2486 2490
+type(
+  unit
+)
+"compiler.ml" 62 1623 1628 "compiler.ml" 79 2491 2499
+type(
+  unit
+)
+"compiler.ml" 59 1551 1553 "compiler.ml" 79 2491 2499
+type(
+  unit
+)
+"compiler.ml" 81 2508 2512 "compiler.ml" 81 2508 2533
+type(
+  Ast.expr -> unit
+)
+ident(
+  def compile_toplevel_expr "compiler.ml" 84 2611 2679 "compiler.ml" 1 0 -1
+)
+"compiler.ml" 81 2508 2535 "compiler.ml" 81 2508 2536
+type(
+  Ast.expr
+)
+ident(
+  def e "compiler.ml" 81 2508 2548 "compiler.ml" 84 2611 2679
+)
+"compiler.ml" 82 2557 2559 "compiler.ml" 82 2557 2572
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"compiler.ml" 82 2557 2573 "compiler.ml" 82 2557 2589
+type(
+  (unit, out_channel, unit) format
+)
+"compiler.ml" 82 2557 2559 "compiler.ml" 82 2557 2589
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 83 2591 2593 "compiler.ml" 83 2591 2605
+type(
+  Ast.expr -> int -> unit
+)
+ident(
+  int_ref compile_expr "compiler.ml" 58 1511 1519 "compiler.ml" 58 1511 1531
+)
+"compiler.ml" 83 2591 2606 "compiler.ml" 83 2591 2607
+type(
+  Ast.expr
+)
+ident(
+  int_ref e "compiler.ml" 81 2508 2535 "compiler.ml" 81 2508 2536
+)
+"compiler.ml" 83 2591 2608 "compiler.ml" 83 2591 2609
+type(
+  int
+)
+"compiler.ml" 83 2591 2593 "compiler.ml" 83 2591 2609
+call(
+  stack
+)
+type(
+  unit
+)
+"compiler.ml" 84 2611 2613 "compiler.ml" 84 2611 2626
+type(
+  (unit, out_channel, unit) format -> unit
+)
+ident(
+  ext_ref Printf.printf
+)
+"compiler.ml" 84 2611 2627 "compiler.ml" 84 2611 2679
+type(
+  (unit, out_channel, unit) format
+)
+"compiler.ml" 84 2611 2613 "compiler.ml" 84 2611 2679
+call(
+  tail
+)
+type(
+  unit
+)
+"compiler.ml" 83 2591 2593 "compiler.ml" 84 2611 2679
+type(
+  unit
+)
+"compiler.ml" 82 2557 2559 "compiler.ml" 84 2611 2679
+type(
+  unit
+)
+type(
+  unit
+)

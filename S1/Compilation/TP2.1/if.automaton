@@ -1,0 +1,86 @@
+ State 0:
+prog' -> . prog [ # ]
+-- On IF shift to state 1
+-- On ATOM shift to state 3
+-- On seq shift to state 10
+-- On prog shift to state 12
+-- On expr shift to state 9
+
+State 1:
+expr -> IF . COND seq [ SEMI EOF ELSE ]
+expr -> IF . COND seq ELSE seq [ SEMI EOF ELSE ]
+-- On COND shift to state 2
+
+State 2:
+expr -> IF COND . seq [ SEMI EOF ELSE ]
+expr -> IF COND . seq ELSE seq [ SEMI EOF ELSE ]
+-- On IF shift to state 1
+-- On ATOM shift to state 3
+-- On seq shift to state 4
+-- On expr shift to state 9
+
+State 3:
+expr -> ATOM . [ SEMI EOF ELSE ]
+-- On SEMI reduce production expr -> ATOM 
+-- On EOF reduce production expr -> ATOM 
+-- On ELSE reduce production expr -> ATOM 
+
+State 4:
+expr -> IF COND seq . [ SEMI EOF ELSE ]
+expr -> IF COND seq . ELSE seq [ SEMI EOF ELSE ]
+seq -> seq . SEMI expr [ SEMI EOF ELSE ]
+-- On SEMI shift to state 5
+-- On ELSE shift to state 7
+-- On SEMI reduce production expr -> IF COND seq 
+-- On EOF reduce production expr -> IF COND seq 
+-- On ELSE reduce production expr -> IF COND seq 
+** Conflict on SEMI ELSE
+
+State 5:
+seq -> seq SEMI . expr [ SEMI EOF ELSE ]
+-- On IF shift to state 1
+-- On ATOM shift to state 3
+-- On expr shift to state 6
+
+State 6:
+seq -> seq SEMI expr . [ SEMI EOF ELSE ]
+-- On SEMI reduce production seq -> seq SEMI expr 
+-- On EOF reduce production seq -> seq SEMI expr 
+-- On ELSE reduce production seq -> seq SEMI expr 
+
+State 7:
+expr -> IF COND seq ELSE . seq [ SEMI EOF ELSE ]
+-- On IF shift to state 1
+-- On ATOM shift to state 3
+-- On seq shift to state 8
+-- On expr shift to state 9
+
+State 8:
+expr -> IF COND seq ELSE seq . [ SEMI EOF ELSE ]
+seq -> seq . SEMI expr [ SEMI EOF ELSE ]
+-- On SEMI shift to state 5
+-- On SEMI reduce production expr -> IF COND seq ELSE seq 
+-- On EOF reduce production expr -> IF COND seq ELSE seq 
+-- On ELSE reduce production expr -> IF COND seq ELSE seq 
+** Conflict on SEMI
+
+State 9:
+seq -> expr . [ SEMI EOF ELSE ]
+-- On SEMI reduce production seq -> expr 
+-- On EOF reduce production seq -> expr 
+-- On ELSE reduce production seq -> expr 
+
+State 10:
+prog -> seq . EOF [ # ]
+seq -> seq . SEMI expr [ SEMI EOF ]
+-- On SEMI shift to state 5
+-- On EOF shift to state 11
+
+State 11:
+prog -> seq EOF . [ # ]
+-- On # reduce production prog -> seq EOF 
+
+State 12:
+prog' -> prog . [ # ]
+-- On # accept prog
+

@@ -1,0 +1,25 @@
+/∗ ∗
+∗ Copy v a l u e s from an a r r a y t o a n o t h e r .
+∗/
+#i n c l u d e <i m m i n t r i n . h>
+
+#i n c l u d e <i o s t r e a m >
+
+i n t main ( )
+{
+	// Static arrays are stored into the stack thus we need to add an alignment attribute to tell the compiler to correctly
+	align both arrays.
+	float array0 [ 4 ] __attribute__ (( aligned (16))) = { 0.0f , 1.0f , 2.0f , 3.0f };
+	float array1 [ 4 ] __attribute__ (( aligned (16)));
+
+	// Load 4 values from the first array into a SSE register.
+	__m128 r0 = _mm_load_ps ( array0 );
+	// Store the content of the register into the second array.
+	_mm_store_ps ( array1 , r0 ) ;
+
+	for ( auto x: array0 )
+	{
+		std::cout << x << std::endl;
+	}
+	return 0;
+}

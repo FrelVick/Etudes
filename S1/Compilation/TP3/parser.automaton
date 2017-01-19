@@ -1,0 +1,1035 @@
+State 0:
+prog' -> . prog [ # ]
+-- On VAR shift to state 1
+-- On PRINT shift to state 4
+-- On NEWLINE shift to state 48
+-- On EXIT shift to state 50
+-- On BEGIN shift to state 52
+-- On prog shift to state 58
+-- On list(instr) shift to state 59
+-- On instr shift to state 55
+-- On block shift to state 57
+-- On EOF reduce production list(instr) -> 
+
+State 1:
+instr -> VAR . IDENT SEMI [ VAR PRINT NEWLINE EXIT EOF END BEGIN ]
+-- On IDENT shift to state 2
+
+State 2:
+instr -> VAR IDENT . SEMI [ VAR PRINT NEWLINE EXIT EOF END BEGIN ]
+-- On SEMI shift to state 3
+
+State 3:
+instr -> VAR IDENT SEMI . [ VAR PRINT NEWLINE EXIT EOF END BEGIN ]
+-- On VAR reduce production instr -> VAR IDENT SEMI 
+-- On PRINT reduce production instr -> VAR IDENT SEMI 
+-- On NEWLINE reduce production instr -> VAR IDENT SEMI 
+-- On EXIT reduce production instr -> VAR IDENT SEMI 
+-- On EOF reduce production instr -> VAR IDENT SEMI 
+-- On END reduce production instr -> VAR IDENT SEMI 
+-- On BEGIN reduce production instr -> VAR IDENT SEMI 
+
+State 4:
+instr -> PRINT . expr SEMI [ VAR PRINT NEWLINE EXIT EOF END BEGIN ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 46
+-- On const shift to state 19
+
+State 5:
+expr -> NOT . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 45
+-- On const shift to state 19
+
+State 6:
+expr -> MINUS . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 44
+-- On const shift to state 19
+
+State 7:
+expr -> LPAREN . expr RPAREN [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 42
+-- On const shift to state 19
+
+State 8:
+expr -> IF . expr THEN expr ELSE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 12
+-- On const shift to state 19
+
+State 9:
+expr -> IDENT . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On THEN reduce production expr -> IDENT 
+-- On SEMI reduce production expr -> IDENT 
+-- On RPAREN reduce production expr -> IDENT 
+-- On PLUS reduce production expr -> IDENT 
+-- On OR reduce production expr -> IDENT 
+-- On NEQ reduce production expr -> IDENT 
+-- On MULT reduce production expr -> IDENT 
+-- On MINUS reduce production expr -> IDENT 
+-- On LT reduce production expr -> IDENT 
+-- On LE reduce production expr -> IDENT 
+-- On GT reduce production expr -> IDENT 
+-- On GE reduce production expr -> IDENT 
+-- On EQ reduce production expr -> IDENT 
+-- On ELSE reduce production expr -> IDENT 
+-- On DIV reduce production expr -> IDENT 
+-- On AND reduce production expr -> IDENT 
+
+State 10:
+const -> CONST_INT . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On THEN reduce production const -> CONST_INT 
+-- On SEMI reduce production const -> CONST_INT 
+-- On RPAREN reduce production const -> CONST_INT 
+-- On PLUS reduce production const -> CONST_INT 
+-- On OR reduce production const -> CONST_INT 
+-- On NEQ reduce production const -> CONST_INT 
+-- On MULT reduce production const -> CONST_INT 
+-- On MINUS reduce production const -> CONST_INT 
+-- On LT reduce production const -> CONST_INT 
+-- On LE reduce production const -> CONST_INT 
+-- On GT reduce production const -> CONST_INT 
+-- On GE reduce production const -> CONST_INT 
+-- On EQ reduce production const -> CONST_INT 
+-- On ELSE reduce production const -> CONST_INT 
+-- On DIV reduce production const -> CONST_INT 
+-- On AND reduce production const -> CONST_INT 
+
+State 11:
+const -> CONST_BOOL . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On THEN reduce production const -> CONST_BOOL 
+-- On SEMI reduce production const -> CONST_BOOL 
+-- On RPAREN reduce production const -> CONST_BOOL 
+-- On PLUS reduce production const -> CONST_BOOL 
+-- On OR reduce production const -> CONST_BOOL 
+-- On NEQ reduce production const -> CONST_BOOL 
+-- On MULT reduce production const -> CONST_BOOL 
+-- On MINUS reduce production const -> CONST_BOOL 
+-- On LT reduce production const -> CONST_BOOL 
+-- On LE reduce production const -> CONST_BOOL 
+-- On GT reduce production const -> CONST_BOOL 
+-- On GE reduce production const -> CONST_BOOL 
+-- On EQ reduce production const -> CONST_BOOL 
+-- On ELSE reduce production const -> CONST_BOOL 
+-- On DIV reduce production const -> CONST_BOOL 
+-- On AND reduce production const -> CONST_BOOL 
+
+State 12:
+expr -> expr . PLUS expr [ THEN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . MINUS expr [ THEN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . MULT expr [ THEN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . DIV expr [ THEN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . AND expr [ THEN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . OR expr [ THEN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . EQ expr [ THEN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . NEQ expr [ THEN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . LT expr [ THEN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . LE expr [ THEN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . GT expr [ THEN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . GE expr [ THEN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> IF expr . THEN expr ELSE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On THEN shift to state 13
+-- On PLUS shift to state 15
+-- On OR shift to state 22
+-- On NEQ shift to state 24
+-- On MULT shift to state 17
+-- On MINUS shift to state 26
+-- On LT shift to state 28
+-- On LE shift to state 30
+-- On GT shift to state 32
+-- On GE shift to state 34
+-- On EQ shift to state 36
+-- On DIV shift to state 20
+-- On AND shift to state 38
+
+State 13:
+expr -> IF expr THEN . expr ELSE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 14
+-- On const shift to state 19
+
+State 14:
+expr -> expr . PLUS expr [ PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> IF expr THEN expr . ELSE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On PLUS shift to state 15
+-- On OR shift to state 22
+-- On NEQ shift to state 24
+-- On MULT shift to state 17
+-- On MINUS shift to state 26
+-- On LT shift to state 28
+-- On LE shift to state 30
+-- On GT shift to state 32
+-- On GE shift to state 34
+-- On EQ shift to state 36
+-- On ELSE shift to state 40
+-- On DIV shift to state 20
+-- On AND shift to state 38
+
+State 15:
+expr -> expr PLUS . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 16
+-- On const shift to state 19
+
+State 16:
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr PLUS expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On MULT shift to state 17
+-- On DIV shift to state 20
+-- On THEN reduce production expr -> expr PLUS expr 
+-- On SEMI reduce production expr -> expr PLUS expr 
+-- On RPAREN reduce production expr -> expr PLUS expr 
+-- On PLUS reduce production expr -> expr PLUS expr 
+-- On OR reduce production expr -> expr PLUS expr 
+-- On NEQ reduce production expr -> expr PLUS expr 
+-- On MINUS reduce production expr -> expr PLUS expr 
+-- On LT reduce production expr -> expr PLUS expr 
+-- On LE reduce production expr -> expr PLUS expr 
+-- On GT reduce production expr -> expr PLUS expr 
+-- On GE reduce production expr -> expr PLUS expr 
+-- On EQ reduce production expr -> expr PLUS expr 
+-- On ELSE reduce production expr -> expr PLUS expr 
+-- On AND reduce production expr -> expr PLUS expr 
+
+State 17:
+expr -> expr MULT . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 18
+-- On const shift to state 19
+
+State 18:
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr MULT expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On THEN reduce production expr -> expr MULT expr 
+-- On SEMI reduce production expr -> expr MULT expr 
+-- On RPAREN reduce production expr -> expr MULT expr 
+-- On PLUS reduce production expr -> expr MULT expr 
+-- On OR reduce production expr -> expr MULT expr 
+-- On NEQ reduce production expr -> expr MULT expr 
+-- On MULT reduce production expr -> expr MULT expr 
+-- On MINUS reduce production expr -> expr MULT expr 
+-- On LT reduce production expr -> expr MULT expr 
+-- On LE reduce production expr -> expr MULT expr 
+-- On GT reduce production expr -> expr MULT expr 
+-- On GE reduce production expr -> expr MULT expr 
+-- On EQ reduce production expr -> expr MULT expr 
+-- On ELSE reduce production expr -> expr MULT expr 
+-- On DIV reduce production expr -> expr MULT expr 
+-- On AND reduce production expr -> expr MULT expr 
+
+State 19:
+expr -> const . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On THEN reduce production expr -> const 
+-- On SEMI reduce production expr -> const 
+-- On RPAREN reduce production expr -> const 
+-- On PLUS reduce production expr -> const 
+-- On OR reduce production expr -> const 
+-- On NEQ reduce production expr -> const 
+-- On MULT reduce production expr -> const 
+-- On MINUS reduce production expr -> const 
+-- On LT reduce production expr -> const 
+-- On LE reduce production expr -> const 
+-- On GT reduce production expr -> const 
+-- On GE reduce production expr -> const 
+-- On EQ reduce production expr -> const 
+-- On ELSE reduce production expr -> const 
+-- On DIV reduce production expr -> const 
+-- On AND reduce production expr -> const 
+
+State 20:
+expr -> expr DIV . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 21
+-- On const shift to state 19
+
+State 21:
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr DIV expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On THEN reduce production expr -> expr DIV expr 
+-- On SEMI reduce production expr -> expr DIV expr 
+-- On RPAREN reduce production expr -> expr DIV expr 
+-- On PLUS reduce production expr -> expr DIV expr 
+-- On OR reduce production expr -> expr DIV expr 
+-- On NEQ reduce production expr -> expr DIV expr 
+-- On MULT reduce production expr -> expr DIV expr 
+-- On MINUS reduce production expr -> expr DIV expr 
+-- On LT reduce production expr -> expr DIV expr 
+-- On LE reduce production expr -> expr DIV expr 
+-- On GT reduce production expr -> expr DIV expr 
+-- On GE reduce production expr -> expr DIV expr 
+-- On EQ reduce production expr -> expr DIV expr 
+-- On ELSE reduce production expr -> expr DIV expr 
+-- On DIV reduce production expr -> expr DIV expr 
+-- On AND reduce production expr -> expr DIV expr 
+
+State 22:
+expr -> expr OR . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 23
+-- On const shift to state 19
+
+State 23:
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr OR expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On PLUS shift to state 15
+-- On NEQ shift to state 24
+-- On MULT shift to state 17
+-- On MINUS shift to state 26
+-- On LT shift to state 28
+-- On LE shift to state 30
+-- On GT shift to state 32
+-- On GE shift to state 34
+-- On EQ shift to state 36
+-- On DIV shift to state 20
+-- On AND shift to state 38
+-- On THEN reduce production expr -> expr OR expr 
+-- On SEMI reduce production expr -> expr OR expr 
+-- On RPAREN reduce production expr -> expr OR expr 
+-- On OR reduce production expr -> expr OR expr 
+-- On ELSE reduce production expr -> expr OR expr 
+
+State 24:
+expr -> expr NEQ . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 25
+-- On const shift to state 19
+
+State 25:
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr NEQ expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On PLUS shift to state 15
+-- On MULT shift to state 17
+-- On MINUS shift to state 26
+-- On DIV shift to state 20
+-- On THEN reduce production expr -> expr NEQ expr 
+-- On SEMI reduce production expr -> expr NEQ expr 
+-- On RPAREN reduce production expr -> expr NEQ expr 
+-- On OR reduce production expr -> expr NEQ expr 
+-- On NEQ reduce production expr -> expr NEQ expr 
+-- On LT reduce production expr -> expr NEQ expr 
+-- On LE reduce production expr -> expr NEQ expr 
+-- On GT reduce production expr -> expr NEQ expr 
+-- On GE reduce production expr -> expr NEQ expr 
+-- On EQ reduce production expr -> expr NEQ expr 
+-- On ELSE reduce production expr -> expr NEQ expr 
+-- On AND reduce production expr -> expr NEQ expr 
+
+State 26:
+expr -> expr MINUS . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 27
+-- On const shift to state 19
+
+State 27:
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr MINUS expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On MULT shift to state 17
+-- On DIV shift to state 20
+-- On THEN reduce production expr -> expr MINUS expr 
+-- On SEMI reduce production expr -> expr MINUS expr 
+-- On RPAREN reduce production expr -> expr MINUS expr 
+-- On PLUS reduce production expr -> expr MINUS expr 
+-- On OR reduce production expr -> expr MINUS expr 
+-- On NEQ reduce production expr -> expr MINUS expr 
+-- On MINUS reduce production expr -> expr MINUS expr 
+-- On LT reduce production expr -> expr MINUS expr 
+-- On LE reduce production expr -> expr MINUS expr 
+-- On GT reduce production expr -> expr MINUS expr 
+-- On GE reduce production expr -> expr MINUS expr 
+-- On EQ reduce production expr -> expr MINUS expr 
+-- On ELSE reduce production expr -> expr MINUS expr 
+-- On AND reduce production expr -> expr MINUS expr 
+
+State 28:
+expr -> expr LT . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 29
+-- On const shift to state 19
+
+State 29:
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr LT expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On PLUS shift to state 15
+-- On MULT shift to state 17
+-- On MINUS shift to state 26
+-- On DIV shift to state 20
+-- On THEN reduce production expr -> expr LT expr 
+-- On SEMI reduce production expr -> expr LT expr 
+-- On RPAREN reduce production expr -> expr LT expr 
+-- On OR reduce production expr -> expr LT expr 
+-- On NEQ reduce production expr -> expr LT expr 
+-- On LT reduce production expr -> expr LT expr 
+-- On LE reduce production expr -> expr LT expr 
+-- On GT reduce production expr -> expr LT expr 
+-- On GE reduce production expr -> expr LT expr 
+-- On EQ reduce production expr -> expr LT expr 
+-- On ELSE reduce production expr -> expr LT expr 
+-- On AND reduce production expr -> expr LT expr 
+
+State 30:
+expr -> expr LE . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 31
+-- On const shift to state 19
+
+State 31:
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr LE expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On PLUS shift to state 15
+-- On MULT shift to state 17
+-- On MINUS shift to state 26
+-- On DIV shift to state 20
+-- On THEN reduce production expr -> expr LE expr 
+-- On SEMI reduce production expr -> expr LE expr 
+-- On RPAREN reduce production expr -> expr LE expr 
+-- On OR reduce production expr -> expr LE expr 
+-- On NEQ reduce production expr -> expr LE expr 
+-- On LT reduce production expr -> expr LE expr 
+-- On LE reduce production expr -> expr LE expr 
+-- On GT reduce production expr -> expr LE expr 
+-- On GE reduce production expr -> expr LE expr 
+-- On EQ reduce production expr -> expr LE expr 
+-- On ELSE reduce production expr -> expr LE expr 
+-- On AND reduce production expr -> expr LE expr 
+
+State 32:
+expr -> expr GT . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 33
+-- On const shift to state 19
+
+State 33:
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr GT expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On PLUS shift to state 15
+-- On MULT shift to state 17
+-- On MINUS shift to state 26
+-- On DIV shift to state 20
+-- On THEN reduce production expr -> expr GT expr 
+-- On SEMI reduce production expr -> expr GT expr 
+-- On RPAREN reduce production expr -> expr GT expr 
+-- On OR reduce production expr -> expr GT expr 
+-- On NEQ reduce production expr -> expr GT expr 
+-- On LT reduce production expr -> expr GT expr 
+-- On LE reduce production expr -> expr GT expr 
+-- On GT reduce production expr -> expr GT expr 
+-- On GE reduce production expr -> expr GT expr 
+-- On EQ reduce production expr -> expr GT expr 
+-- On ELSE reduce production expr -> expr GT expr 
+-- On AND reduce production expr -> expr GT expr 
+
+State 34:
+expr -> expr GE . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 35
+-- On const shift to state 19
+
+State 35:
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr GE expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On PLUS shift to state 15
+-- On MULT shift to state 17
+-- On MINUS shift to state 26
+-- On DIV shift to state 20
+-- On THEN reduce production expr -> expr GE expr 
+-- On SEMI reduce production expr -> expr GE expr 
+-- On RPAREN reduce production expr -> expr GE expr 
+-- On OR reduce production expr -> expr GE expr 
+-- On NEQ reduce production expr -> expr GE expr 
+-- On LT reduce production expr -> expr GE expr 
+-- On LE reduce production expr -> expr GE expr 
+-- On GT reduce production expr -> expr GE expr 
+-- On GE reduce production expr -> expr GE expr 
+-- On EQ reduce production expr -> expr GE expr 
+-- On ELSE reduce production expr -> expr GE expr 
+-- On AND reduce production expr -> expr GE expr 
+
+State 36:
+expr -> expr EQ . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 37
+-- On const shift to state 19
+
+State 37:
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr EQ expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On PLUS shift to state 15
+-- On MULT shift to state 17
+-- On MINUS shift to state 26
+-- On DIV shift to state 20
+-- On THEN reduce production expr -> expr EQ expr 
+-- On SEMI reduce production expr -> expr EQ expr 
+-- On RPAREN reduce production expr -> expr EQ expr 
+-- On OR reduce production expr -> expr EQ expr 
+-- On NEQ reduce production expr -> expr EQ expr 
+-- On LT reduce production expr -> expr EQ expr 
+-- On LE reduce production expr -> expr EQ expr 
+-- On GT reduce production expr -> expr EQ expr 
+-- On GE reduce production expr -> expr EQ expr 
+-- On EQ reduce production expr -> expr EQ expr 
+-- On ELSE reduce production expr -> expr EQ expr 
+-- On AND reduce production expr -> expr EQ expr 
+
+State 38:
+expr -> expr AND . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 39
+-- On const shift to state 19
+
+State 39:
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr AND expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On PLUS shift to state 15
+-- On NEQ shift to state 24
+-- On MULT shift to state 17
+-- On MINUS shift to state 26
+-- On LT shift to state 28
+-- On LE shift to state 30
+-- On GT shift to state 32
+-- On GE shift to state 34
+-- On EQ shift to state 36
+-- On DIV shift to state 20
+-- On THEN reduce production expr -> expr AND expr 
+-- On SEMI reduce production expr -> expr AND expr 
+-- On RPAREN reduce production expr -> expr AND expr 
+-- On OR reduce production expr -> expr AND expr 
+-- On ELSE reduce production expr -> expr AND expr 
+-- On AND reduce production expr -> expr AND expr 
+
+State 40:
+expr -> IF expr THEN expr ELSE . expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On NOT shift to state 5
+-- On MINUS shift to state 6
+-- On LPAREN shift to state 7
+-- On IF shift to state 8
+-- On IDENT shift to state 9
+-- On CONST_INT shift to state 10
+-- On CONST_BOOL shift to state 11
+-- On expr shift to state 41
+-- On const shift to state 19
+
+State 41:
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> IF expr THEN expr ELSE expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On PLUS shift to state 15
+-- On OR shift to state 22
+-- On NEQ shift to state 24
+-- On MULT shift to state 17
+-- On MINUS shift to state 26
+-- On LT shift to state 28
+-- On LE shift to state 30
+-- On GT shift to state 32
+-- On GE shift to state 34
+-- On EQ shift to state 36
+-- On DIV shift to state 20
+-- On AND shift to state 38
+-- On THEN reduce production expr -> IF expr THEN expr ELSE expr 
+-- On SEMI reduce production expr -> IF expr THEN expr ELSE expr 
+-- On RPAREN reduce production expr -> IF expr THEN expr ELSE expr 
+-- On ELSE reduce production expr -> IF expr THEN expr ELSE expr 
+
+State 42:
+expr -> LPAREN expr . RPAREN [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . PLUS expr [ RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . MINUS expr [ RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . MULT expr [ RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . DIV expr [ RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . AND expr [ RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . OR expr [ RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . EQ expr [ RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . NEQ expr [ RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . LT expr [ RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . LE expr [ RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . GT expr [ RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . GE expr [ RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+-- On RPAREN shift to state 43
+-- On PLUS shift to state 15
+-- On OR shift to state 22
+-- On NEQ shift to state 24
+-- On MULT shift to state 17
+-- On MINUS shift to state 26
+-- On LT shift to state 28
+-- On LE shift to state 30
+-- On GT shift to state 32
+-- On GE shift to state 34
+-- On EQ shift to state 36
+-- On DIV shift to state 20
+-- On AND shift to state 38
+
+State 43:
+expr -> LPAREN expr RPAREN . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On THEN reduce production expr -> LPAREN expr RPAREN 
+-- On SEMI reduce production expr -> LPAREN expr RPAREN 
+-- On RPAREN reduce production expr -> LPAREN expr RPAREN 
+-- On PLUS reduce production expr -> LPAREN expr RPAREN 
+-- On OR reduce production expr -> LPAREN expr RPAREN 
+-- On NEQ reduce production expr -> LPAREN expr RPAREN 
+-- On MULT reduce production expr -> LPAREN expr RPAREN 
+-- On MINUS reduce production expr -> LPAREN expr RPAREN 
+-- On LT reduce production expr -> LPAREN expr RPAREN 
+-- On LE reduce production expr -> LPAREN expr RPAREN 
+-- On GT reduce production expr -> LPAREN expr RPAREN 
+-- On GE reduce production expr -> LPAREN expr RPAREN 
+-- On EQ reduce production expr -> LPAREN expr RPAREN 
+-- On ELSE reduce production expr -> LPAREN expr RPAREN 
+-- On DIV reduce production expr -> LPAREN expr RPAREN 
+-- On AND reduce production expr -> LPAREN expr RPAREN 
+
+State 44:
+expr -> MINUS expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On MULT shift to state 17
+-- On DIV shift to state 20
+-- On THEN reduce production expr -> MINUS expr 
+-- On SEMI reduce production expr -> MINUS expr 
+-- On RPAREN reduce production expr -> MINUS expr 
+-- On PLUS reduce production expr -> MINUS expr 
+-- On OR reduce production expr -> MINUS expr 
+-- On NEQ reduce production expr -> MINUS expr 
+-- On MINUS reduce production expr -> MINUS expr 
+-- On LT reduce production expr -> MINUS expr 
+-- On LE reduce production expr -> MINUS expr 
+-- On GT reduce production expr -> MINUS expr 
+-- On GE reduce production expr -> MINUS expr 
+-- On EQ reduce production expr -> MINUS expr 
+-- On ELSE reduce production expr -> MINUS expr 
+-- On AND reduce production expr -> MINUS expr 
+
+State 45:
+expr -> NOT expr . [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . PLUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MINUS expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . MULT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . DIV expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . AND expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . OR expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . EQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . NEQ expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . LE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GT expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+expr -> expr . GE expr [ THEN SEMI RPAREN PLUS OR NEQ MULT MINUS LT LE GT GE EQ ELSE DIV AND ]
+-- On PLUS shift to state 15
+-- On NEQ shift to state 24
+-- On MULT shift to state 17
+-- On MINUS shift to state 26
+-- On LT shift to state 28
+-- On LE shift to state 30
+-- On GT shift to state 32
+-- On GE shift to state 34
+-- On EQ shift to state 36
+-- On DIV shift to state 20
+-- On THEN reduce production expr -> NOT expr 
+-- On SEMI reduce production expr -> NOT expr 
+-- On RPAREN reduce production expr -> NOT expr 
+-- On OR reduce production expr -> NOT expr 
+-- On ELSE reduce production expr -> NOT expr 
+-- On AND reduce production expr -> NOT expr 
+
+State 46:
+expr -> expr . PLUS expr [ SEMI PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . MINUS expr [ SEMI PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . MULT expr [ SEMI PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . DIV expr [ SEMI PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . AND expr [ SEMI PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . OR expr [ SEMI PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . EQ expr [ SEMI PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . NEQ expr [ SEMI PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . LT expr [ SEMI PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . LE expr [ SEMI PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . GT expr [ SEMI PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+expr -> expr . GE expr [ SEMI PLUS OR NEQ MULT MINUS LT LE GT GE EQ DIV AND ]
+instr -> PRINT expr . SEMI [ VAR PRINT NEWLINE EXIT EOF END BEGIN ]
+-- On SEMI shift to state 47
+-- On PLUS shift to state 15
+-- On OR shift to state 22
+-- On NEQ shift to state 24
+-- On MULT shift to state 17
+-- On MINUS shift to state 26
+-- On LT shift to state 28
+-- On LE shift to state 30
+-- On GT shift to state 32
+-- On GE shift to state 34
+-- On EQ shift to state 36
+-- On DIV shift to state 20
+-- On AND shift to state 38
+
+State 47:
+instr -> PRINT expr SEMI . [ VAR PRINT NEWLINE EXIT EOF END BEGIN ]
+-- On VAR reduce production instr -> PRINT expr SEMI 
+-- On PRINT reduce production instr -> PRINT expr SEMI 
+-- On NEWLINE reduce production instr -> PRINT expr SEMI 
+-- On EXIT reduce production instr -> PRINT expr SEMI 
+-- On EOF reduce production instr -> PRINT expr SEMI 
+-- On END reduce production instr -> PRINT expr SEMI 
+-- On BEGIN reduce production instr -> PRINT expr SEMI 
+
+State 48:
+instr -> NEWLINE . SEMI [ VAR PRINT NEWLINE EXIT EOF END BEGIN ]
+-- On SEMI shift to state 49
+
+State 49:
+instr -> NEWLINE SEMI . [ VAR PRINT NEWLINE EXIT EOF END BEGIN ]
+-- On VAR reduce production instr -> NEWLINE SEMI 
+-- On PRINT reduce production instr -> NEWLINE SEMI 
+-- On NEWLINE reduce production instr -> NEWLINE SEMI 
+-- On EXIT reduce production instr -> NEWLINE SEMI 
+-- On EOF reduce production instr -> NEWLINE SEMI 
+-- On END reduce production instr -> NEWLINE SEMI 
+-- On BEGIN reduce production instr -> NEWLINE SEMI 
+
+State 50:
+instr -> EXIT . SEMI [ VAR PRINT NEWLINE EXIT EOF END BEGIN ]
+-- On SEMI shift to state 51
+
+State 51:
+instr -> EXIT SEMI . [ VAR PRINT NEWLINE EXIT EOF END BEGIN ]
+-- On VAR reduce production instr -> EXIT SEMI 
+-- On PRINT reduce production instr -> EXIT SEMI 
+-- On NEWLINE reduce production instr -> EXIT SEMI 
+-- On EXIT reduce production instr -> EXIT SEMI 
+-- On EOF reduce production instr -> EXIT SEMI 
+-- On END reduce production instr -> EXIT SEMI 
+-- On BEGIN reduce production instr -> EXIT SEMI 
+
+State 52:
+block -> BEGIN . list(instr) END [ VAR PRINT NEWLINE EXIT EOF END BEGIN ]
+-- On VAR shift to state 1
+-- On PRINT shift to state 4
+-- On NEWLINE shift to state 48
+-- On EXIT shift to state 50
+-- On BEGIN shift to state 52
+-- On list(instr) shift to state 53
+-- On instr shift to state 55
+-- On block shift to state 57
+-- On END reduce production list(instr) -> 
+
+State 53:
+block -> BEGIN list(instr) . END [ VAR PRINT NEWLINE EXIT EOF END BEGIN ]
+-- On END shift to state 54
+
+State 54:
+block -> BEGIN list(instr) END . [ VAR PRINT NEWLINE EXIT EOF END BEGIN ]
+-- On VAR reduce production block -> BEGIN list(instr) END 
+-- On PRINT reduce production block -> BEGIN list(instr) END 
+-- On NEWLINE reduce production block -> BEGIN list(instr) END 
+-- On EXIT reduce production block -> BEGIN list(instr) END 
+-- On EOF reduce production block -> BEGIN list(instr) END 
+-- On END reduce production block -> BEGIN list(instr) END 
+-- On BEGIN reduce production block -> BEGIN list(instr) END 
+
+State 55:
+list(instr) -> instr . list(instr) [ EOF END ]
+-- On VAR shift to state 1
+-- On PRINT shift to state 4
+-- On NEWLINE shift to state 48
+-- On EXIT shift to state 50
+-- On BEGIN shift to state 52
+-- On list(instr) shift to state 56
+-- On instr shift to state 55
+-- On block shift to state 57
+-- On EOF reduce production list(instr) -> 
+-- On END reduce production list(instr) -> 
+
+State 56:
+list(instr) -> instr list(instr) . [ EOF END ]
+-- On EOF reduce production list(instr) -> instr list(instr) 
+-- On END reduce production list(instr) -> instr list(instr) 
+
+State 57:
+instr -> block . [ VAR PRINT NEWLINE EXIT EOF END BEGIN ]
+-- On VAR reduce production instr -> block 
+-- On PRINT reduce production instr -> block 
+-- On NEWLINE reduce production instr -> block 
+-- On EXIT reduce production instr -> block 
+-- On EOF reduce production instr -> block 
+-- On END reduce production instr -> block 
+-- On BEGIN reduce production instr -> block 
+
+State 58:
+prog' -> prog . [ # ]
+-- On # accept prog
+
+State 59:
+prog -> list(instr) . EOF [ # ]
+-- On EOF shift to state 60
+
+State 60:
+prog -> list(instr) EOF . [ # ]
+-- On # reduce production prog -> list(instr) EOF 
+
