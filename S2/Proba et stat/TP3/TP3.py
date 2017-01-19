@@ -29,16 +29,24 @@ def huffmantable(l):
         least2 = min(l, key=itemgetter(1))
         l.remove(least2)
         for symbcode in least1[0]:
-            temp.append((symbcode[0], symbcode[1] + "0"))
+            temp.append((symbcode[0], "0" + symbcode[1]))
         for symbcode in least2[0]:
-            temp.append((symbcode[0], symbcode[1] + "1"))
+            temp.append((symbcode[0], "1" + symbcode[1]))
         l.append((temp, least1[1] + least2[1]))
         return huffmantable(l)
 
 
+def makecodefromstring(s):
+    freq = countfreq(s)
+    nuplets = list()
+    for c in dictionary:
+        nuplets.append(([(c, "")], (freq[dictionary.index(c)])))
+    return huffmantable(nuplets)
+
+
 def main():
     p = [0.5, 0.25, 0.125, 0.125]
-    seq = generateseq(p, 4)
+    seq = generateseq(p, 100)
     freq = countfreq(seq)
     nuplets = list()
     for c in dictionary:
@@ -46,7 +54,6 @@ def main():
     print(nuplets)
     codetable = huffmantable(nuplets)
     print(codetable)
-
 
 
 main()
