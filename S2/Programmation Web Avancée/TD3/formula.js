@@ -192,8 +192,20 @@ Formula.parse = function (input) {
         } else if (token == "(") {
             stack.push(token);
         } else if (token == ")") {
+            while (true) {
+                if (stack.length == 0)
+                    throw "Mismatching paranthesis";
+                var top = stack.pop();
+                if (top == "(") {
+                    break;
+                } else {
+                    output.reduce(top);
+                }
+            }
 
         } else {
+            var top = stack.peek();
+
 
         }
     }
