@@ -204,15 +204,26 @@ Formula.parse = function (input) {
             }
 
         } else {
-            var top = stack.peek();
-
-
+            var o1 = token;
+            while (stack.length > 0) {
+                var o2 = stack.peek();
+                if (o1.priority <= o2.priority) {
+                    output.reduce(stack.pop());
+                } else {
+                    break;
+                }
+            }
+            stack.push(o1);
         }
     }
     // Phase II
     while(stack.length > 0) {
         /* À compléter */
-
+        var top = stack.pop();
+        if (top instanceof Formula) {
+            output.reduce(top);
+        } else
+            throw "Mismatching paranthesis";
     };
 
     if (output.length !== 1) {
