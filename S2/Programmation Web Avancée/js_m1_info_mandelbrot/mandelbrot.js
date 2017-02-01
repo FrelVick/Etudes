@@ -67,6 +67,11 @@ Mandelbrot.upscale = function () {
     Mandelbrot.draw()
 };
 
+Mandelbrot.setlimit = function (dl) {
+    Mandelbrot.limit = Math.abs(Mandelbrot.limit + dl);
+    Mandelbrot.draw();
+};
+
 document.onkeydown = function (eventObject) {
     var e = window.event || eventObject, K = e.keyCode;
     if (K == 37) Mandelbrot.movex(-10);
