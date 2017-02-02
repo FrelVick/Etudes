@@ -123,7 +123,6 @@ def hummingerrorfixing(s):
     z = ''.join(
         str(c % 2) for v in numpy.dot(hummingD, numpy.array(list(map(int, list(s))))[numpy.newaxis].T).T.tolist() for c
         in v)
-    z = z
     return z
 
 
