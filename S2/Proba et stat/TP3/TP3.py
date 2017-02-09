@@ -12,8 +12,7 @@ p = [0.0817, 0.0149, 0.0278, 0.0425, 0.127, 0.0223, 0.0202, 0.0609, 0.0697, 0.00
 hummingG = numpy.array(
     [(1, 0, 0, 0), (0, 1, 0, 0), (0, 0, 1, 0), (0, 0, 0, 1), (1, 1, 1, 0), (0, 1, 1, 1), (1, 0, 1, 1)])
 hummingD = numpy.array([(1, 1, 1, 0, 1, 0, 0), (0, 1, 1, 1, 0, 1, 0), (1, 0, 1, 1, 0, 0, 1)])
-errorfix = {'000': 5, '001': 6, '010': 5, '011': 3, '100': 4, '101': 0, '110': 2, '111': 1}
-errorfix1 = {'000': 5, '001': 6, '010': 5, '011': 3, '100': 4, '101': 0, '110': 1, '111': 2}
+errorfix = {'000': 5, '001': 6, '010': 5, '011': 3, '100': 4, '101': 0, '110': 1, '111': 2}
 
 
 def generateseq(proba_table, n):
@@ -126,7 +125,7 @@ def hummingerrorfixing(s):
         str(c % 2) for v in numpy.dot(hummingD, numpy.array(list(map(int, list(s))))[numpy.newaxis].T).T.tolist() for c
         in v)
     if z != "000":
-        tochange = errorfix1[z]
+        tochange = errorfix[z]
         s = s[:tochange] + inverse(s[tochange]) + s[tochange + 1:]
     return s
 
