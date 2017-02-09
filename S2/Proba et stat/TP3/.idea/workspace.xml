@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec094d65-46d2-441f-ba0a-58c1df8baec4" name="Default" comment="TP 3 Proba">
+    <list default="true" id="ec094d65-46d2-441f-ba0a-58c1df8baec4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/TP3.iml" afterPath="$PROJECT_DIR$/.idea/TP3.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TP3.py" afterPath="$PROJECT_DIR$/TP3.py" />
     </list>
@@ -13,7 +15,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/TP3$TP3.coverage" NAME="TP3 Coverage Results" MODIFIED="1486034918368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/TP3$TP3.coverage" NAME="TP3 Coverage Results" MODIFIED="1486638799083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -24,10 +26,19 @@
       <file leaf-file-name="TP3.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TP3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
-              <caret line="124" column="13" lean-forward="false" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
+            <state relative-caret-position="112">
+              <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#836#899#1" expanded="false" />
+                <element signature="e#1090#1154#1" expanded="false" />
+                <element signature="e#1238#1544#0" expanded="false" />
+                <element signature="e#1238#1330#1" expanded="false" />
+                <element signature="e#1404#1525#0" expanded="false" />
+                <element signature="e#2441#2663#0" expanded="false" />
+                <element signature="e#2493#2645#0" expanded="false" />
+                <element signature="e#2605#2645#0" expanded="false" />
+                <element signature="e#2996#3100#1" expanded="false" />
+                <element signature="e#3794#3858#1" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -44,9 +55,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>countfreq</find>
       <find>canal</find>
       <find>else</find>
+      <find>dic</find>
+      <find>countfreq</find>
+      <find>makecodefromstring</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -69,9 +82,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="28" />
-    <option name="width" value="1920" />
-    <option name="height" value="1138" />
+    <option name="x" value="54" />
+    <option name="y" value="-8" />
+    <option name="width" value="1320" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -105,8 +119,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -360,6 +374,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="ec094d65-46d2-441f-ba0a-58c1df8baec4" name="Default" comment="" />
@@ -407,20 +424,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="28" width="1920" height="1138" extended-state="6" />
-    <editor active="true" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18854167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18788344" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3990196" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2835821" sideWeight="0.50383437" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28431374" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45697328" sideWeight="0.49616563" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3990196" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37240356" sideWeight="0.49791667" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -449,18 +466,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/TP3.py</url>
-          <line>124</line>
-          <option name="timeStamp" value="52" />
+          <line>170</line>
+          <option name="timeStamp" value="114" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/TP3.py</url>
-          <line>125</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/TP3.py</url>
-          <line>123</line>
-          <option name="timeStamp" value="54" />
+          <line>169</line>
+          <option name="timeStamp" value="115" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -470,21 +482,52 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="55" />
+      <option name="time" value="116" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="list(s)" />
+        <watch expression="s[7]" language="Python" />
+        <watch expression="s[:tochange - 1]" />
+        <watch expression="inverse(s[tochange])" />
+        <watch expression="s[tochange:]" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/TP3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        <state relative-caret-position="2754">
+          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#836#899#1" expanded="false" />
+            <element signature="e#1090#1154#1" expanded="false" />
+            <element signature="e#1238#1544#0" expanded="false" />
+            <element signature="e#1238#1330#1" expanded="false" />
+            <element signature="e#1404#1525#0" expanded="false" />
+            <element signature="e#2441#2663#0" expanded="false" />
+            <element signature="e#2493#2645#0" expanded="false" />
+            <element signature="e#2605#2645#0" expanded="false" />
+            <element signature="e#2996#3100#1" expanded="false" />
+            <element signature="e#3794#3858#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#836#899#1" expanded="false" />
+            <element signature="e#1090#1154#1" expanded="false" />
+            <element signature="e#1238#1544#0" expanded="false" />
+            <element signature="e#1238#1330#1" expanded="false" />
+            <element signature="e#1404#1525#0" expanded="false" />
+            <element signature="e#2441#2663#0" expanded="false" />
+            <element signature="e#2493#2645#0" expanded="false" />
+            <element signature="e#2605#2645#0" expanded="false" />
+            <element signature="e#2996#3100#1" expanded="false" />
+            <element signature="e#3794#3858#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -494,7 +537,35 @@
         <state relative-caret-position="1425">
           <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#836#899#1" expanded="false" />
+            <element signature="e#1090#1154#1" expanded="false" />
+            <element signature="e#1238#1544#0" expanded="false" />
+            <element signature="e#1238#1330#1" expanded="false" />
+            <element signature="e#1404#1525#0" expanded="false" />
+            <element signature="e#2441#2663#0" expanded="false" />
+            <element signature="e#2493#2645#0" expanded="false" />
+            <element signature="e#2605#2645#0" expanded="false" />
+            <element signature="e#2996#3100#1" expanded="false" />
+            <element signature="e#3794#3858#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TP3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1425">
+          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+          <folding>
+            <element signature="e#836#899#1" expanded="false" />
+            <element signature="e#1090#1154#1" expanded="false" />
+            <element signature="e#1238#1544#0" expanded="false" />
+            <element signature="e#1238#1330#1" expanded="false" />
+            <element signature="e#1404#1525#0" expanded="false" />
+            <element signature="e#2441#2663#0" expanded="false" />
+            <element signature="e#2493#2645#0" expanded="false" />
+            <element signature="e#2605#2645#0" expanded="false" />
+            <element signature="e#2996#3100#1" expanded="false" />
+            <element signature="e#3794#3858#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -504,7 +575,16 @@
         <state relative-caret-position="750">
           <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#836#899#1" expanded="false" />
+            <element signature="e#1090#1154#1" expanded="false" />
+            <element signature="e#1238#1544#0" expanded="false" />
+            <element signature="e#1238#1330#1" expanded="false" />
+            <element signature="e#1404#1525#0" expanded="false" />
+            <element signature="e#2441#2663#0" expanded="false" />
+            <element signature="e#2493#2645#0" expanded="false" />
+            <element signature="e#2605#2645#0" expanded="false" />
+            <element signature="e#2996#3100#1" expanded="false" />
+            <element signature="e#3794#3858#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -514,7 +594,16 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#836#899#1" expanded="false" />
+            <element signature="e#1090#1154#1" expanded="false" />
+            <element signature="e#1238#1544#0" expanded="false" />
+            <element signature="e#1238#1330#1" expanded="false" />
+            <element signature="e#1404#1525#0" expanded="false" />
+            <element signature="e#2441#2663#0" expanded="false" />
+            <element signature="e#2493#2645#0" expanded="false" />
+            <element signature="e#2605#2645#0" expanded="false" />
+            <element signature="e#2996#3100#1" expanded="false" />
+            <element signature="e#3794#3858#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -524,7 +613,16 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#836#899#1" expanded="false" />
+            <element signature="e#1090#1154#1" expanded="false" />
+            <element signature="e#1238#1544#0" expanded="false" />
+            <element signature="e#1238#1330#1" expanded="false" />
+            <element signature="e#1404#1525#0" expanded="false" />
+            <element signature="e#2441#2663#0" expanded="false" />
+            <element signature="e#2493#2645#0" expanded="false" />
+            <element signature="e#2605#2645#0" expanded="false" />
+            <element signature="e#2996#3100#1" expanded="false" />
+            <element signature="e#3794#3858#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -534,7 +632,16 @@
         <state relative-caret-position="150">
           <caret line="10" column="51" lean-forward="true" selection-start-line="10" selection-start-column="51" selection-end-line="10" selection-end-column="51" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#836#899#1" expanded="false" />
+            <element signature="e#1090#1154#1" expanded="false" />
+            <element signature="e#1238#1544#0" expanded="false" />
+            <element signature="e#1238#1330#1" expanded="false" />
+            <element signature="e#1404#1525#0" expanded="false" />
+            <element signature="e#2441#2663#0" expanded="false" />
+            <element signature="e#2493#2645#0" expanded="false" />
+            <element signature="e#2605#2645#0" expanded="false" />
+            <element signature="e#2996#3100#1" expanded="false" />
+            <element signature="e#3794#3858#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -543,10 +650,19 @@
     <entry file="file://$USER_HOME$/Téléchargements/tp_entr_compr.py" />
     <entry file="file://$PROJECT_DIR$/TP3.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="124" column="13" lean-forward="false" selection-start-line="124" selection-start-column="13" selection-end-line="124" selection-end-column="13" />
+        <state relative-caret-position="112">
+          <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="170" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#836#899#1" expanded="false" />
+            <element signature="e#1090#1154#1" expanded="false" />
+            <element signature="e#1238#1544#0" expanded="false" />
+            <element signature="e#1238#1330#1" expanded="false" />
+            <element signature="e#1404#1525#0" expanded="false" />
+            <element signature="e#2441#2663#0" expanded="false" />
+            <element signature="e#2493#2645#0" expanded="false" />
+            <element signature="e#2605#2645#0" expanded="false" />
+            <element signature="e#2996#3100#1" expanded="false" />
+            <element signature="e#3794#3858#1" expanded="false" />
           </folding>
         </state>
       </provider>
