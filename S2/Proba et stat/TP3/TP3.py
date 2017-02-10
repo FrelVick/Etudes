@@ -133,7 +133,7 @@ def hummingerrorfixing(s):
 def codehumming(s):
     t = 0
     tocode = ""
-    coded = format(len(s) % 4, "04b")
+    coded = matrixmod(format(len(s) % 4, "04b"))
     for c in s:
         if t < 3:
             t += 1
@@ -170,7 +170,7 @@ def unhummingmessage(s):
         unhummed += unhummingseq(''.join(c))
     unhummed += ""
     if last != 0:
-        unhummed = unhummed[:-1 * last]
+        unhummed = unhummed[:(-4 + last)]
     return unhummed
 
 
@@ -182,7 +182,7 @@ def counterrors(s1, s2):
 
 
 def main():
-    seq = generateseq(p, 14)
+    seq = generateseq(p, 17)
     print("string:", seq)
     dictionary = list("".join(set(seq)))
     codedict = makecodefromstring(seq, dictionary)
@@ -192,6 +192,7 @@ def main():
     coded = encoding(seq, codedict)
     decoded = encoding(coded, decodedict)
     print("coded string:", coded)
+    print("coded formated string:   ", " ".join(coded[i:i + 4] for i in range(0, len(coded), 4)))
     print("decoded string:", decoded)
     print("len before coding (bit):", len(seq) * 8)
     print("len after coding (bit):", len(coded))
