@@ -182,7 +182,7 @@ def counterrors(s1, s2):
 
 
 def main():
-    seq = generateseq(p, 17)
+    seq = generateseq(p, 17)  # change here input length
     print("string:", seq)
     dictionary = list("".join(set(seq)))
     codedict = makecodefromstring(seq, dictionary)
