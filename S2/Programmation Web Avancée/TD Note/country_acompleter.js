@@ -22,12 +22,16 @@ var updateResults = function (tab) {
 var getCountry = function (letter) {
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "" /* <--- REMPLACER LA CHAÎNE VIDE PAR L'URL ADÉQUATE */);
+    xhr.open("GET", "https://www.lri.fr/~kn/php/country.php?q=" + letter /* <--- REMPLACER LA CHAÎNE VIDE PAR L'URL ADÉQUATE */);
     xhr.addEventListener("readystatechange", function () {
 
         /* À COMPLÉTER */
         /* Si la requête a réussi, décoder son résultat JSON et le passer en
          argument à updateResults */
+        if (xhr.readyState == 4) {
+            updateResults(JSON.parse(xhr.responseText));
+
+        }
 
     });
     xhr.send(null);
@@ -45,6 +49,6 @@ window.addEventListener("load", () = > {
      (3) appeler la fonction getCountry avec la lettre trouvée.
      */
 
-};;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+};
 )
 
