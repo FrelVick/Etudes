@@ -13,15 +13,7 @@ let init = function () {
 
     /*let imgs = [];*/
     let backgroundcontexts = drawbackgrounds(backgrounds);
-    document.onkeydown = function (eventObject) {
-        let e = window.event || eventObject, K = e.keyCode;
-        if (K === 37) {
-            movebackgrounds(backgroundcontexts, -1);
-        }
-        else if (K === 39) {
-            movebackgrounds(backgroundcontexts, 1);
-        }
-    };
+
 
 
     // TODO drawing obstacles
@@ -38,7 +30,15 @@ let init = function () {
     //console.log(backgrounds);
 
     // TODO background movement
-
+    document.onkeydown = function (eventObject) {
+        let e = window.event || eventObject, K = e.keyCode;
+        if (K === 37) {
+            movebackgrounds(backgroundcontexts, -1);
+        }
+        else if (K === 39) {
+            movebackgrounds(backgroundcontexts, 1);
+        }
+    };
 };
 
 window.addEventListener("load", init);

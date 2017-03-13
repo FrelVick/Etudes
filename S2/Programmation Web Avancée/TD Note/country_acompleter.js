@@ -38,7 +38,9 @@ var getCountry = function (letter) {
 };
 
 
-window.addEventListener("load", () = > {
+window.addEventListener("load", /*(e) = > */function () {
+
+
 
     /* À COMPLÉTER */
 
@@ -48,7 +50,24 @@ window.addEventListener("load", () = > {
      si le texte ne commence pas par une lettre majuscule ou minuscule, entre a et z, alors la première lettre est 'A'
      (3) appeler la fonction getCountry avec la lettre trouvée.
      */
+    var button = document.getElementById("button");
+    var input = document.getElementById("input");
 
-};
-)
+
+    button.addEventListener("click", function () {
+
+        var s = input.value, m;
+        const regex = /[a-zA-Z]/g;
+        m = regex.exec(s);
+        if (m != null) {
+            m = m[0].toUpperCase();
+        } else {
+            m = "A"
+        }
+        getCountry(m);
+
+
+    });
+
+});
 

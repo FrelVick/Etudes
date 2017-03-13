@@ -27,61 +27,29 @@ function movebackgrounds(ctxs, dx) {
 function drawbackgrounds(backgrounds) {
     let gamearea = document.getElementById("GameArea");
     let ctx = [];
+    let imgs = [];
+
     for (let [index, path] of backgrounds.entries()) {
-        gamearea.innerHTML += '<canvas class="canvas" id="background' + index + '" width="272" height="160"></canvas>';
-        /*let htmlelem = document.getElementById("background"+index);
-         ctx[index] = htmlelem.getContext("2d");
-         imgs[index] = new Image();
-         imgs[index].ctx = ctx[index];
-         imgs[index].id = index;
-         imgs[index].src = path;
-         imgs[index].onload = function () {
-         //ctx[this.id].drawImage(this,0,0);
-         console.log(this.id);
-         console.log(ctx);
-         console.log(this);
-         };
-         console.log(imgs[index].onload);
-         //console.log(index,img);*/
+        let htmlelem = document.createElement("canvas");
+        htmlelem.id = 'background' + index;
+        htmlelem.className = "canvas";
+        htmlelem.width = 272;
+        htmlelem.height = 160;
+        gamearea.appendChild(htmlelem);
+        ctx[index] = htmlelem.getContext("2d");
+        imgs[index] = new Image();
+        imgs[index].ctx = ctx[index];
+        imgs[index].id = index;
+        imgs[index].src = path;
+        imgs[index].onload = function () {
+            console.log();
+            ctx[this.id].drawImage(this, 0, 0);
+            console.log(this.id+"");
+            console.log(ctx[this.id]);
+            console.log(this);
+        };
 
     }
 
-    /*  Костыль  */
-
-    let Background0 = document.getElementById("background0");
-    ctx[0] = Background0.getContext("2d");
-    let img = new Image();
-    img.src = "img/skill-desc_0003_bg.png";
-    img.ctx = ctx[0];
-    img.onload = function () {
-        this.ctx.drawImage(this, 0, 0);
-    };
-
-    Background0 = document.getElementById("background1");
-    ctx[1] = Background0.getContext("2d");
-    let Img1 = new Image();
-    Img1.src = "img/skill-desc_0002_far-buildings.png";
-    Img1.ctx = ctx[1];
-    Img1.onload = function () {
-        this.ctx.drawImage(this, 0, 0);
-    };
-
-    Background0 = document.getElementById("background2");
-    ctx[2] = Background0.getContext("2d");
-    let Img2 = new Image();
-    Img2.src = "img/skill-desc_0001_buildings.png";
-    Img2.ctx = ctx[2];
-    Img2.onload = function () {
-        this.ctx.drawImage(this, 0, 0);
-    };
-
-    Background0 = document.getElementById("background3");
-    ctx[3] = Background0.getContext("2d");
-    let Img3 = new Image();
-    Img3.src = "img/skill-desc_0000_foreground.png";
-    Img3.ctx = ctx[3];
-    Img3.onload = function () {
-        this.ctx.drawImage(this, 0, 0);
-    };
     return ctx;
 }
