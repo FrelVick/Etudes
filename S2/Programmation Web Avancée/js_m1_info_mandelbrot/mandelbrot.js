@@ -52,8 +52,9 @@ Mandelbrot.movex = function (dx) {
     var deltax = dx * (Mandelbrot.xmin - Mandelbrot.xmax) / field.width;
     Mandelbrot.xmin += deltax;
     Mandelbrot.xmax += deltax;
+    update_coordinate();
     if (dx < 0) {
-        Mandelbrot.draw(field.width - dx);
+        Mandelbrot.draw(field.width - dx, 0, field.width, field.height);
     } else Mandelbrot.draw(0, 0, dx);
 };
 
@@ -64,6 +65,7 @@ Mandelbrot.upscale = function () {
     Mandelbrot.xmax -= deltax;
     Mandelbrot.ymin += deltay;
     Mandelbrot.ymax -= deltay;
+    update_coordinate();
     Mandelbrot.draw()
 };
 
@@ -72,11 +74,17 @@ Mandelbrot.setlimit = function (dl) {
     Mandelbrot.draw();
 };
 
+var update_coordinate = function () {
+    div_score = document.getElementById("rd");
+    div_score.innerHTML = "<p>" + Mandelbrot.xmax + ":" + Mandelbrot.ymin + "</p>";
+};
+
 document.onkeydown = function (eventObject) {
     var e = window.event || eventObject, K = e.keyCode;
     if (K == 37) Mandelbrot.movex(-10);
     else if (K == 39) Mandelbrot.movex(10);
 };
 window.onload = function () {
-    Mandelbrot.draw();
+    //Mandelbrot.draw();
+    update_coordinate();
 };
