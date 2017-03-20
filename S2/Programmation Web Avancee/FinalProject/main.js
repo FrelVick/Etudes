@@ -2,11 +2,11 @@
  * Created by wtflocal on 11.03.2017.
  */
 "use strict";
-let game;
-let offset=0;
+let game,drawman;
+let offset = 0;
 let init = function () {
     // loading of obstacles
-    let levelctx,drawlevel;
+    let levelctx, drawlevel;
     let s = '[[{"tileid":860,"obstacle":false,"fixed":false, "lethal":false}, {"tileid":5,"obstacle":false,"fixed":true, "lethal":false}, {"tileid":6,"obstacle":false,"fixed":true, "lethal":true},{"tileid":7,"obstacle":false,"fixed":true, "lethal":true},{"tileid":27,"obstacle":true,"fixed":true, "lethal":false},{"tileid":24,"obstacle":true,"fixed":true, "lethal":false},{"tileid":26,"obstacle":true,"fixed":true, "lethal":false},{"tileid":225,"obstacle":true,"fixed":true, "lethal":false},{"tileid":226,"obstacle":true,"fixed":true, "lethal":false}],' +
         '[[860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,' +
         '860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,' +
@@ -49,10 +49,10 @@ let init = function () {
     game = function () {
         levelctx = htmlelem.getContext("2d");
         console.log(map.level);
-        drawlevel = function(tiles,map, tileimg, ctx, doffset){
+        drawlevel = function (tiles, map, tileimg, ctx, doffset) {
             ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
             offset += doffset;
-            offset = offset < 0 ? 0 : (offset > map.width * tileimg.size - ctx.canvas.width ? map.width * tileimg.size - ctx.canvas.width : offset) ;
+            offset = offset < 0 ? 0 : (offset > map.width * tileimg.size - ctx.canvas.width ? map.width * tileimg.size - ctx.canvas.width : offset);
             for (var i = 0; i < map.width; i++) {
                 for (var j = 0; j < map.height; j++) {
                     var [img, dx, dy, sizex, sizey] = tileimg.gettile(tiles[map.level[j * map.width + i]].tileid);
@@ -61,32 +61,33 @@ let init = function () {
                 }
             }
         };
-        drawlevel(tiles,map,tileimg,levelctx, 0);
+        drawlevel(tiles, map, tileimg, levelctx, 0);
     };
 
+    //TODO Pers
 
-    /*let background1 = document.getElementById("background1");
-     let ctx1 = background0.getContext("2d");
-     let img1 = new Image();
-     img1.src = "img/exterior-parallaxBG2.png";
-     ctx1.drawImage(img1,0,0);*/
+    let persocanvas = document.createElement("canvas");
+    persocanvas.id = 'perso';
+    persocanvas.className = "canvas";
+    persocanvas.width = 272;
+    persocanvas.height = 160;
+    gamearea.appendChild(persocanvas);
+    let perso = new charachter('img/characters.png', 32, persocanvas.getContext("2d"));
+    drawman = function () {
+        var [img, dx, dy, sizex, sizey] = perso.getcharacter(8,0);
+        perso.ctx.drawImage(img, dx, dy, sizex, sizey, 0,112,sizex, sizey);
+    };
 
-
-    //console.log(tiles);
-    //console.log(map);
-    //console.log(tilesheet);
-    //console.log(backgrounds);
-
-    // TODO background movement
+    // TODO image movement
     document.onkeydown = function (eventObject) {
         let e = window.event || eventObject, K = e.keyCode;
         if (K === 37) {
             movebackgrounds(backgroundcontexts, -1);
-            drawlevel(tiles,map,tileimg,levelctx, 10);
+            drawlevel(tiles, map, tileimg, levelctx, 10);
         }
         else if (K === 39) {
             movebackgrounds(backgroundcontexts, 1);
-            drawlevel(tiles,map,tileimg,levelctx, -10);
+            drawlevel(tiles, map, tileimg, levelctx, -10);
         }
     };
 };
