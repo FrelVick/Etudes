@@ -6,15 +6,22 @@ let game;
 let init = function () {
     // loading of obstacles
 
-    let s = '[[{"tileid":2,"obstacle":false,"fixed":false, "lethal":false}, {"tileid":3,"obstacle":false,"fixed":true, "lethal":false}, {"tileid":4,"obstacle":false,"fixed":true, "lethal":true},{"tileid":21,"obstacle":false,"fixed":true, "lethal":true}],' +
-            '[[3,4,3,2,' +
-            '2,2,4,3,' +
-            '2,3,2,21]' +
-            ',4,3],' +
+    let s = '[[{"tileid":860,"obstacle":false,"fixed":false, "lethal":false}, {"tileid":5,"obstacle":false,"fixed":true, "lethal":false}, {"tileid":6,"obstacle":false,"fixed":true, "lethal":true},{"tileid":7,"obstacle":false,"fixed":true, "lethal":true},{"tileid":27,"obstacle":true,"fixed":true, "lethal":false},{"tileid":24,"obstacle":true,"fixed":true, "lethal":false},{"tileid":26,"obstacle":true,"fixed":true, "lethal":false},{"tileid":225,"obstacle":true,"fixed":true, "lethal":false},{"tileid":226,"obstacle":true,"fixed":true, "lethal":false}],' +
+        '[[860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,' +
+        '860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,' +
+        '860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,' +
+        '860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,' +
+        '860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,' +
+        '860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,' +
+        '860,860,860,860,860,860,225,226,225,226,225,226,225,860,860,860,860,' +
+        '860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,' +
+        '860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,860,' +
+        '5,6,6,6,6,6,7,27,24,24,24,26,5,6,6,6,7]' +
+        ',17,10],' +
         '["img/bofhblkalpha.png",16],' +
         '["img/skill-desc_0003_bg.png","img/skill-desc_0002_far-buildings.png","img/skill-desc_0001_buildings.png","img/skill-desc_0000_foreground.png"]]';
     let [tiles, map, tilesheet, backgrounds] = parse(s);
-    //console.log(tiles, map);
+    console.log(tiles, map);
 
     // TODO Drawing backgrounds
 
@@ -39,14 +46,14 @@ let init = function () {
     let tileimg = new tileimgs(tilesheet[0], tilesheet[1]);
 
     game = function () {
-        var [img, dx,dy,sizex,sizey] = tileimg.gettile(2);
+        var [img, dx, dy, sizex, sizey] = tileimg.gettile(2);
         let ctx = htmlelem.getContext("2d");
         console.log(map.level);
         for (var i = 0; i < map.width; i++) {
             for (var j = 0; j < map.height; j++) {
-                [img, dx,dy,sizex,sizey] = tileimg.gettile(tiles[map.level[j*map.width+i]].tileid);
-                console.log(img, dx,dy,sizex,sizey, i,j, map.level[j*map.width+i]);
-                ctx.drawImage(img, dx,dy,sizex,sizey, i*tileimg.size, j*tileimg.size, tileimg.size,tileimg.size);
+                [img, dx, dy, sizex, sizey] = tileimg.gettile(tiles[map.level[j * map.width + i]].tileid);
+                console.log(img, dx, dy, sizex, sizey, i, j, map.level[j * map.width + i]);
+                ctx.drawImage(img, dx, dy, sizex, sizey, i * tileimg.size, j * tileimg.size, tileimg.size, tileimg.size);
             }
         }
     }
