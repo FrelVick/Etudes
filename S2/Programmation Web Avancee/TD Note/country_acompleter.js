@@ -30,9 +30,7 @@ var getCountry = function (letter) {
          argument à updateResults */
         if (xhr.readyState == 4) {
             updateResults(JSON.parse(xhr.responseText));
-
         }
-
     });
     xhr.send(null);
 };
