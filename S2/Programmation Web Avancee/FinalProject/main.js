@@ -4,6 +4,8 @@
 "use strict";
 let game,drawman;
 let offset = 0;
+let eng;
+let perso;
 let init = function () {
     // loading of obstacles
     let levelctx, drawlevel;
@@ -72,22 +74,57 @@ let init = function () {
     persocanvas.width = 272;
     persocanvas.height = 160;
     gamearea.appendChild(persocanvas);
-    let perso = new charachter('img/characters.png', 32, persocanvas.getContext("2d"));
-    drawman = function () {
-        var [img, dx, dy, sizex, sizey] = perso.getcharacter(8,0);
-        perso.ctx.drawImage(img, dx, dy, sizex, sizey, 0,112,sizex, sizey);
-    };
+    perso = new charachter('img/characters.png', 32, persocanvas.getContext("2d"), 0, 112);
+    eng = new engine(perso);
+
+    var interval;
+    interval = setInterval(function () {
+        try {
+            eng.update();
+        } catch (e) {
+            clearInterval(interval);
+            throw (e);
+        }
+    }, 1000/60);
 
     // TODO image movement
     document.onkeydown = function (eventObject) {
-        let e = window.event || eventObject, K = e.keyCode;
-        if (K === 37) {
-            movebackgrounds(backgroundcontexts, -1);
-            drawlevel(tiles, map, tileimg, levelctx, 10);
+        let e = window.event || eventObject, k = e.keyCode;
+        switch (k)
+        {
+            case 37:
+                Vars.leftarrow = true;
+                break;
+            case 39:
+                Vars.rightarrow = true;
+                break;
+            case 38:
+                Vars.uparrow = true;
+                break;
+            case 16:
+                Vars.shift = true;
+                break;
+            case 27:
+                clearInterval(interval);
+                break;
         }
-        else if (K === 39) {
-            movebackgrounds(backgroundcontexts, 1);
-            drawlevel(tiles, map, tileimg, levelctx, -10);
+    };
+
+    document.onkeyup = function (eventObject) {
+        let e = window.event || eventObject, k = e.keyCode;
+        switch (k)
+        {
+            case 37:
+                Vars.leftarrow = false;
+                break;
+            case 39:
+                Vars.rightarrow = false;
+                break;
+            case 38:
+                Vars.uparrow = false;
+                break;
+            case 16:
+                Vars.shift = false;
         }
     };
 };
