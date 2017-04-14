@@ -70,7 +70,12 @@ class Engine {
                         dynamic_bodies[curr].acceleration = dynamic_bodies[curr].acceleration.mult_v(res);
                     } else {
                         if (this.static_bodies[j].death) {
-                            console.log("death")
+                            this.dynamic_bodies.push(new Body(new Vector(0, 50),
+                                this.dynamic_bodies[0].width,this.dynamic_bodies[0].height,
+                            true,this.dynamic_bodies[0].interaction_left_top, this.dynamic_bodies[0].interaction_right_down));
+
+                            this.dynamic_bodies.splice(0,1);
+
                         } else {
                             if (this.static_bodies[j].target) {
                                 this.static_bodies.splice(j, 1);
