@@ -178,7 +178,7 @@ class Character {
         if (this.inversed) {
             this.ctx.drawImage(this.img, this.frame * this.size +9, state.type * this.size+12, 15, 20, this.ctx.canvas.width - position.x - 16, position.y, 15, 20);
         } else {
-
+/*
             this.ctx.beginPath();
             this.ctx.rect(position.x - 1, position.y - 1, 15 + 1, 20 + 1);
             this.ctx.fillStyle = "red";
@@ -188,7 +188,7 @@ class Character {
             this.ctx.rect(eng.dynamic_bodies[0].origin.x - env.offset, eng.dynamic_bodies[0].origin.y, eng.dynamic_bodies[0].width, eng.dynamic_bodies[0].height);
             this.ctx.fillStyle = "blue";
             this.ctx.fill();
-
+*/
             this.ctx.drawImage(this.img, this.frame * this.size + 9, state.type * this.size + 12, 15, 20, position.x, position.y, 15, 20);
         }
     }

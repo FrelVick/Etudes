@@ -9,21 +9,22 @@ Engine.prototype.addBody = function (b) {
 
 
 Engine.prototype.removeBody = function (b) {
-    var i = this.bodies.findIndex (function (e) { return e == b; });
+    var i = this.bodies.findIndex(function (e) {
+        return e == b;
+    });
     if (i >= 0)
-	this.bodies.splice(i, 1);
+        this.bodies.splice(i, 1);
 };
 
 Engine.prototype.update = function (dt) {
 
-    for (var i = 0; i < this.bodies.length; i ++) {
+    if (this.bodies.length >= 5) {
+    //for (var i = 0; i < this.bodies.length; i++) {
 
-        var body = this.bodies[i];
-
-
+        var body = this.bodies[4];
 
         // On regarde si avec une telle vitesse il peut y avoir collision avec les autres objets.
-        for (var j = i+1; j < this.bodies.length; j++) {
+        for (var j = 0; j < this.bodies.length-1; j++) {
 
             var otherBody = this.bodies[j];
 
@@ -34,13 +35,15 @@ Engine.prototype.update = function (dt) {
                 body.velocity = res.velocity1;
                 otherBody.velocity = res.velocity2;
 
-            };
-        };
+            }
+            ;
+        }
+        ;
 
 
-	/* begin extra */
-	body.force = body.force.add(Constants.gravity);
-	/* end extra */
+        /* begin extra */
+        body.force = body.force.add(Constants.gravity);
+        /* end extra */
 
         // On calcule la nouvelle accéleration :
         var a = body.force.mult(body.invMass);
@@ -51,6 +54,7 @@ Engine.prototype.update = function (dt) {
         // On met à jour la position.
         body.move(body.velocity.mult(dt));
 
-    };
+    }
+    ;
 
 };
