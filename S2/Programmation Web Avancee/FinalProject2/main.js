@@ -14,7 +14,6 @@ let to_preload=[];
 let x;
 
 let phase0 = function (){
-    console.log(document.getElementById("player"));
     let checkImage = path =>
         new Promise(resolve => {
             let img = new Image();
@@ -40,7 +39,6 @@ let phase0 = function (){
 };
 
 let phase1 = function (level1_description) {
-    console.log(to_preload);
     init.imgs_back = [new Image(), new Image(), new Image(), new Image()];
     init.imgs_back[3].src = "img/skill-desc_0003_bg.png";
     init.imgs_back[2].src = "img/skill-desc_0002_far-buildings.png";
