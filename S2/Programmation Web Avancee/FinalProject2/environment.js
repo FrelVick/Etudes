@@ -14,22 +14,22 @@ class Environment {
     }
 
     update(new_position, state) { //status - бег, прыжок, падение, одетый?.
-        if ((new_position.x > (this.width / 5 | 0)) && (new_position.x < this.level_width - (this.width / 5 | 0))) { //если не скраю экрана
-            if (new_position.x > this.offset + ((this.width * 4 / 5) | 0)) { //если правее правой границы
-                this.backgrounds.draw(new_position.x - (this.width * 4 / 5 | 0) - this.offset);
-                this.offset = new_position.x - ((this.width * 4 / 5) | 0);
+        if ((new_position.x > (this.width / 4 | 0)) && (new_position.x < this.level_width - (this.width / 4 | 0))) { //если не скраю экрана
+            if (new_position.x > this.offset + ((this.width * 3 / 4) | 0)) { //если правее правой границы
+                this.backgrounds.draw(new_position.x - (this.width * 3 / 4 | 0) - this.offset);
+                this.offset = new_position.x - ((this.width * 3 / 4) | 0);
                 this.level.draw(this.offset);
             } else {
-                if (new_position.x < this.offset + (this.width / 5 | 0)) { //если левее левой
-                    this.backgrounds.draw(new_position.x - (this.width / 5 | 0) - this.offset);
-                    this.offset = new_position.x - this.width / 5 | 0;
+                if (new_position.x < this.offset + (this.width / 4 | 0)) { //если левее левой
+                    this.backgrounds.draw(new_position.x - (this.width / 4 | 0) - this.offset);
+                    this.offset = new_position.x - this.width / 4 | 0;
                     this.level.draw(this.offset);
                 }
             }
         } else {
             if ((this.offset !== 0) && (this.offset !== this.level_width - this.width)) { //если уперлись в стену, но оффсет не уперся в стену
                 let old_offset = this.offset;
-                this.offset = new_position.x <= (this.width / 5 | 0) ? 0 : this.level_width - this.width;
+                this.offset = new_position.x <= (this.width / 4 | 0) ? 0 : this.level_width - this.width;
                 this.level.draw(this.offset);
                 this.backgrounds.draw(this.offset - old_offset);
             }

@@ -122,6 +122,15 @@ let phase3 = function (string) {
         }
     }, 1000 / 60);
 
+    let second_interval = setInterval(function () {
+        try {
+            renderer.update_fps();
+        } catch (e) {
+            clearInterval(second_interval);
+            throw (e);
+        }
+    }, 1000 / 60);
+
     document.onkeydown = function (eventObject) {
         let e = window.event || eventObject, k = e.keyCode;
         switch (k) {
