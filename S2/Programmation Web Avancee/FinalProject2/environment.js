@@ -73,6 +73,7 @@ class Background {
         let i = 0;
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         while (-this.offset + i * this.img.width < this.ctx.canvas.width) {
+            if (i>100) {break};
             this.ctx.drawImage(this.img, -this.offset + i * this.img.width, 0);
             i++;
         }
