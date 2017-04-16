@@ -128,9 +128,6 @@ let phase1 = function (level1_description) {
         new Vector(-level1_description.tilewidth, -level1_description.tileheight),
         new Vector(level1_description.tilewidth + 16, level1_description.tileheight + 16));
     eng.addBody(x);
-    //phase2(eng);
-    let down_board = new Body(new Vector(0, 160), 600, 100);
-    eng.addBody(down_board);
 
     env = new Environment(init.imgs_back, init.cnvs_back, init.tile_img, init.tiles, init.chr_img,
         level1_description.tilewidth * level1_description.width);

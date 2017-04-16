@@ -90,8 +90,7 @@ class Character {
         this.dom = document.getElementById("player");
         this.ctx = this.dom.getContext("2d");
         this.size = 32;
-        this.prev_state = {};
-        this.frame_rate = 8;
+        this.frame_rate = 6;
         this.frame_counter = 0;
         this.frame = 0;
         this.inversed = false;
@@ -99,9 +98,7 @@ class Character {
 
     draw(position, state) {
         this.frame_counter += 1;
-        //расчитать новую картинку для отображения
-
-        //TODO добавить приземление
+        //choose image to draw
 
         if (!(this.frame_counter % this.frame_rate)) {
             switch (state.status) {
@@ -128,12 +125,8 @@ class Character {
         //отобразить
         if (state.to_left !== this.inversed) {
             if (this.inversed) {
-                //this.ctx.translate(0, 0);
-                //this.ctx.scale(-1, 1);
                 this.dom.style.transform = "scaleX(1)";
             } else {
-                //this.ctx.translate(this.ctx.canvas.width, 0);
-                //this.ctx.scale(-1, 1);
                 this.dom.style.transform = "scaleX(-1)";
             }
         }
@@ -142,17 +135,6 @@ class Character {
         if (this.inversed) {
             this.ctx.drawImage(this.img, this.frame * this.size + 9, state.type * this.size + 12, 15, 20, this.ctx.canvas.width - position.x - 16, position.y, 15, 20);
         } else {
-            /*
-             this.ctx.beginPath();
-             this.ctx.rect(position.x - 1, position.y - 1, 15 + 1, 20 + 1);
-             this.ctx.fillStyle = "red";
-             this.ctx.fill();
-
-             this.ctx.beginPath();
-             this.ctx.rect(eng.dynamic_bodies[0].origin.x - env.offset, eng.dynamic_bodies[0].origin.y, eng.dynamic_bodies[0].width, eng.dynamic_bodies[0].height);
-             this.ctx.fillStyle = "blue";
-             this.ctx.fill();
-             */
             this.ctx.drawImage(this.img, this.frame * this.size + 9, state.type * this.size + 12, 15, 20, position.x, position.y, 15, 20);
         }
     }
@@ -166,7 +148,6 @@ class Environment {
         this.offset = 0;
         this.width = document.getElementById("level").width; // ширина видимой части экрана
         this.level_width = level_width;
-        this.frame_counter = 0;
 
     }
 

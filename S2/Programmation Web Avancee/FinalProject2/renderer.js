@@ -1,8 +1,8 @@
 "use strict";
 /*jshint -W117,-W098,-W016*/
 class Renderer {
-    constructor(e, env) {
-        this.engine = e;
+    constructor(eng, env) {
+        this.engine = eng;
         this.env = env;
         this.offset = 0;
         this.filter_strenght = 10;
