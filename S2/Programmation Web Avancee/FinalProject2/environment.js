@@ -1,41 +1,25 @@
-/**
- * Created by Виктор on 08.04.2017.
- */
-class Environment {
-    constructor(imgs_back, cnvs_back, tile_img, tiles, chr_img) {
-        this.backgrounds = new Backgroungs(imgs_back, cnvs_back);
-        this.level = new Level(tile_img, tiles);
-        this.character = new Character(chr_img);
+"use strict";
+/*jshint -W117,-W098,-W016*/
+class Background {
+    constructor(img, ctx) {
+        this.img = img;
+        this.ctx = ctx;
         this.offset = 0;
-        this.width = 272; // ширина видимой части экрана
-        this.level_width = 512;
-        this.frame_counter = 0;
-
+        this.draw(0);
     }
 
-    update(new_position, state) { //status - бег, прыжок, падение, одетый?.
-        if ((new_position.x > (this.width / 4 | 0)) && (new_position.x < this.level_width - (this.width / 4 | 0))) { //если не скраю экрана
-            if (new_position.x > this.offset + ((this.width * 3 / 4) | 0)) { //если правее правой границы
-                this.backgrounds.draw(new_position.x - (this.width * 3 / 4 | 0) - this.offset);
-                this.offset = new_position.x - ((this.width * 3 / 4) | 0);
-                this.level.draw(this.offset);
-            } else {
-                if (new_position.x < this.offset + (this.width / 4 | 0)) { //если левее левой
-                    this.backgrounds.draw(new_position.x - (this.width / 4 | 0) - this.offset);
-                    this.offset = new_position.x - this.width / 4 | 0;
-                    this.level.draw(this.offset);
-                }
+    draw(back_move) {
+        //если offset больше, чем ширина - сбросить в ноль
+        this.offset = this.offset + back_move >= this.ctx.canvas.width ? 0 : this.offset + back_move;
+        let i = 0;
+        this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+        while (-this.offset + i * this.img.width < this.ctx.canvas.width) {
+            if (i > 100) {
+                break;
             }
-        } else {
-            if ((this.offset !== 0) && (this.offset !== this.level_width - this.width)) { //если уперлись в стену, но оффсет не уперся в стену
-                let old_offset = this.offset;
-                this.offset = new_position.x <= (this.width / 4 | 0) ? 0 : this.level_width - this.width;
-                this.level.draw(this.offset);
-                this.backgrounds.draw(this.offset - old_offset);
-            }
+            this.ctx.drawImage(this.img, -this.offset + i * this.img.width, 0);
+            i++;
         }
-        this.character.draw(new_position.sub(new Vector(this.offset, 0)), state);
-
     }
 }
 
@@ -56,27 +40,6 @@ class Backgroungs {
             }
         }
         this.back_offset += delta_offset;
-    }
-}
-
-class Background {
-    constructor(img, ctx) {
-        this.img = img;
-        this.ctx = ctx;
-        this.offset = 0;
-        this.draw(0);
-    }
-
-    draw(back_move) {
-        //если offset больше, чем ширина - сбросить в ноль
-        this.offset = this.offset + back_move >= this.ctx.canvas.width ? 0 : this.offset + back_move;
-        let i = 0;
-        this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-        while (-this.offset + i * this.img.width < this.ctx.canvas.width) {
-            if (i>100) {break};
-            this.ctx.drawImage(this.img, -this.offset + i * this.img.width, 0);
-            i++;
-        }
     }
 }
 
@@ -114,9 +77,9 @@ class Tile {
             if (((item.x + 1) * this.tile_size > offset) && (item.x * this.tile_size < offset + width + this.tile_size)) {
                 ctx.drawImage(img, this.coordinates.x * this.tile_size, this.coordinates.y * this.tile_size,
                     this.tile_size, this.tile_size, item.x * this.tile_size - offset, item.y * this.tile_size,
-                    this.tile_size, this.tile_size)
+                    this.tile_size, this.tile_size);
             }
-        })
+        });
     }
 
 }
@@ -177,20 +140,58 @@ class Character {
         this.inversed = state.to_left;
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         if (this.inversed) {
-            this.ctx.drawImage(this.img, this.frame * this.size +9, state.type * this.size+12, 15, 20, this.ctx.canvas.width - position.x - 16, position.y, 15, 20);
+            this.ctx.drawImage(this.img, this.frame * this.size + 9, state.type * this.size + 12, 15, 20, this.ctx.canvas.width - position.x - 16, position.y, 15, 20);
         } else {
-/*
-            this.ctx.beginPath();
-            this.ctx.rect(position.x - 1, position.y - 1, 15 + 1, 20 + 1);
-            this.ctx.fillStyle = "red";
-            this.ctx.fill();
+            /*
+             this.ctx.beginPath();
+             this.ctx.rect(position.x - 1, position.y - 1, 15 + 1, 20 + 1);
+             this.ctx.fillStyle = "red";
+             this.ctx.fill();
 
-            this.ctx.beginPath();
-            this.ctx.rect(eng.dynamic_bodies[0].origin.x - env.offset, eng.dynamic_bodies[0].origin.y, eng.dynamic_bodies[0].width, eng.dynamic_bodies[0].height);
-            this.ctx.fillStyle = "blue";
-            this.ctx.fill();
-*/
+             this.ctx.beginPath();
+             this.ctx.rect(eng.dynamic_bodies[0].origin.x - env.offset, eng.dynamic_bodies[0].origin.y, eng.dynamic_bodies[0].width, eng.dynamic_bodies[0].height);
+             this.ctx.fillStyle = "blue";
+             this.ctx.fill();
+             */
             this.ctx.drawImage(this.img, this.frame * this.size + 9, state.type * this.size + 12, 15, 20, position.x, position.y, 15, 20);
         }
+    }
+}
+
+class Environment {
+    constructor(imgs_back, cnvs_back, tile_img, tiles, chr_img, level_width) {
+        this.backgrounds = new Backgroungs(imgs_back, cnvs_back);
+        this.level = new Level(tile_img, tiles);
+        this.character = new Character(chr_img);
+        this.offset = 0;
+        this.width = document.getElementById("level").width; // ширина видимой части экрана
+        this.level_width = level_width;
+        this.frame_counter = 0;
+
+    }
+
+    update(new_position, state) { //status - бег, прыжок, падение, одетый?.
+        if ((new_position.x > (this.width / 4 | 0)) && (new_position.x < this.level_width - (this.width / 4 | 0))) { //если не скраю экрана
+            if (new_position.x > this.offset + ((this.width * 3 / 4) | 0)) { //если правее правой границы
+                this.backgrounds.draw(new_position.x - (this.width * 3 / 4 | 0) - this.offset);
+                this.offset = new_position.x - ((this.width * 3 / 4) | 0);
+                this.level.draw(this.offset);
+            } else {
+                if (new_position.x < this.offset + (this.width / 4 | 0)) { //если левее левой
+                    this.backgrounds.draw(new_position.x - (this.width / 4 | 0) - this.offset);
+                    this.offset = new_position.x - this.width / 4 | 0;
+                    this.level.draw(this.offset);
+                }
+            }
+        } else {
+            if ((this.offset !== 0) && (this.offset !== this.level_width - this.width)) { //если уперлись в стену, но оффсет не уперся в стену
+                let old_offset = this.offset;
+                this.offset = new_position.x <= (this.width / 4 | 0) ? 0 : this.level_width - this.width;
+                this.level.draw(this.offset);
+                this.backgrounds.draw(this.offset - old_offset);
+            }
+        }
+        this.character.draw(new_position.sub(new Vector(this.offset, 0)), state);
+
     }
 }

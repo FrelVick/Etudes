@@ -2,6 +2,7 @@
  * Created by Виктор on 06.04.2017.
  */
 "use strict";
+/*jshint -W117,-W098,-W016*/
 class Vector {
     constructor(x, y) {
         this.x = x;
@@ -14,7 +15,7 @@ class Vector {
 
     add_wo_overflow(v, b) {
         return new Vector(Math.abs(this.x + v.x) > b.x ? Math.sign(this.x + v.x) * b.x : this.x + v.x,
-            Math.abs(this.y + v.y) > b.y ? Math.sign(this.y + v.y) * b.y : this.y + v.y)
+            Math.abs(this.y + v.y) > b.y ? Math.sign(this.y + v.y) * b.y : this.y + v.y);
     }
 
     sub(v) {
@@ -26,11 +27,11 @@ class Vector {
     }
 
     pow(k) {
-        return new Vector(Math.pow(this.x, k), Math.pow(this.y, k))
+        return new Vector(Math.pow(this.x, k), Math.pow(this.y, k));
     }
 
     mult_v(v) {
-        return new Vector(this.x * v.x, this.y * v.y)
+        return new Vector(this.x * v.x, this.y * v.y);
     }
 
     dot(v) {
@@ -46,7 +47,7 @@ class Vector {
     }
 
     axe_not_moved() {
-        return new Vector(this.x == 0 | 0, this.y == 0 | 0)
+        return new Vector(this.x === 0 | 0, this.y === 0 | 0);
     }
 
     invert_x() {

@@ -1,6 +1,5 @@
-/**
- * Created by Виктор on 10.04.2017.
- */
+"use strict";
+/*jshint -W117,-W098,-W016*/
 class Renderer {
     constructor(e, env) {
         this.engine = e;
@@ -9,14 +8,14 @@ class Renderer {
         this.filter_strenght = 10;
         this.element = document.getElementById("fps");
         this.frame_time = 0;
-        this.last_loop = new Date;
-        this.this_loop = new Date;
+        this.last_loop = new Date();
+        this.this_loop = new Date();
     }
 
     update(dt) {
         this.engine.update(dt);
         this.env.update(this.engine.dynamic_bodies[0].origin, this.engine.dynamic_bodies[0].state);
-        this.frame_time += (((this.this_loop = new Date)-this.last_loop)-this.frame_time)/this.filter_strenght;
+        this.frame_time += (((this.this_loop = new Date())-this.last_loop)-this.frame_time)/this.filter_strenght;
         this.last_loop = this.this_loop;
     }
 
