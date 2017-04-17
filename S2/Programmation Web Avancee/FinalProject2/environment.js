@@ -9,17 +9,15 @@ class Background {
     }
 
     draw(back_move) {
-        //если offset больше, чем ширина - сбросить в ноль
+        //if offset bigger then width - offset = 0
         this.offset = this.offset + back_move >= this.ctx.canvas.width ? 0 : this.offset + back_move;
         let i = 0;
         this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
         while (-this.offset + i * this.img.width < this.ctx.canvas.width) {
-            if (i > 100) {
-                break;
-            }
             this.ctx.drawImage(this.img, -this.offset + i * this.img.width, 0);
             i++;
         }
+
     }
 }
 
@@ -60,8 +58,8 @@ class Level {
 class Tile {
     constructor(id, tile_column, usagex, usagey) {
         this.id = id;
-        this.coordinates = {x: id % tile_column - 1, y: (id / tile_column) | 0}; //номер линии и столбца в картинке тайлов
-        this.usage = [];//экранные координаты появления каждого тайла
+        this.coordinates = {x: id % tile_column - 1, y: (id / tile_column) | 0}; //line and column in tile sheet
+        this.usage = [];                            //coordinates of each appearance
         this.add_usage(usagex, usagey);
         this.tile_size = 16;
 
