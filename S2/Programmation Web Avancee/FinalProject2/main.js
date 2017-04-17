@@ -124,6 +124,15 @@ let phase1 = function (level1_description) {
             });
         }
     });
+
+    //adding invisible wall
+    for (let i = 0; i <= level1_description.height; i++) {
+        eng.addBody(new Obstacle(new Vector(-level1_description.tilewidth, - 1 + i * level1_description.tileheight),
+            level1_description.tilewidth, level1_description.tileheight, true, false, false));
+        eng.addBody(new Obstacle(new Vector(level1_description.tilewidth*level1_description.width, - 1 + i * level1_description.tileheight),
+            level1_description.tilewidth, level1_description.tileheight, true, false, false));
+    }
+
     let x = new Body(new Vector(0, 50), 15, 20, true,
         new Vector(-level1_description.tilewidth - 1, -level1_description.tileheight - 1),
         new Vector(level1_description.tilewidth + 16, level1_description.tileheight + 16));
