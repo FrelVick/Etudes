@@ -1,7 +1,11 @@
-canvas {
+.absolute {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
     image-rendering: pixelated;
+    z-index: 1;
+}
+.fps {
+    font-size: large;
+    color: red;
 }
