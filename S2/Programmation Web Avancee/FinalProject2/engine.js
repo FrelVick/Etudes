@@ -19,9 +19,6 @@ class Engine {
     update(dt) {
 
         this.dynamic_bodies.forEach(function (item, curr, dynamic_bodies) {
-            let top_left_interaction = item.origin.add(item.interaction_left_top);
-            let right_down_interaction = item.origin.add(item.interaction_right_down);
-            dynamic_bodies[curr].state.status = "wait";
             // 1. recalculating of acceleration
             if (this.key_pressed.left !== this.key_pressed.right) {
                 dynamic_bodies[curr].state.to_left = false;
@@ -72,12 +69,15 @@ class Engine {
                 dynamic_bodies[curr].velocity.mult_v(Constants.deceleration.pow(dt)) :
                 dynamic_bodies[curr].velocity;
 
-            dynamic_bodies[curr].velocity = Math.abs(item.velocity.y) < Constants.min_speed.y ?
-                dynamic_bodies[curr].velocity.mult_v(Vector.UNIT_X) : dynamic_bodies[curr].velocity;
+            /*dynamic_bodies[curr].velocity = Math.abs(item.velocity.y) < Constants.min_speed.y ?
+                dynamic_bodies[curr].velocity.mult_v(Vector.UNIT_X) : dynamic_bodies[curr].velocity;*/
 
             // 4. recalculating of position
 
             dynamic_bodies[curr].move(dynamic_bodies[curr].velocity.mult(dt));
+
+            let top_left_interaction = item.origin.add(item.interaction_left_top);
+            let right_down_interaction = item.origin.add(item.interaction_right_down);
 
             // 5. collision
             dynamic_bodies[curr].state.on_floor = false;
@@ -119,12 +119,12 @@ class Engine {
 
             // 6. update character status
 
-
+            dynamic_bodies[curr].state.status = "wait";
             if (item.velocity.y > 0) {
-                dynamic_bodies[curr].state.status = "jump_up";
+                dynamic_bodies[curr].state.status = "jump_down";
             } else {
                 if (item.velocity.y < 0) {
-                    dynamic_bodies[curr].state.status = "jump_down";
+                    dynamic_bodies[curr].state.status = "jump_up";
                 } else {
                     if (item.velocity.x !== 0) {
                         if (item.maxspeed === Constants.max_boosted_speed) {
