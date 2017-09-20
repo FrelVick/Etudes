@@ -94,10 +94,7 @@ SUPPORT
   //TODO multiplication
   multinterval :: Interval * Interval -> Interval
   multinterval(valLeft,valRight) = 
-    let resultleft =
-      if (valLeft#1 = bot) || (valRight#1 = bot) || (valLeft#2 = bot) || (valRight#2 = bot)
-        then bot
-        else if (valLeft#1 = top) || (valRight#1 = top) || (valLeft#2 = top) || (valRight#2 = top)
+    case (valLeft#1,val)  
 
   maximum :: snum * snum -> snum
   maximum(a,b) =
