@@ -60,7 +60,10 @@ SUPPORT
                                         "+" => addinterval(valLeft,valRight);
                                         "-" => subinterval(valLeft,valRight);
                                         "*" => multinterval(valLeft,valRight);
-                                        "/" => 
+                                        "/" => if intersectioninterval(valRight,(lift(0),lift(0))) != (top,bot)
+                                                then (bot,top)
+                                                else divinterval(valLeft,valRight)
+                                               endif;
                                       endcase;
               endcase;
 
@@ -270,25 +273,13 @@ SUPPORT
           endcase in
         (resultleft,resultright)
 
-  intervalintersection :: Interval * Interval -> Interval
-  intervalintersection(valLeft,valRight) = 
-    case (valLeft#1,valLeft#2,valRight#1,valRight#2) of
-      bot,_,_,_ =>  if valRight#1 = bot then (bot,lift(minimum(drop(valLeft#2),drop(valRight#2)))) else
-                      let x2 = drop(valLeft#2), x3 = drop(valRight#1) in
-                        if x2<x3 then (top,bot) else
-                          if valRight#2 = top then (lift(x3),lift(x2))
-                            else (lift(x3),lift(minimum(x2,drop(valRight#2))))
-                          endif
-                        endif
-                    endif;
-      _,_,bot,_ =>  let x1 = drop(valLeft#1), x4 = drop(valRight#2) in
-                      if x4<x1 then (top,bot) else
-                        if valLeft#2 = top then (lift(x3),lift(x2))
-                          else (lift(x1),lift(minimum(x4,drop(valLeft#2))))
-                        endif
-                      endif;
-      
+  intersectioninterval :: Interval * Interval -> Interval
+  intersectioninterval(valLeft,valRight) = 
+    (maxflat(valLeft#1,valRight#1),minflat(valLeft#2,valRight#2))
 
+  unioninterval :: Interval * Interval -> Interval
+  unioninterval(valLeft,valRight) =
+    (minflat(valLeft#1,valRight#1),maxflat(valLeft#2,valRight#2))  
 
   maximum :: snum * snum -> snum
   maximum(a,b) =
@@ -297,6 +288,26 @@ SUPPORT
   minimum :: snum * snum -> snum
   minimum(a,b) = 
     if a < b then a else b endif
+
+  maxflat :: ConstFlattened * ConstFlattened -> ConstFlattened
+  maxflat(x1,x2) = 
+    case(x1,x2) of 
+      top,_ => x1;
+      _,top => x2;
+      bot,_ => x2;
+      _,bot => x1;
+      _     => maximum(drop(x1),drop(x2));
+    endcase
+
+  minflat :: ConstFlattened * ConstFlattened -> ConstFlattened
+  minflat(x1,x2) = 
+    case(x1,x2) of 
+      bot,_ => x1;
+      _,bot => x2;
+      top,_ => x2;
+      _,top => x1;
+      _     => minimum(drop(x1),drop(x2));
+    endcase
 
   evalAExp :: Expression * State -> ConstFlattened
   evalAExp(expression, state) =
