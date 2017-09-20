@@ -56,7 +56,7 @@ SUPPORT
                 _,   _,   _,   bot => (top, bot);
                 bot, top, _,   _   => (bot, top);
                 _,   _,   bot, top => (bot, top);
-                _,   _,   _,   _   => case expOp(expression) of
+                _                  => case expOp(expression) of
                                         "+" => addinterval(valLeft,valRight);
                                         "-" => subinterval(valLeft,valRight);
                                         "*" => multinterval(valLeft,valRight);
@@ -66,6 +66,15 @@ SUPPORT
                                                endif;
                                       endcase;
               endcase;
+      "ARITH_UNARY" =>
+        case expOp(expression) of
+          "-" =>  let value <= evalAExp(expSub(expression), state) in
+                    multinterval(value,(lift(-1),lift(-1)));
+        endcase;
+      "VAR"   =>  state ( expVar(expression) );
+      "CONST" =>  (expVal(expression),expVal(expression));
+      _       => error("Runtime Error: evalAExp applied to nonarithmetic Expression");
+    endcase;
 
   addinterval :: Interval * Interval -> Interval
   addinterval(valLeft,valRight) = 
@@ -308,38 +317,6 @@ SUPPORT
       _,top => x1;
       _     => minimum(drop(x1),drop(x2));
     endcase
-
-  evalAExp :: Expression * State -> ConstFlattened
-  evalAExp(expression, state) =
-    case expType(expression) of
-      "ARITH_BINARY" => case expOp(expression) of
-        "+" => let valLeft  <= evalAExp(expSubLeft(expression),  state),
-                   valRight <= evalAExp(expSubRight(expression), state) in
-                 lift(valLeft + valRight);
-        "-" => let valLeft  <= evalAExp(expSubLeft(expression),  state),
-                   valRight <= evalAExp(expSubRight(expression), state) in
-                 lift(valLeft - valRight);
-        "*" => let valLeft  <= evalAExp(expSubLeft(expression),  state),
-                   valRight <= evalAExp(expSubRight(expression), state) in
-                 lift(valLeft * valRight);
-        "/" => let valLeft  <= evalAExp(expSubLeft(expression),  state),
-                   valRight <= evalAExp(expSubRight(expression), state) in
-                 if valRight = 0 then
-                   top
-                 else lift(valLeft / valRight) endif;
-        endcase;
-      "ARITH_UNARY" =>
-	case expOp(expression) of
-          "-" => let value <= evalAExp(expSub(expression), state) in
-                   lift(-(value));
-        endcase;
-      "VAR"   => state ( expVar(expression) );
-      "CONST" => lift(expVal(expression));
-      _       => error("Runtime Error: evalAExp applied to nonarithmetic Expression");
-    endcase
-
-
-  
 
   evalBExp :: Expression * State -> BoolFlattened
   evalBExp(expression,state) = 
