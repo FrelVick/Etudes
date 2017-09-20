@@ -52,8 +52,8 @@ SUPPORT
         let valLeft  <= evalAExp(expSubLeft(expression),  state),
             valRight <= evalAExp(expSubRight(expression), state) in
               case (valLeft#1, valLeft#2, valRight#1, valRight#2) of
-                _,   bot, _,   _   => error("Runtime Error: evalAExp applied to nondefined Expression");
-                _,   _,   _,   bot => error("Runtime Error: evalAExp applied to nondefined Expression");
+                _,   bot, _,   _   => (top, bot);
+                _,   _,   _,   bot => (top, bot);
                 bot, top, _,   _   => (bot, top);
                 _,   _,   bot, top => (bot, top);
                 _,   _,   _,   _   => case expOp(expression) of
@@ -80,15 +80,17 @@ SUPPORT
   subinterval :: Interval * Interval -> Interval
   subinterval(valLeft,valRight) = 
     let resultleft =
-          if (valLeft#1 = bot) || (valRight#1 = bot)
+          if (valLeft#1 = bot) || (valRight#2 = top)
             then bot
             else lift(drop(valLeft#1) - drop(valRight#2)) endif,
         resultright = 
-          if (valLeft#2 = top) || (valRight#2 = top)
+          if (valLeft#2 = bot) || (valRight#1 = top)
             then top
-            else lift(drop(valLeft#2) - drop(valRight#2)) endif in
+            else lift(drop(valLeft#2) - drop(valRight#1)) endif in
         (resultleft, resultright)
-
+  
+  
+  
   //TODO multiplication
   multinterval :: Interval * Interval -> Interval
   multinterval(valLeft,valRight) = 
@@ -97,38 +99,24 @@ SUPPORT
         then bot
         else if (valLeft#1 = top) || (valRight#1 = top) || (valLeft#2 = top) || (valRight#2 = top)
 
-  maximum :: ConstFlattened * ConstFlattened * ConstFlattened * ConstFlattened -> ConstFlattened
-  maximum(a,b,c,d) = 
-  
-  maximum :: ConstFlattened * ConstFlattened * ConstFlattened * ConstFlattened -> ConstFlattened
-  maximum(a,b,c,d) = 
-  let x1 = a > b,
-      x2 = a > c,
-      x3 = a > d,
-      x4 = b > c,
-      x5 = b > d,
-      x6 = c > d in
-      case (x1,x2,x3,x4,x5,x6) of
-        true,true,true,_,_,_    => a;
-        false,_,_,true,true,_   => b;
-        _, false,_,false,_,true => c;
-        _,_,false,_,false,false => d;
-      endcase
+  maximum :: snum * snum -> snum
+  maximum(a,b) =
+    if a > b then a else b endif
 
-  minimum :: ConstFlattened * ConstFlattened * ConstFlattened * ConstFlattened -> ConstFlattened
-  minimum(a,b,c,d) = 
-  let x1 = a < b,
-      x2 = a < c,
-      x3 = a < d,
-      x4 = b < c,
-      x5 = b < d,
-      x6 = c < d in
-      case (x1,x2,x3,x4,x5,x6) of
-        true,true,true,_,_,_    => a;
-        false,_,_,true,true,_   => b;
-        _, false,_,false,_,true => c;
-        _,_,false,_,false,false => d;
-      endcase
+  minimum :: snum * snum -> snum
+  minimum(a,b) = 
+    if a < b then a else b endif
+
+  multconstflat :: ConstFlattened * ConstFlattened -> ConstFlattened
+  multconstflat(a,b) =
+    let lnegative =
+      case (a) of
+        bot => true;
+        
+      case (a,b) of
+        bot, _ => ;
+        top, bot => top;
+        <0
 
   evalAExp :: Expression * State -> ConstFlattened
   evalAExp(expression, state) =
