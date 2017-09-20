@@ -92,9 +92,14 @@ SUPPORT
   //TODO multiplication
   multinterval :: Interval * Interval -> Interval
   multinterval(valLeft,valRight) = 
-    minimum(valLeft#1*)
+    let resultleft =
+      if (valLeft#1 = bot) || (valRight#1 = bot) || (valLeft#2 = bot) || (valRight#2 = bot)
+        then bot
+        else if (valLeft#1 = top) || (valRight#1 = top) || (valLeft#2 = top) || (valRight#2 = top)
 
-
+  maximum :: ConstFlattened * ConstFlattened * ConstFlattened * ConstFlattened -> ConstFlattened
+  maximum(a,b,c,d) = 
+  
   maximum :: ConstFlattened * ConstFlattened * ConstFlattened * ConstFlattened -> ConstFlattened
   maximum(a,b,c,d) = 
   let x1 = a > b,
