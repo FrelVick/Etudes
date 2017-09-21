@@ -10,7 +10,7 @@ PROBLEM Constant_Propagation
 
   direction  : forward
   carrier    : State
-  init       : (top, bot)
+  init       : bot
   init_start : [-> (bot,top)]
   combine    : lub
 
@@ -104,7 +104,7 @@ SUPPORT
             else lift(drop(valLeft#2) - drop(valRight#1)) endif in
         (resultleft, resultright)
   
-  multinterval :: Interval * Interval -> Interval
+  /*multinterval :: Interval * Interval -> Interval
   multinterval(valLeft,valRight) = 
     let resultleft =
           case valLeft#1,valLeft#2,valRight#1,valRight#2 of
@@ -195,7 +195,7 @@ SUPPORT
                             lift(maximum(maximum(maximum(x1*x3,x1*x4),x2*x3),x2*x4));
           endcase in
         (resultleft,resultright)
-
+*/
   divinterval :: Interval * Interval -> Interval
   divinterval(valLeft,valRight) = 
     let resultleft =
@@ -287,6 +287,85 @@ SUPPORT
                             lift(maximum(maximum(maximum(x1/x3,x1/x4),x2/x3),x2/x4));
           endcase in
         (resultleft,resultright)
+  
+  
+  multinterval :: Interval * Interval -> Interval
+  multinterval(valLeft,valRight) =
+    case valLeft#1,valLeft#2,valRight#1,valRight#2 of
+      bot, _, _, _ => if (valRight#1 = bot)
+                        then    // (bot,int),(bot,int)
+                          let x2 = drop(valLeft#2), x4 = drop(valRight#2) in
+                            case x2 > 0, x4 > 0 of
+                              true, true   => (bot,lift(x2*x4));
+                              true, false  => (bot,top);
+                              false,true   => (bot,top);
+                              false,false  => (lift(x2*x4),top);
+                            endcase
+                        else    // (bot,int),(int,_)
+                          if (valRight#2 = top)
+                            then    // (bot,int),(int,top)
+                              let x2 = drop(valLeft#2), x3 = drop(valRight#1) in
+                                case x2 > 0, x3 > 0 of
+                                  true, true  =>  (bot,top);
+                                  true, false =>  (lift(x2*x3),top);
+                                  false,true  =>  (bot,lift(x2*x3));
+                                  false,false =>  (bot,top);
+                                endcase
+                            else    // (bot,int),(int,int)
+                              let x2 = drop(valLeft#2), x3 = drop(valRight#1), x4 = drop(valRight#2) in
+                                case x3 > 0, x4 > 0 of
+                                  true, true  =>  (bot,lift(maximum(x2*x3,x2*x4)));
+                                  false,true  =>  (bot, top);
+                                  false,false =>  (lift(minimum(x2*x3,x2*x4)),top);
+                                endcase
+                          endif
+                      endif;
+      _, _, bot, _ => if (valLeft#2 = top)
+                        then    // (int,top),(bot,int)
+                          let x1 = drop(valLeft#1), x4 = drop(valRight#2) in
+                            case x1 > 0, x4 > 0 of
+                              true, true  =>  (bot,top);
+                              true, false =>  (bot,lift(x1*x4));
+                              false,true  =>  (lift(x1*x4,top));
+                              false,false =>  (bot,top);
+                            endcase
+                        else    // (int,int),(bot,int)
+                          let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x4 = drop(valRight#2) in
+                            case x1 > 0, x2 > 0 of
+                              true, true  =>  (bot,lift(maximum(x1*x4,x2*x4)));
+                              false,true  =>  (bot, top);
+                              false,false =>  (lift(minimum(x1*x4,x2*x4)),top);
+                            endcase
+                      endif;
+      _, top, _, _ => if (valRight#2 = top)
+                        then    // (int,top),(int,top)
+                          let x1 = drop(valLeft#1), x3 = drop(valRight#1) in
+                            case x1 > 0, x3 > 0 of
+                              true, true  =>  (lift(x1*x3),top);
+                              true, false =>  (bot,top);
+                              false,true  =>  (bot,top);
+                              false,false =>  (bot, lift(x1*x3));
+                            endcase
+                        else    // (int,top),(int,int)
+                          let x1 = drop(valLeft#1), x3 = drop(valRight#1), x4 = drop(valRight#2) in
+                            case x3 > 0, x4 > 0 of
+                              true, true  =>  (lift(minimum(x1*x3,x1*x4),top));
+                              false,true  =>  (bot, top);
+                              false,false =>  (bot,lift(maximum(x1*x3,x1*x4)));
+                            endcase
+                      endif;
+      _, _, _, top => let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x3 = drop(valRight#1) in
+                        case x1 > 0, x2 > 0 of
+                          true, true  =>  (lift(minimum(x1*x3,x2*x3)),top);
+                          false,true  =>  (bot, top);
+                          false,false =>  (bot,lift(maximum(x1*x3,x2*x3)));
+                        endcase;
+      _,_,_,_      => let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x3 = drop(valRight#1), x4 = drop(valRight#2) in
+                        ( lift(minimum(minimum(minimum(x1*x3,x1*x4),x2*x3),x2*x4)),
+                          lift(maximum(maximum(maximum(x1*x3,x1*x4),x2*x3),x2*x4)));
+    endcase
+                      
+
 
   intersectioninterval :: Interval * Interval -> Interval
   intersectioninterval(valLeft,valRight) = 
