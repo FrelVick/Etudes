@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Diagram SYSTEM "rtdsDiagram.dtd">
+
+<SdlFSMDiagram language="sdl" type="prcd" is_extract="FALSE">
+<SdlFSMPartition name="" needs_cleanup="FALSE">
+<SdlFSMSymbol identifier="SYM2" type="sdlText" text="FPAR IN/OUT sum integer;" outline_color="-" background_color="-" center_coordinates="207 76" dimensions="188 40" attached_symbol_id=""/>
+<NonStateTransition top_left_coordinates="484 102">
+<SdlFSMSymbol identifier="SYM1" type="sdlPrcdStart" outline_color="-" background_color="-" center_coordinates="550 117" dimensions="60 30" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM3" type="sdlCnctrIn" text="give" outline_color="-" background_color="-" center_coordinates="550 164" dimensions="110 40" attached_symbol_id=""/>
+<DecisionBlock>
+<SdlFSMSymbol identifier="SYM4" type="sdlDecision" text="sum" outline_color="-" background_color="-" center_coordinates="550 216" dimensions="60 40" attached_symbol_id=""/>
+<DecisionBranch>
+<SdlFSMSymbol identifier="SYM5" type="sdlAnswer" text="&gt;= 10" outline_color="-" background_color="-" center_coordinates="550 268" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM10" type="sdlSendSig" text="piece(10)" outline_color="-" background_color="-" center_coordinates="550 320" dimensions="82 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM11" type="sdlTask" text="sum := sum - 10;" outline_color="-" background_color="-" center_coordinates="550 372" dimensions="132 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM12" type="sdlCnctrOut" text="give" outline_color="-" background_color="-" center_coordinates="550 424" dimensions="60 40" attached_symbol_id=""/>
+</Transition>
+</DecisionBranch>
+<DecisionBranch>
+<SdlFSMSymbol identifier="SYM6" type="sdlAnswer" text="&gt;= 5" outline_color="-" background_color="-" center_coordinates="698 268" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM13" type="sdlSendSig" text="piece(5)" outline_color="-" background_color="-" center_coordinates="698 320" dimensions="76 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM14" type="sdlTask" text="sum := sum - 5;" outline_color="-" background_color="-" center_coordinates="698 372" dimensions="124 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM15" type="sdlCnctrOut" text="give" outline_color="-" background_color="-" center_coordinates="698 424" dimensions="60 40" attached_symbol_id=""/>
+</Transition>
+</DecisionBranch>
+<DecisionBranch>
+<SdlFSMSymbol identifier="SYM7" type="sdlAnswer" text="&gt;= 2" outline_color="-" background_color="-" center_coordinates="832 268" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM16" type="sdlSendSig" text="piece(2)" outline_color="-" background_color="-" center_coordinates="832 320" dimensions="76 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM17" type="sdlTask" text="sum := sum - 2;" outline_color="-" background_color="-" center_coordinates="832 372" dimensions="124 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM18" type="sdlCnctrOut" text="give" outline_color="-" background_color="-" center_coordinates="832 424" dimensions="60 40" attached_symbol_id=""/>
+</Transition>
+</DecisionBranch>
+<DecisionBranch>
+<SdlFSMSymbol identifier="SYM8" type="sdlAnswer" text="= 1" outline_color="-" background_color="-" center_coordinates="942 268" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM19" type="sdlSendSig" text="piece(1)" outline_color="-" background_color="-" center_coordinates="942 320" dimensions="76 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM23" type="sdlPrcdReturn" outline_color="-" background_color="-" center_coordinates="942 366" dimensions="28 28" attached_symbol_id=""/>
+</Transition>
+</DecisionBranch>
+<DecisionBranch>
+<SdlFSMSymbol identifier="SYM9" type="sdlAnswer" text="0" outline_color="-" background_color="-" center_coordinates="1035 268" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM24" type="sdlPrcdReturn" outline_color="-" background_color="-" center_coordinates="1035 314" dimensions="28 28" attached_symbol_id=""/>
+</Transition>
+</DecisionBranch>
+</DecisionBlock>
+</Transition>
+</NonStateTransition>
+<PageSpecification pageWidth="21.0" pageHeight="29.7" topMargin="1.0" bottomMargin="1.0" leftMargin="1.0" rightMargin="1.0" pageFooter="TRUE"/>
+</SdlFSMPartition>
+</SdlFSMDiagram>

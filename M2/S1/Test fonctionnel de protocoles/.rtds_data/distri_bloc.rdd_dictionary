@@ -5,9 +5,7 @@
 <DictionaryObjects version="2" language="none" diagramType="blk">
 <Signal id="SIG1" name="cafe">
 </Signal>
-<Signal id="SIG2" name="unF">
-</Signal>
-<Signal id="SIG3" name="deuxF">
+<Signal id="SIG2" name="piece">
 </Signal>
 <Item id="ITEM1" type="block" name="distri_bloc" scope="current" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
 <UsingSymbols>
@@ -20,7 +18,6 @@
 </Connections>
 <SentSignals>
 <SignalReference id="SIG2"/>
-<SignalReference id="SIG3"/>
 </SentSignals>
 <ReceivedSignals>
 <SignalReference id="SIG1"/>
@@ -44,7 +41,6 @@
 </SentSignals>
 <ReceivedSignals>
 <SignalReference id="SIG2"/>
-<SignalReference id="SIG3"/>
 </ReceivedSignals>
 </SignalWindow>
 </Item>

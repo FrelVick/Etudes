@@ -1,1 +1,18 @@
-Ä}q(UversionqU5.2.1qUobjectq]qu.
+Ä}q(UversionqU5.2.1qUobjectq]q(cpragmadev.main.business.l111llll1ll1l_opy_
+l1111ll11ll11ll_opy_
+qoq}q(Utextq	UGvaleur = INTEGER default 1 constants 1 , 2 , 5 , 10 endsyntype valeur ;q
+U
+identifierqU1:8qUtypeqUsyntypedeclqUchildrenq]q((hoq}q(h	UvaleurqhU1:8qhUsyntypenameqh]qU(_l1111ll11ll11ll_opy___1111111lll11_opy_q(hoq}q(h	h
+hhhhhhhhubub(hoq}q(h	UINTEGERqhU1:17qhUtypenameqh]qhhub(hoq }q!(h	U1hU2:8q"hU	dfltvalueq#h]q$(hoq%}q&(h	U1hU2:8q'hUnbexprq(h]q)hh ubahhub(hoq*}q+(h	Uconstants 1 , 2 , 5 , 10q,hU3:0q-hUconstraintsq.h]q/((hoq0}q1(h	U1hU3:10q2hU
+constraintq3h]q4((hoq5}q6(h	U1hU3:10q7hUoperand1q8h]q9(hoq:}q;(h	U1hU3:10q<hUnbexprq=h]q>hh5ubahh0ub(cpragmadev.main.business.l111llll1ll1l_opy_
+l111lllll11ll_opy_
+q?oq@}qA(h	U=hNhU	cnstrntopqBh]qCubehh*ub(hoqD}qE(h	U2hU3:12qFhU
+constraintqGh]qH((hoqI}qJ(h	U2hU3:12qKhUoperand1qLh]qM(hoqN}qO(h	U2hU3:12qPhUnbexprqQh]qRhhIubahhDub(h?oqS}qT(h	U=hNhhBh]qUubehh*ub(hoqV}qW(h	U5hU3:14qXhU
+constraintqYh]qZ((hoq[}q\(h	U5hU3:14q]hUoperand1q^h]q_(hoq`}qa(h	U5hU3:14qbhUnbexprqch]qdhh[ubahhVub(h?oqe}qf(h	U=hNhhBh]qgubehh*ub(hoqh}qi(h	U10qjhU3:16qkhU
+constraintqlh]qm((hoqn}qo(h	U10qphU3:16qqhUoperand1qrh]qs(hoqt}qu(h	U10qvhU3:16qwhUnbexprqxh]qyhhnubahhhub(h?oqz}q{(h	U=hNhhBh]q|ubehh*ubehhubeh(hoq}}q~(h	Ulsignal cafe;
+syntype valeur = INTEGER
+default 1
+constants 1,2,5,10
+endsyntype valeur;
+signal piece(valeur);
+qhNhUdatadeclqÄh]qÅ((hoqÇ}qÉ(h	UcafeqÑhU0:7qÖhUmsgdeclqÜh]qá(hoqà}qâ(h	UcafeqähU0:7qãhUmsgnameqåh]qçh(hoqé}qè(h	hÑhhÖhhÜhháhhÇububahh}ubh(hoqê}që(h	Upiece ( valeur )qíhU5:7qìhUmsgdeclqîh]qï((hoqñ}qó(h	UpieceqòhU5:7qôhUmsgnameqöh]qõh(hoqú}qù(h	híhhìhhîhhïhhêubub(hoqû}qü(h	Uvaleurq†hU5:13q°hUmsgparamq¢h]q£hhúubehh}ubehNububau.
