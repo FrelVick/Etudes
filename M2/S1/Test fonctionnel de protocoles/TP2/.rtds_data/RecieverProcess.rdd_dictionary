@@ -5,4 +5,12 @@
 <DictionaryObjects version="2" language="sdl" diagramType="prcs">
 <Item id="ITEM1" type="process" name="RecieverProcess" scope="current" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
 </Item>
+<Item id="ITEM2" type="state" name="wait_0" parentId="ITEM1" scope="none" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<DefiningSymbols>
+<SymbolReference symbolId="SYM2"/>
+</DefiningSymbols>
+<UsingSymbols>
+<SymbolReference symbolId="SYM2"/>
+</UsingSymbols>
+</Item>
 </DictionaryObjects>

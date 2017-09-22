@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE DictionaryObjects SYSTEM "rtdsDictionaryObjects.dtd">
+
+<DictionaryObjects version="2" language="none">
+<Item id="ITEM1" type="ttcn_module" name="TTCN_Declarations" scope="current" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="TRUE" lineNumber="0" columnNumber="7"/>
+</Item>
+<Item id="ITEM10" type="ttcn_component" name="bit_sys" parentId="ITEM1" scope="none" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="TRUE" lineNumber="24" columnNumber="17"/>
+</Item>
+<Item id="ITEM11" type="ttcn_port" name="ES" parentId="ITEM10" scope="none" instanciatedTypeId="ITEM5" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="TRUE" lineNumber="26" columnNumber="17"/>
+</Item>
+<Item id="ITEM12" type="ttcn_port" name="RE" parentId="ITEM10" scope="none" instanciatedTypeId="ITEM2" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="TRUE" lineNumber="25" columnNumber="17"/>
+</Item>
+<Item id="ITEM13" type="ttcn_port_type" name="port_RE" parentId="ITEM1" scope="none" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="20" columnNumber="9"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="25" columnNumber="9"/>
+<SourceFilePosition isDefine="TRUE" lineNumber="8" columnNumber="12"/>
+<TtcnPortTypeElement way="in" typeId="ITEM4"/>
+</Item>
+<Item id="ITEM14" type="type" name="PUT" parentId="ITEM1" scope="none" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="15" columnNumber="8"/>
+<SourceFilePosition isDefine="TRUE" lineNumber="3" columnNumber="18"/>
+</Item>
+<Item id="ITEM15" type="ttcn_port_type" name="port_ES" parentId="ITEM1" scope="none" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="21" columnNumber="9"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="26" columnNumber="9"/>
+<SourceFilePosition isDefine="TRUE" lineNumber="13" columnNumber="12"/>
+<TtcnPortTypeElement way="out" typeId="ITEM3"/>
+</Item>
+<Item id="ITEM2" type="ttcn_port_type" name="port_RE" parentId="ITEM1" scope="global" defined="FALSE" anchorItemId="ITEM1" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="20" columnNumber="9"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="25" columnNumber="9"/>
+</Item>
+<Item id="ITEM3" type="type" name="PUT" parentId="ITEM1" scope="global" defined="FALSE" anchorItemId="ITEM1" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="15" columnNumber="8"/>
+</Item>
+<Item id="ITEM4" type="type" name="GET" parentId="ITEM1" scope="global" defined="FALSE" anchorItemId="ITEM1" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="10" columnNumber="7"/>
+</Item>
+<Item id="ITEM5" type="ttcn_port_type" name="port_ES" parentId="ITEM1" scope="global" defined="FALSE" anchorItemId="ITEM1" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="21" columnNumber="9"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="26" columnNumber="9"/>
+</Item>
+<Item id="ITEM6" type="ttcn_component" name="runsOn_bit_sys" parentId="ITEM1" scope="none" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="TRUE" lineNumber="19" columnNumber="17"/>
+</Item>
+<Item id="ITEM7" type="ttcn_port" name="ES" parentId="ITEM6" scope="none" instanciatedTypeId="ITEM5" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="TRUE" lineNumber="21" columnNumber="17"/>
+</Item>
+<Item id="ITEM8" type="ttcn_port" name="RE" parentId="ITEM6" scope="none" instanciatedTypeId="ITEM2" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="TRUE" lineNumber="20" columnNumber="17"/>
+</Item>
+<Item id="ITEM9" type="type" name="GET" parentId="ITEM1" scope="none" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="10" columnNumber="7"/>
+<SourceFilePosition isDefine="TRUE" lineNumber="5" columnNumber="18"/>
+</Item>
+</DictionaryObjects>

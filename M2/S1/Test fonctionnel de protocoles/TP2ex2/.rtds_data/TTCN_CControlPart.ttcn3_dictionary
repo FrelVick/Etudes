@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE DictionaryObjects SYSTEM "rtdsDictionaryObjects.dtd">
+
+<DictionaryObjects version="2" language="none">
+<Item id="ITEM1" type="ttcn_module" name="TTCN_CControlPart" scope="current" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="TRUE" lineNumber="0" columnNumber="7"/>
+<TtcnImportedModule moduleId="ITEM2"/>
+</Item>
+<Item id="ITEM2" type="ttcn_module" name="TTCN_TestsAndControl" scope="package" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="2" columnNumber="14"/>
+</Item>
+<Item id="ITEM3" type="ttcn_function" name="control" parentId="ITEM1" scope="none" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+</Item>
+<Item id="ITEM4" type="ttcn_test_case" name="TC_Test" parentId="ITEM2" scope="global" defined="FALSE" anchorItemId="ITEM3" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="7" columnNumber="12"/>
+</Item>
+</DictionaryObjects>

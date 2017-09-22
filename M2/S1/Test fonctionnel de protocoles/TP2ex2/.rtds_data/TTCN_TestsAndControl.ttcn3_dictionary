@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE DictionaryObjects SYSTEM "rtdsDictionaryObjects.dtd">
+
+<DictionaryObjects version="2" language="none">
+<Item id="ITEM1" type="ttcn_module" name="TTCN_TestsAndControl" scope="current" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="TRUE" lineNumber="0" columnNumber="7"/>
+<TtcnImportedModule moduleId="ITEM8"/>
+<TtcnImportedModule moduleId="ITEM9"/>
+</Item>
+<Item id="ITEM10" type="ttcn_test_case" name="TC_Test" parentId="ITEM1" scope="none" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE" runsOn="ITEM5" systemInterface="ITEM2">
+<SourceFilePosition isDefine="FALSE" lineNumber="37" columnNumber="12"/>
+<SourceFilePosition isDefine="TRUE" lineNumber="21" columnNumber="11"/>
+</Item>
+<Item id="ITEM11" type="variable" name="self" scope="global" defined="FALSE" anchorItemId="ITEM10" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="24" columnNumber="8"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="25" columnNumber="8"/>
+</Item>
+<Item id="ITEM12" type="variable" name="PUT_TestLINK0" parentId="ITEM9" scope="global" defined="FALSE" anchorItemId="ITEM10" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<AlternateType type="ttcn_template"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="26" columnNumber="12"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="28" columnNumber="12"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="30" columnNumber="12"/>
+</Item>
+<Item id="ITEM13" type="ttcn_altstep" name="RTDS_fail" parentId="ITEM1" scope="global" defined="FALSE" anchorItemId="ITEM10" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="23" columnNumber="13"/>
+</Item>
+<Item id="ITEM14" type="ttcn_template" name="GET_TestLINK1" parentId="ITEM9" scope="global" defined="FALSE" anchorItemId="ITEM10" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="27" columnNumber="15"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="29" columnNumber="15"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="31" columnNumber="15"/>
+</Item>
+<Item id="ITEM15" type="ttcn_function" name="control" parentId="ITEM1" scope="none" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+</Item>
+<Item id="ITEM16" type="ttcn_test_case" name="TC_Test" parentId="ITEM1" scope="global" defined="FALSE" anchorItemId="ITEM15" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="37" columnNumber="12"/>
+</Item>
+<Item id="ITEM17" type="ttcn_altstep" name="RTDS_fail" parentId="ITEM1" scope="none" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE" runsOn="ITEM5">
+<SourceFilePosition isDefine="FALSE" lineNumber="23" columnNumber="13"/>
+<SourceFilePosition isDefine="TRUE" lineNumber="7" columnNumber="10"/>
+</Item>
+<Item id="ITEM2" type="ttcn_component" name="bit_sys" scope="global" defined="FALSE" anchorItemId="ITEM1" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="21" columnNumber="51"/>
+</Item>
+<Item id="ITEM3" type="ttcn_port" name="RE" parentId="ITEM2" scope="global" defined="FALSE" createInRealizing="FALSE" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="24" columnNumber="13"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="24" columnNumber="24"/>
+</Item>
+<Item id="ITEM4" type="ttcn_port" name="ES" parentId="ITEM2" scope="global" defined="FALSE" createInRealizing="FALSE" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="25" columnNumber="13"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="25" columnNumber="24"/>
+</Item>
+<Item id="ITEM5" type="ttcn_component" name="runsOn_bit_sys" scope="global" defined="FALSE" anchorItemId="ITEM1" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="7" columnNumber="30"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="21" columnNumber="29"/>
+</Item>
+<Item id="ITEM6" type="ttcn_port" name="RE" parentId="ITEM5" scope="global" defined="FALSE" createInRealizing="FALSE" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="9" columnNumber="6"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="27" columnNumber="4"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="29" columnNumber="4"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="31" columnNumber="4"/>
+</Item>
+<Item id="ITEM7" type="ttcn_port" name="ES" parentId="ITEM5" scope="global" defined="FALSE" createInRealizing="FALSE" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="14" columnNumber="6"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="26" columnNumber="4"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="28" columnNumber="4"/>
+<SourceFilePosition isDefine="FALSE" lineNumber="30" columnNumber="4"/>
+</Item>
+<Item id="ITEM8" type="ttcn_module" name="TTCN_Declarations" scope="package" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="2" columnNumber="14"/>
+</Item>
+<Item id="ITEM9" type="ttcn_module" name="TTCN_Templates" scope="package" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<SourceFilePosition isDefine="FALSE" lineNumber="4" columnNumber="14"/>
+</Item>
+</DictionaryObjects>

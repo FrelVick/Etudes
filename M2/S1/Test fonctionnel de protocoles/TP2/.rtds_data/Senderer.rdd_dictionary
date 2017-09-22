@@ -9,11 +9,13 @@
 </Signal>
 <Signal id="SIG3" name="am1">
 </Signal>
-<Signal id="SIG4" name="medium_error">
+<Signal id="SIG4" name="medium_error_r">
 </Signal>
 <Signal id="SIG5" name="dm0">
 </Signal>
 <Signal id="SIG6" name="dm1">
+</Signal>
+<Signal id="SIG7" name="medium_error_s">
 </Signal>
 <Item id="ITEM1" type="block" name="Senderer" scope="current" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
 <UsingSymbols>
@@ -47,7 +49,7 @@
 <ReceivedSignals>
 <SignalReference id="SIG5"/>
 <SignalReference id="SIG6"/>
-<SignalReference id="SIG4"/>
+<SignalReference id="SIG7"/>
 </ReceivedSignals>
 </SignalWindow>
 <Channel name="ES_bS" fromSignalWindow="SIGWDW6" toSignalWindow="SIGWDW1"/>
@@ -103,7 +105,7 @@
 <SentSignals>
 <SignalReference id="SIG5"/>
 <SignalReference id="SIG6"/>
-<SignalReference id="SIG4"/>
+<SignalReference id="SIG7"/>
 </SentSignals>
 </SignalWindow>
 </Item>

@@ -23,10 +23,10 @@
 </Text>
 </Symbol>
 
-<Symbol symbolId="SYMB4" type="sdlText" xCenter="165" yCenter="66" fixedDimensions="FALSE" width="286" height="66" color="#000000" fillColor="#FFFFFF">
+<Symbol symbolId="SYMB4" type="sdlText" xCenter="231" yCenter="66" fixedDimensions="FALSE" width="418" height="66" color="#000000" fillColor="#FFFFFF">
 <Description></Description>
 <Text>signal PUT,GET;
-signal dm0,dm1,am0,am1,medium_error;
+signal dm0,dm1,am0,am1,medium_error_s,medium_error_r;
 </Text>
 </Symbol>
 </Symbol>
@@ -51,12 +51,12 @@ signal dm0,dm1,am0,am1,medium_error;
 <Text>SR
 </Text>
 <Connector attachedSymbolId="SYMB2" type="chnl" isOutside="TRUE" side="y" position="0.0" endType="midarrow">
-<Text id="1">[am0,am1,medium_error]
+<Text id="1">[am0,am1,medium_error_r]
 </Text>
 <Text id="2"></Text>
 </Connector>
 <Connector attachedSymbolId="SYMB3" type="chnl" isOutside="TRUE" side="y" position="0.0" endType="midarrow">
-<Text id="1">[dm0,dm1,medium_error]
+<Text id="1">[dm0,dm1,medium_error_s]
 </Text>
 <Text id="2"></Text>
 </Connector>

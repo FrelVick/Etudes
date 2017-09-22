@@ -5,7 +5,7 @@
 <Diagram language="sdl" type="blk" defaultColorsNeedFixing="FALSE" name="Recieverer" showMsgData="full" linksCrossingAllowed="FALSE" cellWidthMm="4">
 
 <DiagramPartition name="Part. 0" nbPagesH="1" nbPagesV="1">
-<PageSpecification pageWidth="21" pageHeight="29.7" topMargin="0" bottomMargin="0" leftMargin="0" rightMargin="0" pageFooter="FALSE"/>
+<PageSpecification pageWidth="21.0" pageHeight="29.7" topMargin="0.0" bottomMargin="0.0" leftMargin="0.0" rightMargin="0.0" pageFooter="FALSE"/>
 
 <Symbol symbolId="SYMB1" type="sdlBlkDgmFrm" xCenter="297" yCenter="420" fixedDimensions="TRUE" width="551" height="775" color="-" fillColor="-">
 <Description></Description>
@@ -34,7 +34,7 @@
 </Text>
 </Connector>
 <Connector attachedSymbolId="SYMB2" type="chnl" isOutside="TRUE" side="x" position="0.0" endType="midarrow">
-<Text id="1">[dm0,dm1,medium_error]
+<Text id="1">[dm0,dm1,medium_error_s]
 </Text>
 <Text id="2"></Text>
 </Connector>
@@ -51,7 +51,7 @@
 <Text id="2"></Text>
 </Connector>
 <Connector attachedSymbolId="SYMB1" type="chnlgate" isOutside="FALSE" side="e" position="-0.345806451613" endType="midarrow">
-<Text id="1">[PUT]
+<Text id="1">[GET]
 </Text>
 <Text id="2">RE
 </Text>
@@ -67,14 +67,14 @@
 <Text id="1">[]</Text>
 <Text id="2"></Text>
 </Connector>
-<Connector attachedSymbolId="SYMB1" type="chnlgate" isOutside="FALSE" side="w" position="0.08" endType="midarrow">
-<Text id="1">[[am0,am1,medium_error]]
+<Connector attachedSymbolId="SYMB1" type="chnlgate" isOutside="FALSE" side="w" position="-0.061935483871" endType="midarrow">
+<Text id="1">[am0,am1,medium_error_r]
 </Text>
 <Text id="2">SR
 </Text>
 </Connector>
-<LinkSegment orientation="v" length="110"/>
-<LinkSegment orientation="h" length="-65"/>
+<LinkSegment orientation="v" length="55"/>
+<LinkSegment orientation="h" length="-77"/>
 
 </Link>
 

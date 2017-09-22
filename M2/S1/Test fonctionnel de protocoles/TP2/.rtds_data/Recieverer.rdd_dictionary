@@ -3,53 +3,59 @@
 <!DOCTYPE DictionaryObjects SYSTEM "rtdsDictionaryObjects.dtd">
 
 <DictionaryObjects version="2" language="none" diagramType="blk">
-<Signal id="SIG1" name="PUT">
+<Signal id="SIG1" name="dm0">
 </Signal>
-<Signal id="SIG2" name="dm0">
+<Signal id="SIG2" name="dm1">
 </Signal>
-<Signal id="SIG3" name="dm1">
+<Signal id="SIG3" name="medium_error_s">
 </Signal>
-<Signal id="SIG4" name="medium_error">
+<Signal id="SIG4" name="GET">
 </Signal>
 <Signal id="SIG5" name="am0">
 </Signal>
 <Signal id="SIG6" name="am1">
 </Signal>
+<Signal id="SIG7" name="medium_error_r">
+</Signal>
 <Item id="ITEM1" type="block" name="Recieverer" scope="current" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
 <UsingSymbols>
 <SymbolReference symbolId="SYMB1"/>
 </UsingSymbols>
-<SignalWindow id="SIGWDW4" insideDiagram="TRUE">
-<ConnectorReference linkId="LINK7" isFrom="FALSE"/>
-<Connections>
-<Connection name="RE"/>
-</Connections>
-<ReceivedSignals>
-<SignalReference id="SIG1"/>
-</ReceivedSignals>
-</SignalWindow>
-<SignalWindow id="SIGWDW5" insideDiagram="TRUE">
+<SignalWindow id="SIGWDW6" insideDiagram="TRUE">
 <ConnectorReference linkId="LINK6" isFrom="TRUE"/>
 <Connections>
 <Connection name="SR"/>
 </Connections>
 <SentSignals>
+<SignalReference id="SIG1"/>
 <SignalReference id="SIG2"/>
 <SignalReference id="SIG3"/>
-<SignalReference id="SIG4"/>
 </SentSignals>
 </SignalWindow>
-<SignalWindow id="SIGWDW6" insideDiagram="TRUE">
+<SignalWindow id="SIGWDW7" insideDiagram="TRUE">
+<ConnectorReference linkId="LINK7" isFrom="FALSE"/>
+<Connections>
+<Connection name="RE"/>
+</Connections>
+<ReceivedSignals>
+<SignalReference id="SIG4"/>
+</ReceivedSignals>
+</SignalWindow>
+<SignalWindow id="SIGWDW8" insideDiagram="TRUE">
 <ConnectorReference linkId="LINK12" isFrom="FALSE"/>
 <Connections>
 <Connection name="SR"/>
 </Connections>
 <ReceivedSignals>
+<SignalReference id="SIG5"/>
 <SignalReference id="SIG6"/>
+<SignalReference id="SIG7"/>
 </ReceivedSignals>
 </SignalWindow>
-<Channel name="RE_bR" fromSignalWindow="SIGWDW1" toSignalWindow="SIGWDW4"/>
-<Channel name="SR_bR" fromSignalWindow="SIGWDW5" toSignalWindow="SIGWDW2"/>
+<Channel name="SR_bR" fromSignalWindow="SIGWDW6" toSignalWindow="SIGWDW1"/>
+<Channel name="RE_bR" fromSignalWindow="SIGWDW2" toSignalWindow="SIGWDW7"/>
+<Channel name="RM_bR" fromSignalWindow="SIGWDW5" toSignalWindow="SIGWDW3"/>
+<Channel name="MSR_bR" fromSignalWindow="SIGWDW4" toSignalWindow="SIGWDW8"/>
 </Item>
 <Item id="ITEM2" type="process" name="RecieverProcess" parentId="ITEM1" scope="none" minInstances="1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
 <DefiningSymbols>
@@ -59,18 +65,18 @@
 <SymbolReference symbolId="SYMB2"/>
 </UsingSymbols>
 <SignalWindow id="SIGWDW1" insideDiagram="FALSE">
-<ConnectorReference linkId="LINK7" isFrom="TRUE"/>
-<SentSignals>
-<SignalReference id="SIG1"/>
-</SentSignals>
-</SignalWindow>
-<SignalWindow id="SIGWDW2" insideDiagram="FALSE">
 <ConnectorReference linkId="LINK6" isFrom="FALSE"/>
 <ReceivedSignals>
+<SignalReference id="SIG1"/>
 <SignalReference id="SIG2"/>
 <SignalReference id="SIG3"/>
-<SignalReference id="SIG4"/>
 </ReceivedSignals>
+</SignalWindow>
+<SignalWindow id="SIGWDW2" insideDiagram="FALSE">
+<ConnectorReference linkId="LINK7" isFrom="TRUE"/>
+<SentSignals>
+<SignalReference id="SIG4"/>
+</SentSignals>
 </SignalWindow>
 <SignalWindow id="SIGWDW3" insideDiagram="FALSE">
 <ConnectorReference linkId="LINK13" isFrom="FALSE"/>
@@ -87,5 +93,20 @@
 <UsingSymbols>
 <SymbolReference symbolId="SYMB3"/>
 </UsingSymbols>
+<SignalWindow id="SIGWDW4" insideDiagram="FALSE">
+<ConnectorReference linkId="LINK12" isFrom="TRUE"/>
+<SentSignals>
+<SignalReference id="SIG5"/>
+<SignalReference id="SIG6"/>
+<SignalReference id="SIG7"/>
+</SentSignals>
+</SignalWindow>
+<SignalWindow id="SIGWDW5" insideDiagram="FALSE">
+<ConnectorReference linkId="LINK13" isFrom="TRUE"/>
+<ReceivedSignals>
+<SignalReference id="SIG5"/>
+<SignalReference id="SIG6"/>
+</ReceivedSignals>
+</SignalWindow>
 </Item>
 </DictionaryObjects>

@@ -1,0 +1,29 @@
+module TTCN_Declarations {
+
+  // Records declaration
+  type enumerated PUT { e_PUT }
+
+  type enumerated GET { e_GET }
+
+  // Ports declaration
+  type port port_RE message
+    {
+    in GET;
+    }
+
+  type port port_ES message
+    {
+    out PUT;
+    }
+
+  // TSI and MTC component declaration
+  type component runsOn_bit_sys {
+    port port_RE RE;
+    port port_ES ES;
+  }
+
+  type component bit_sys {
+    port port_RE RE;
+    port port_ES ES;
+  }
+}

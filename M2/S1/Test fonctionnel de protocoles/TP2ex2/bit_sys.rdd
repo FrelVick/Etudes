@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Diagram SYSTEM "rtdsDiagram.dtd">
+
+<Diagram language="sdl" type="sys" defaultColorsNeedFixing="FALSE" name="bit_sys" showMsgData="full" linksCrossingAllowed="FALSE" cellWidthMm="4">
+
+<DiagramPartition name="Part. 0" nbPagesH="1" nbPagesV="1">
+<PageSpecification pageWidth="21" pageHeight="29.7" topMargin="0" bottomMargin="0" leftMargin="0" rightMargin="0" pageFooter="FALSE"/>
+
+<Symbol symbolId="SYMB1" type="sdlSysDgmFrm" xCenter="297" yCenter="420" fixedDimensions="TRUE" width="551" height="775" color="-" fillColor="-">
+<Description></Description>
+<Text></Text>
+
+<Symbol symbolId="SYMB2" type="sdlText" xCenter="165" yCenter="77" fixedDimensions="FALSE" width="264" height="66" color="#000000" fillColor="#FFFFFF">
+<Description></Description>
+<Text>signal PUT, GET;
+signal dm(INTEGER),am(INTEGER);
+</Text>
+</Symbol>
+
+<Symbol symbolId="SYMB3" type="sdlBlk" xCenter="121" yCenter="198" fixedDimensions="FALSE" width="88" height="44" color="#000000" fillColor="#C4EFED">
+<Description></Description>
+<Text>Senderer
+</Text>
+</Symbol>
+
+<Symbol symbolId="SYMB4" type="sdlBlk" xCenter="242" yCenter="396" fixedDimensions="FALSE" width="66" height="44" color="#000000" fillColor="#C4EFED">
+<Description></Description>
+<Text>Medium
+</Text>
+</Symbol>
+
+<Symbol symbolId="SYMB5" type="sdlBlk" xCenter="429" yCenter="187" fixedDimensions="FALSE" width="110" height="44" color="#000000" fillColor="#C4EFED">
+<Description></Description>
+<Text>Recieverer
+</Text>
+</Symbol>
+</Symbol>
+
+<Link linkId="LINK0" type="chnl" textSegmentNum="0" color="#000000" reverseRead="FALSE" oriented="TRUE">
+<Text>ES
+</Text>
+<Connector attachedSymbolId="SYMB3" type="chnl" isOutside="TRUE" side="y" position="0.0" endType="midarrow">
+<Text id="1">[PUT]
+</Text>
+<Text id="2"></Text>
+</Connector>
+<Connector attachedSymbolId="SYMB1" type="chnl" isOutside="FALSE" side="w" position="-0.487741935484" endType="midarrow">
+<Text id="1">[]</Text>
+<Text id="2"></Text>
+</Connector>
+<LinkSegment orientation="h" length="-121"/>
+
+</Link>
+
+<Link linkId="LINK1" type="chnl" textSegmentNum="0" color="#000000" reverseRead="FALSE" oriented="TRUE">
+<Text>SM
+</Text>
+<Connector attachedSymbolId="SYMB3" type="chnl" isOutside="TRUE" side="x" position="0.0" endType="midarrow">
+<Text id="1">[am]
+</Text>
+<Text id="2"></Text>
+</Connector>
+<Connector attachedSymbolId="SYMB4" type="chnl" isOutside="TRUE" side="x" position="0.0" endType="midarrow">
+<Text id="1">[dm]
+</Text>
+<Text id="2"></Text>
+</Connector>
+<LinkSegment orientation="v" length="99"/>
+<LinkSegment orientation="h" length="121"/>
+<LinkSegment orientation="v" length="99"/>
+
+</Link>
+
+<Link linkId="LINK2" type="chnl" textSegmentNum="0" color="#000000" reverseRead="FALSE" oriented="TRUE">
+<Text>MR
+</Text>
+<Connector attachedSymbolId="SYMB4" type="chnl" isOutside="TRUE" side="y" position="0.0" endType="midarrow">
+<Text id="1">[am]
+</Text>
+<Text id="2"></Text>
+</Connector>
+<Connector attachedSymbolId="SYMB5" type="chnl" isOutside="TRUE" side="y" position="0.0" endType="midarrow">
+<Text id="1">[dm]
+</Text>
+<Text id="2"></Text>
+</Connector>
+<LinkSegment orientation="h" length="88"/>
+<LinkSegment orientation="v" length="-209"/>
+<LinkSegment orientation="h" length="99"/>
+
+</Link>
+
+<Link linkId="LINK3" type="chnl" textSegmentNum="0" color="#000000" reverseRead="FALSE" oriented="TRUE">
+<Text>RE
+</Text>
+<Connector attachedSymbolId="SYMB5" type="chnl" isOutside="TRUE" side="y" position="0.0" endType="midarrow">
+<Text id="1">[]</Text>
+<Text id="2"></Text>
+</Connector>
+<Connector attachedSymbolId="SYMB1" type="chnl" isOutside="FALSE" side="e" position="-0.516129032258" endType="midarrow">
+<Text id="1">[GET]
+</Text>
+<Text id="2"></Text>
+</Connector>
+<LinkSegment orientation="h" length="121"/>
+
+</Link>
+</DiagramPartition>
+
+</Diagram>

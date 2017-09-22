@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Diagram SYSTEM "rtdsDiagram.dtd">
+
+<SdlFSMDiagram language="sdl" type="prcs" is_extract="FALSE">
+<SdlFSMPartition name="" needs_cleanup="FALSE">
+<SdlFSMSymbol identifier="SYM4" type="sdlText" text="DCL rec Integer;
+DCL bit Integer;" outline_color="-" background_color="-" center_coordinates="79 53" dimensions="132 48" attached_symbol_id=""/>
+<NonStateTransition top_left_coordinates="863 68">
+<SdlFSMSymbol identifier="SYM38" type="sdlStart" outline_color="-" background_color="-" center_coordinates="950 83" dimensions="60 30" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM44" type="sdlTask" text="bit := 0" outline_color="-" background_color="-" center_coordinates="950 130" dimensions="76 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM39" type="sdlState" text="send" outline_color="-" background_color="-" center_coordinates="950 182" dimensions="60 40" attached_symbol_id=""/>
+</Transition>
+</NonStateTransition>
+<StateTransitionBlock top_left_coordinates="871 318">
+<SdlFSMSymbolReference identifier="SYM47"/>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM48" type="sdlInputSig" text="am(rec)" outline_color="-" background_color="-" center_coordinates="950 390" dimensions="68 40" attached_symbol_id=""/>
+<Transition>
+<DecisionBlock>
+<SdlFSMSymbol identifier="SYM50" type="sdlDecision" text="rec=bit" outline_color="-" background_color="-" center_coordinates="950 442" dimensions="68 40" attached_symbol_id=""/>
+<DecisionBranch>
+<SdlFSMSymbol identifier="SYM51" type="sdlAnswer" text="TRUE" outline_color="-" background_color="-" center_coordinates="950 494" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM54" type="sdlTask" text="bit := (bit + 1) mod 2" outline_color="-" background_color="-" center_coordinates="950 546" dimensions="174 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM53" type="sdlState" text="send" outline_color="-" background_color="-" center_coordinates="950 598" dimensions="60 40" attached_symbol_id=""/>
+</Transition>
+</DecisionBranch>
+<DecisionBranch>
+<SdlFSMSymbol identifier="SYM52" type="sdlAnswer" text="FALSE" outline_color="-" background_color="-" center_coordinates="1081 494" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM55" type="sdlSendSig" text="dm(bit)" outline_color="-" background_color="-" center_coordinates="1081 546" dimensions="68 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM56" type="sdlState" text="wait" outline_color="-" background_color="-" center_coordinates="1081 598" dimensions="60 40" attached_symbol_id=""/>
+</Transition>
+</DecisionBranch>
+</DecisionBlock>
+</Transition>
+</NormalStateTransition>
+<SaveTransition>
+<SdlFSMSymbol identifier="SYM49" type="sdlSaveSig" text="PUT" outline_color="-" background_color="-" center_coordinates="1155 390" dimensions="60 40" attached_symbol_id=""/>
+</SaveTransition>
+</StateTransitionBlock>
+<StateTransitionBlock top_left_coordinates="863 110">
+<SdlFSMSymbolReference identifier="SYM39"/>
+<NormalStateTransition>
+<SdlFSMSymbol identifier="SYM40" type="sdlInputSig" text="PUT" outline_color="-" background_color="-" center_coordinates="950 234" dimensions="60 40" attached_symbol_id=""/>
+<Transition>
+<SdlFSMSymbol identifier="SYM46" type="sdlSendSig" text="dm(bit)" outline_color="-" background_color="-" center_coordinates="950 286" dimensions="68 40" attached_symbol_id=""/>
+<SdlFSMSymbol identifier="SYM47" type="sdlState" text="wait" outline_color="-" background_color="-" center_coordinates="950 338" dimensions="60 40" attached_symbol_id=""/>
+</Transition>
+</NormalStateTransition>
+</StateTransitionBlock>
+<PageSpecification pageWidth="21.0" pageHeight="29.7" topMargin="1.0" bottomMargin="1.0" leftMargin="1.0" rightMargin="1.0" pageFooter="TRUE"/>
+</SdlFSMPartition>
+</SdlFSMDiagram>

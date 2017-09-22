@@ -5,45 +5,27 @@
 <DictionaryObjects version="2" language="sdl" diagramType="prcs">
 <Item id="ITEM1" type="process" name="SenderProcess" scope="current" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
 </Item>
-<Item id="ITEM2" type="variable" name="bit" scope="global" defined="FALSE" anchorItemId="ITEM1" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
-</Item>
-<Item id="ITEM3" type="variable" name="TRUE" scope="global" defined="FALSE" anchorItemId="ITEM1" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
-<UsingSymbols>
-<SymbolReference symbolId="SYM9"/>
-</UsingSymbols>
-</Item>
-<Item id="ITEM4" type="type" name="BOOLEAN" scope="global" defined="FALSE" anchorItemId="ITEM1" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<Item id="ITEM2" type="type" name="BOOLEAN" scope="global" defined="FALSE" anchorItemId="ITEM1" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
 <UsingSymbols>
 <SymbolReference symbolId="SYM4"/>
 </UsingSymbols>
 </Item>
-<Item id="ITEM5" type="variable" name="bit_sended" parentId="ITEM1" scope="global" defined="FALSE" anchorItemId="ITEM1" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
-<UsingSymbols>
-<SymbolReference symbolId="SYM8"/>
-<SymbolReference symbolId="SYM6"/>
-</UsingSymbols>
-</Item>
-<Item id="ITEM6" type="variable" name="FALSE" scope="global" defined="FALSE" anchorItemId="ITEM1" searchPolicy="-1" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
-<UsingSymbols>
-<SymbolReference symbolId="SYM10"/>
-</UsingSymbols>
-</Item>
-<Item id="ITEM7" type="variable" name="bit_sended" parentId="ITEM1" scope="none" variableTypeName="BOOLEAN" variableTypeId="ITEM4" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<Item id="ITEM3" type="variable" name="bit_sended" parentId="ITEM1" scope="none" variableTypeName="BOOLEAN" variableTypeId="ITEM2" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
 <DefiningSymbols>
 <SymbolReference symbolId="SYM4"/>
 </DefiningSymbols>
 </Item>
-<Item id="ITEM8" type="variable" name="bit_recieved" parentId="ITEM1" scope="none" variableTypeName="BOOLEAN" variableTypeId="ITEM4" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<Item id="ITEM4" type="variable" name="bit_recieved" parentId="ITEM1" scope="none" variableTypeName="BOOLEAN" variableTypeId="ITEM2" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
 <DefiningSymbols>
 <SymbolReference symbolId="SYM4"/>
 </DefiningSymbols>
 </Item>
-<Item id="ITEM9" type="state" name="idle" parentId="ITEM1" scope="none" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
+<Item id="ITEM5" type="state" name="send_0" parentId="ITEM1" scope="none" formalParameterOrder="-" isFormalParam="FALSE" isSyntype="FALSE">
 <DefiningSymbols>
-<SymbolReference symbolId="SYM2"/>
+<SymbolReference symbolId="SYM39"/>
 </DefiningSymbols>
 <UsingSymbols>
-<SymbolReference symbolId="SYM2"/>
+<SymbolReference symbolId="SYM39"/>
 </UsingSymbols>
 </Item>
 </DictionaryObjects>

@@ -45,7 +45,7 @@
 <Text>SR_bR
 </Text>
 <Connector attachedSymbolId="SYMB2" type="chnl" isOutside="TRUE" side="x" position="0.0" endType="midarrow">
-<Text id="1">[am0,am1,medium_error]
+<Text id="1">[am0,am1,medium_error_r]
 </Text>
 <Text id="2"></Text>
 </Connector>
@@ -84,7 +84,7 @@
 <Text id="2"></Text>
 </Connector>
 <Connector attachedSymbolId="SYMB1" type="chnlgate" isOutside="FALSE" side="e" position="-0.374193548387" endType="midarrow">
-<Text id="1">[dm0,dm1,medium_error]
+<Text id="1">[dm0,dm1,medium_error_s]
 </Text>
 <Text id="2">SR
 </Text>

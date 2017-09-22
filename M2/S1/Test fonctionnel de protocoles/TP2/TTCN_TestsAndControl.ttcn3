@@ -1,0 +1,38 @@
+module TTCN_TestsAndControl
+  {
+  import from TTCN_Declarations all;
+
+  import from TTCN_Templates all;
+
+
+  altstep RTDS_fail() runs on runsOn_bit_sys
+    {
+    []RE.receive
+      {
+      setverdict(fail, "Fail in default altstep!");
+      stop;
+      };
+    []ES.receive
+      {
+      setverdict(fail, "Fail in default altstep!");
+      stop;
+      };
+    }
+
+  testcase TC_Test() runs on runsOn_bit_sys system bit_sys
+    {
+    activate(RTDS_fail());
+    map(self:RE, system:RE);
+    map(self:ES, system:ES);
+    ES.send(PUT_TestLINK0);
+    RE.receive(GET_TestLINK2);
+    ES.send(PUT_TestLINK0);
+    RE.receive(GET_TestLINK2);
+    setverdict(pass);
+    }
+
+  control
+    {
+    execute(TC_Test());
+    }
+  }
