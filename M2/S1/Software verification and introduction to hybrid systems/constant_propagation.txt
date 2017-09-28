@@ -2,7 +2,8 @@ TYPE
 
   ConstFlattened = flat(snum)
   BoolFlattened  = flat(bool)
-  Interval       = ConstFlattened * ConstFlattened
+  bounds         = snum * snum
+  Interval       = flat(bounds)
   State          = Var -> Interval
 
 
@@ -22,7 +23,7 @@ TRANSFER
       @\[variable -> evalAExp(expression, @)] endif
 
 // in procedur calls pass the value of the actual argument to the formal parameter
-  CALL(_, param, exp), call_edge = 
+  CALL(_, param, exp), call_edge =
       @\[param -> evalAExp(exp, @)]
 
   CALL(_, _, _), local_edge = bot
@@ -44,33 +45,25 @@ TRANSFER
 
 SUPPORT
 
-
   evalAExp :: Expression * State -> Interval
   evalAExp(expression, state) =
     case expType(expression) of
-      "ARITH_BINARY" => 
-        let valLeft  = evalAExp(expSubLeft(expression),  state),
-            valRight = evalAExp(expSubRight(expression), state) in
-              case valLeft#1, valLeft#2, valRight#1, valRight#2 of
-                _,   bot, _,   _   => (top, bot);
-                _,   _,   _,   bot => (top, bot);
-                bot, top, _,   _   => (bot, top);
-                _,   _,   bot, top => (bot, top);
-                _,   _,   _,   _   => case expOp(expression) of
-                                        "+" => addinterval(valLeft,valRight);
-                                        "-" => subinterval(valLeft,valRight);
-                                        "*" => multinterval(valLeft,valRight);
-                                        "/" => if intersectioninterval(valRight,(lift(0),lift(0))) != (top,bot)
-                                                then (bot,top)
-                                                else divinterval(valLeft,valRight)
-                                               endif;
-                                      endcase;
-              endcase;
+      "ARITH_BINARY" =>
+        let valLeft  = evalAExp(expSubLeft(expression), state), valRight = evalAExp(expSubRight(expression), state) in
+          case expOp(expression) of
+            "+" => addinterval(valLeft,valRight);
+            "-" => subinterval(valLeft,valRight);
+            "*" => multinterval(valLeft,valRight);
+            "/" => if intersectioninterval(valRight,(lift(0),lift(0))) != (top,bot)
+                    then (bot,top)
+                    else divinterval(valLeft,valRight)
+                   endif;
+          endcase;
       "ARITH_UNARY" =>
         case expOp(expression) of
           "-" =>  let value = evalAExp(expSub(expression), state) in
                     if value#1 = top then (top,bot) else
-                      if value#1 = bot && value#2 = top then (bot,top) else 
+                      if value#1 = bot && value#2 = top then (bot,top) else
                         multinterval(value,(lift(-1),lift(-1)))
                       endif
                     endif;
@@ -80,332 +73,9 @@ SUPPORT
       _       => error("Runtime Error: evalAExp applied to nonarithmetic Expression");
     endcase
 
-  addinterval :: Interval * Interval -> Interval
-  addinterval(valLeft,valRight) = 
-    let resultleft =
-          if (valLeft#1 = bot) || (valRight#1 = bot)
-            then bot
-            else lift(drop(valLeft#1) + drop(valRight#2)) endif,
-        resultright = 
-          if (valLeft#2 = top) || (valRight#2 = top)
-            then top
-            else lift(drop(valLeft#2) + drop(valRight#2)) endif in
-        (resultleft, resultright)
-  
-  subinterval :: Interval * Interval -> Interval
-  subinterval(valLeft,valRight) = 
-    let resultleft =
-          if (valLeft#1 = bot) || (valRight#2 = top)
-            then bot
-            else lift(drop(valLeft#1) - drop(valRight#2)) endif,
-        resultright = 
-          if (valLeft#2 = bot) || (valRight#1 = top)
-            then top
-            else lift(drop(valLeft#2) - drop(valRight#1)) endif in
-        (resultleft, resultright)
-  
-  /*multinterval :: Interval * Interval -> Interval
-  multinterval(valLeft,valRight) = 
-    let resultleft =
-          case valLeft#1,valLeft#2,valRight#1,valRight#2 of
-            bot,_,_,_ =>  if valRight#2 = top then bot else
-                            if valRight#1 = bot
-                              then
-                                let x2 = drop(valLeft#2), x4 = drop(valRight#2) in
-                                  if x2>0 && x4>0 then bot
-                                    else lift(x2*x4)
-                                  endif
-                              else
-                                let x2 = drop(valLeft#2), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                                  if x4 > 0 then bot else
-                                    lift(minimum(x2*x3,x2*x4))
-                                  endif
-                            endif
-                          endif;
-
-            _,_,bot,_ =>  if valLeft#2 = top then bot else
-                                let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x4 = drop(valRight#2) in
-                                  if x2 > 0 then bot else
-                                    lift(minimum(x1*x4,x2*x4))
-                                  endif
-                          endif;
-            _,top,_,_ =>  if valRight#2 = top 
-                              then
-                                let x1 = drop(valLeft#1), x3 = drop(valRight#1) in
-                                  if x1 < 0 || x3 < 0 then bot
-                                    else lift(x1*x3)
-                                  endif
-                              else
-                                let x1 = drop(valLeft#1), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                                  if x3 < 0 then bot else
-                                    lift(minimum(x1*x3,x1*x4))
-                                  endif
-                          endif;
-            _,_,_,top =>  let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x3 = drop(valRight#1) in
-                                  if x1 < 0 then bot else
-                                    lift(minimum(x1*x3,x2*x3))
-                                  endif;
-            _,_,_,_   =>  let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                            lift(minimum(minimum(minimum(x1*x3,x1*x4),x2*x3),x2*x4));
-          endcase,
-        resultright = 
-          case valLeft#1,valLeft#2,valRight#1,valRight#2 of
-            bot,_,_,_ =>  if valRight#1 = bot then top else
-                            if valRight#2 = top
-                              then
-                                let x2 = drop(valLeft#2), x3 = drop(valRight#1) in
-                                  if x2>0 || x3<0 then top
-                                    else lift(x2*x3)
-                                  endif
-                              else let x2 = drop(valLeft#2), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                                  if x3 < 0 then top else
-                                    lift(maximum(x2*x3,x2*x4))
-                                  endif
-                            endif
-                          endif;
-            _,_,bot,_ =>  if valLeft#2 = top
-                            then
-                              let x1 = drop(valLeft#1), x4 = drop(valRight#2) in
-                                if x1<0 || x4>0 then top
-                                  else lift(x1*x4)
-                                endif
-                            else
-                              let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x4 = drop(valRight#2) in
-                                  if x1 < 0 then top else
-                                    lift(maximum(x1*x4,x2*x4))
-                                  endif
-                          endif;
-            _,top,_,_ =>  if valRight#2 = top
-                            then
-                              let x1 = drop(valLeft#1), x3 = drop(valRight#1) in
-                                if x1>0 || x3>0 then top
-                                  else lift(x1*x3)
-                                endif
-                            else
-                              let x1 = drop(valLeft#1), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                                if x4>0 then top else
-                                  lift(maximum(x1*x3,x1*x4)) 
-                                endif
-                          endif;
-            _,_,_,top =>  let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x3 = drop(valRight#1) in
-                                if x2>0 then top else
-                                  lift(maximum(x1*x3,x2*x3)) 
-                                endif;
-            _,_,_,_   =>  let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                            lift(maximum(maximum(maximum(x1*x3,x1*x4),x2*x3),x2*x4));
-          endcase in
-        (resultleft,resultright)
-*/
-  divinterval :: Interval * Interval -> Interval
-  divinterval(valLeft,valRight) = 
-    let resultleft =
-          case valLeft#1,valLeft#2,valRight#1,valRight#2 of
-            bot,_,_,_ =>  if valRight#2 = top then bot else
-                            if valRight#1 = bot
-                              then
-                                let x2 = drop(valLeft#2), x4 = drop(valRight#2) in
-                                  if x2>0 && x4>0 then bot
-                                    else lift(x2/x4)
-                                  endif
-                              else
-                                let x2 = drop(valLeft#2), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                                  if x4 > 0 then bot else
-                                    lift(minimum(x2/x3,x2/x4))
-                                  endif
-                            endif
-                          endif;
-
-            _,_,bot,_ =>  if valLeft#2 = top then bot else
-                                let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x4 = drop(valRight#2) in
-                                  if x2 > 0 then bot else
-                                    lift(minimum(x1/x4,x2/x4))
-                                  endif
-                          endif;
-            _,top,_,_ =>  if valRight#2 = top 
-                              then
-                                let x1 = drop(valLeft#1), x3 = drop(valRight#1) in
-                                  if x1 < 0 || x3 < 0 then bot
-                                    else lift(x1/x3)
-                                  endif
-                              else
-                                let x1 = drop(valLeft#1), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                                  if x3 < 0 then bot else
-                                    lift(minimum(x1/x3,x1/x4))
-                                  endif
-                          endif;
-            _,_,_,top =>  let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x3 = drop(valRight#1) in
-                                  if x1 < 0 then bot else
-                                    lift(minimum(x1/x3,x2/x3))
-                                  endif;
-            _,_,_,_    => let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                            lift(minimum(minimum(minimum(x1/x3,x1/x4),x2/x3),x2/x4));
-          endcase,
-        resultright = 
-          case valLeft#1,valLeft#2,valRight#1,valRight#2 of
-            bot,_,_,_ =>  if valRight#1 = bot then top else
-                            if valRight#2 = top
-                              then
-                                let x2 = drop(valLeft#2), x3 = drop(valRight#1) in
-                                  if x2>0 || x3<0 then top
-                                    else lift(x2/x3)
-                                  endif
-                              else let x2 = drop(valLeft#2), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                                  if x3 < 0 then top else
-                                    lift(maximum(x2/x3,x2/x4))
-                                  endif
-                            endif
-                          endif;
-            _,_,bot,_ =>  if valLeft#2 = top
-                            then
-                              let x1 = drop(valLeft#1), x4 = drop(valRight#2) in
-                                if x1<0 || x4>0 then top
-                                  else lift(x1/x4)
-                                endif
-                            else
-                              let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x4 = drop(valRight#2) in
-                                  if x1 < 0 then top else
-                                    lift(maximum(x1/x4,x2/x4))
-                                  endif
-                          endif;
-            _,top,_,_ =>  if valRight#2 = top
-                            then
-                              let x1 = drop(valLeft#1), x3 = drop(valRight#1) in
-                                if x1>0 || x3>0 then top
-                                  else lift(x1/x3)
-                                endif
-                            else
-                              let x1 = drop(valLeft#1), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                                if x4>0 then top else
-                                  lift(maximum(x1/x3,x1/x4)) 
-                                endif
-                          endif;
-            _,_,_,top =>  let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x3 = drop(valRight#1) in
-                                if x2>0 then top else
-                                  lift(maximum(x1/x3,x2/x3)) 
-                                endif;
-            _,_,_,_   =>  let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                            lift(maximum(maximum(maximum(x1/x3,x1/x4),x2/x3),x2/x4));
-          endcase in
-        (resultleft,resultright)
-  
-  
-  multinterval :: Interval * Interval -> Interval
-  multinterval(valLeft,valRight) =
-    case valLeft#1,valLeft#2,valRight#1,valRight#2 of
-      bot, _, _, _ => if (valRight#1 = bot)
-                        then    // (bot,int),(bot,int)
-                          let x2 = drop(valLeft#2), x4 = drop(valRight#2) in
-                            case x2 > 0, x4 > 0 of
-                              true, true   => (bot,lift(x2*x4));
-                              true, false  => (bot,top);
-                              false,true   => (bot,top);
-                              false,false  => (lift(x2*x4),top);
-                            endcase
-                        else    // (bot,int),(int,_)
-                          if (valRight#2 = top)
-                            then    // (bot,int),(int,top)
-                              let x2 = drop(valLeft#2), x3 = drop(valRight#1) in
-                                case x2 > 0, x3 > 0 of
-                                  true, true  =>  (bot,top);
-                                  true, false =>  (lift(x2*x3),top);
-                                  false,true  =>  (bot,lift(x2*x3));
-                                  false,false =>  (bot,top);
-                                endcase
-                            else    // (bot,int),(int,int)
-                              let x2 = drop(valLeft#2), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                                case x3 > 0, x4 > 0 of
-                                  true, true  =>  (bot,lift(maximum(x2*x3,x2*x4)));
-                                  false,true  =>  (bot, top);
-                                  false,false =>  (lift(minimum(x2*x3,x2*x4)),top);
-                                endcase
-                          endif
-                      endif;
-      _, _, bot, _ => if (valLeft#2 = top)
-                        then    // (int,top),(bot,int)
-                          let x1 = drop(valLeft#1), x4 = drop(valRight#2) in
-                            case x1 > 0, x4 > 0 of
-                              true, true  =>  (bot,top);
-                              true, false =>  (bot,lift(x1*x4));
-                              false,true  =>  (lift(x1*x4,top));
-                              false,false =>  (bot,top);
-                            endcase
-                        else    // (int,int),(bot,int)
-                          let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x4 = drop(valRight#2) in
-                            case x1 > 0, x2 > 0 of
-                              true, true  =>  (bot,lift(maximum(x1*x4,x2*x4)));
-                              false,true  =>  (bot, top);
-                              false,false =>  (lift(minimum(x1*x4,x2*x4)),top);
-                            endcase
-                      endif;
-      _, top, _, _ => if (valRight#2 = top)
-                        then    // (int,top),(int,top)
-                          let x1 = drop(valLeft#1), x3 = drop(valRight#1) in
-                            case x1 > 0, x3 > 0 of
-                              true, true  =>  (lift(x1*x3),top);
-                              true, false =>  (bot,top);
-                              false,true  =>  (bot,top);
-                              false,false =>  (bot, lift(x1*x3));
-                            endcase
-                        else    // (int,top),(int,int)
-                          let x1 = drop(valLeft#1), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                            case x3 > 0, x4 > 0 of
-                              true, true  =>  (lift(minimum(x1*x3,x1*x4),top));
-                              false,true  =>  (bot, top);
-                              false,false =>  (bot,lift(maximum(x1*x3,x1*x4)));
-                            endcase
-                      endif;
-      _, _, _, top => let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x3 = drop(valRight#1) in
-                        case x1 > 0, x2 > 0 of
-                          true, true  =>  (lift(minimum(x1*x3,x2*x3)),top);
-                          false,true  =>  (bot, top);
-                          false,false =>  (bot,lift(maximum(x1*x3,x2*x3)));
-                        endcase;
-      _,_,_,_      => let x1 = drop(valLeft#1), x2 = drop(valLeft#2), x3 = drop(valRight#1), x4 = drop(valRight#2) in
-                        ( lift(minimum(minimum(minimum(x1*x3,x1*x4),x2*x3),x2*x4)),
-                          lift(maximum(maximum(maximum(x1*x3,x1*x4),x2*x3),x2*x4)));
-    endcase
-                      
-
-
-  intersectioninterval :: Interval * Interval -> Interval
-  intersectioninterval(valLeft,valRight) = 
-    (maxflat(valLeft#1,valRight#1),minflat(valLeft#2,valRight#2))
-
-  unioninterval :: Interval * Interval -> Interval
-  unioninterval(valLeft,valRight) =
-    (minflat(valLeft#1,valRight#1),maxflat(valLeft#2,valRight#2))  
-
-  maximum :: snum * snum -> snum
-  maximum(a,b) =
-    if a > b then a else b endif
-
-  minimum :: snum * snum -> snum
-  minimum(a,b) = 
-    if a < b then a else b endif
-
-  maxflat :: ConstFlattened * ConstFlattened -> ConstFlattened
-  maxflat(x1,x2) = 
-    case x1,x2 of 
-      top,_ => x1;
-      _,top => x2;
-      bot,_ => x2;
-      _,bot => x1;
-      _,_   => lift(maximum(drop(x1),drop(x2)));
-    endcase
-
-  minflat :: ConstFlattened * ConstFlattened -> ConstFlattened
-  minflat(x1,x2) = 
-    case x1,x2 of 
-      bot,_ => x1;
-      _,bot => x2;
-      top,_ => x2;
-      _,top => x1;
-      _,_   => lift(minimum(drop(x1),drop(x2)));
-    endcase
-
   evalBExp :: Expression * State -> BoolFlattened
-  evalBExp(expression,state) = 
-    case expType(expression) of 
+  evalBExp(expression,state) =
+    case expType(expression) of
       "TRUE" => lift(true);
       "FALSE" => lift(false);
       /*"BOOL_UNARY" => let value <= evalBExp(expSub(expression), state) in lift(!value);
@@ -432,7 +102,74 @@ SUPPORT
        _ => top;
      endcase
 
+  // TODO: check corner cases
+  addinterval :: Interval * Interval -> Interval
+  addinterval(valLeft, valRight) =
+    case valLeft, valRight of
+      top, _   => (top, top);
+      _  , top => (top, top);
+      bot, _   => (bot, bot);
+      _  , bot => (bot, bot);
+      _  , _   => let left = drop(valLeft), right = drop(valRight) in
+                    lift(left#1 + right#2, left#2 + right#1);
+    endcase
+
+  // TODO: corner cases
+  subinterval :: Interval * Interval -> Interval
+  subinterval(valLeft, valRight) =
+    case valLeft, valRight of
+      top, _   => (top, top);
+      _  , top => (top, top);
+      bot, _   => (bot, bot);
+      _  , bot => (bot, bot);
+      _  , _   => let left = drop(valLeft), right = drop(valRight) in
+                    lift(left#1 - right#2, left#2 - right#1);
+    endcase
+
+  // TODO: corner cases
+  multinterval :: Interval * Interval -> Interval
+  multinterval(valLeft, valRight) =
+    case valLeft, valRight of
+      top, _   => (top, top);
+      _  , top => (top, top);
+      bot, _   => (bot, bot);
+      _  , bot => (bot, bot);
+      _  , _   => let left = drop(valLeft), right = drop(valRight) in
+                  let x1 = left#1, x2 = left#2, x3 = right#1, x4 = right#2 in
+                    lift(maximum(maximum(maximum(x1/x3, x1/x4), x2/x3), x2/x4));
+    endcase
+
+  // TODO
+  divinterval :: Interval * Interval -> Interval
+  divinterval(valLeft, valRight) =
+    case valLeft, valRight of
+      top, _   => (top, top);
+      _  , top => (top, top);
+      bot, _   => (bot, bot);
+      _  , bot => (bot, bot);
+      _  , _   => let left = drop(valLeft), right = drop(valRight) in
+                  let x1 = left#1, x2 = left#2, x3 = right#1, x4 = right#2 in
+                    // TODO
+    endcase
+
+  // TODO: handle corner cases?
+  intersectioninterval :: Interval * Interval -> Interval
+  intersectioninterval(valLeft, valRight) =
+    let left = drop(valLeft), right = drop(valRight) in
+      (max(left#1, right#1), min(left#2, right#2))
+
+  // TODO: handle corner cases?
+  unioninterval :: Interval * Interval -> Interval
+  unioninterval(valLeft, valRight) =
+    let left = drop(valLeft), right = drop(valRight) in
+      (min(left#1, right#1), max(left#2, right#2))
+
+  max :: snum * snum -> snum
+  max(a,b) = if a > b then a else b endif
+
+  min :: snum * snum -> snum
+  min(a,b) = if a < b then a else b endif
 
   branch :: Expression * State * bool -> State
-  branch(expression, state, edge) = let valexp = evalBExp(expression,state) in 
+  branch(expression, state, edge) = let valexp = evalBExp(expression, state) in
     if valexp = top then state else if drop(valexp) = edge then state else bot endif endif
