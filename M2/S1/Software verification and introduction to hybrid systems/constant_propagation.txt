@@ -51,22 +51,24 @@ SUPPORT
       "ARITH_BINARY" =>
         let valLeft  = evalAExp(expSubLeft(expression), state), valRight = evalAExp(expSubRight(expression), state) in
           case expOp(expression) of
-            "+" => addinterval(valLeft,valRight);
-            "-" => subinterval(valLeft,valRight);
-            "*" => multinterval(valLeft,valRight);
-            "/" => if intersectioninterval(valRight,(lift(0),lift(0))) != (top,bot)
-                    then (bot,top)
-                    else divinterval(valLeft,valRight)
-                   endif;
+            "+" => addinterval(valLeft, valRight);
+            "-" => subinterval(valLeft, valRight);
+            "*" => multinterval(valLeft, valRight);
+            "/" => bot; /* TODO: check this
+                    if intersectioninterval(valRight, (lift(0), lift(0))) != (top, bot)
+                    then (bot, top)
+                    else divinterval(valLeft, valRight)
+                   endif;*/
           endcase;
       "ARITH_UNARY" =>
         case expOp(expression) of
-          "-" =>  let value = evalAExp(expSub(expression), state) in
+          "-" => bot; /* TODO: check this
+                    let value = evalAExp(expSub(expression), state) in
                     if value#1 = top then (top,bot) else
                       if value#1 = bot && value#2 = top then (bot,top) else
-                        multinterval(value,(lift(-1),lift(-1)))
+                        multinterval(value, (lift(-1), lift(-1)))
                       endif
-                    endif;
+                    endif;*/
         endcase;
       "VAR"   =>  state ( expVar(expression) );
       "CONST" =>  (lift(expVal(expression)),lift(expVal(expression)));
@@ -106,10 +108,10 @@ SUPPORT
   addinterval :: Interval * Interval -> Interval
   addinterval(valLeft, valRight) =
     case valLeft, valRight of
-      top, _   => (top, top);
-      _  , top => (top, top);
-      bot, _   => (bot, bot);
-      _  , bot => (bot, bot);
+      top, _   => top;
+      _  , top => top;
+      bot, _   => bot;
+      _  , bot => bot;
       _  , _   => let left = drop(valLeft), right = drop(valRight) in
                     lift(left#1 + right#2, left#2 + right#1);
     endcase
@@ -118,10 +120,10 @@ SUPPORT
   subinterval :: Interval * Interval -> Interval
   subinterval(valLeft, valRight) =
     case valLeft, valRight of
-      top, _   => (top, top);
-      _  , top => (top, top);
-      bot, _   => (bot, bot);
-      _  , bot => (bot, bot);
+      top, _   => top;
+      _  , top => top;
+      bot, _   => bot;
+      _  , bot => bot;
       _  , _   => let left = drop(valLeft), right = drop(valRight) in
                     lift(left#1 - right#2, left#2 - right#1);
     endcase
@@ -130,10 +132,10 @@ SUPPORT
   multinterval :: Interval * Interval -> Interval
   multinterval(valLeft, valRight) =
     case valLeft, valRight of
-      top, _   => (top, top);
-      _  , top => (top, top);
-      bot, _   => (bot, bot);
-      _  , bot => (bot, bot);
+      top, _   => top;
+      _  , top => top;
+      bot, _   => bot;
+      _  , bot => bot;
       _  , _   => let left = drop(valLeft), right = drop(valRight) in
                   let x1 = left#1, x2 = left#2, x3 = right#1, x4 = right#2 in
                     lift(maximum(maximum(maximum(x1/x3, x1/x4), x2/x3), x2/x4));
@@ -143,10 +145,10 @@ SUPPORT
   divinterval :: Interval * Interval -> Interval
   divinterval(valLeft, valRight) =
     case valLeft, valRight of
-      top, _   => (top, top);
-      _  , top => (top, top);
-      bot, _   => (bot, bot);
-      _  , bot => (bot, bot);
+      top, _   => top;
+      _  , top => top;
+      bot, _   => bot;
+      _  , bot => bot;
       _  , _   => let left = drop(valLeft), right = drop(valRight) in
                   let x1 = left#1, x2 = left#2, x3 = right#1, x4 = right#2 in
                     // TODO
