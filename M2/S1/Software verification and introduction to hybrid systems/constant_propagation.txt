@@ -12,7 +12,7 @@ PROBLEM Constant_Propagation
   direction  : forward
   carrier    : State
   init       : bot
-  init_start : [-> (bot,top)]
+  init_start : [-> top]
   combine    : lub
 
 
@@ -61,12 +61,8 @@ SUPPORT
           endcase;
       "ARITH_UNARY" =>
         case expOp(expression) of
-          "-" =>  let value = evalAExp(expSub(expression), state) in
-                    if value#1 = top then (top,bot) else
-                      if value#1 = bot && value#2 = top then (bot,top) else
-                        multinterval(value,(lift(-1),lift(-1)))
-                      endif
-                    endif;
+          "-" =>  let value <= evalAExp(expSub(expression), state) in
+                    multinterval(value,lift(-1,-1));
         endcase;
       "VAR"   =>  state ( expVar(expression) );
       "CONST" =>  (lift(expVal(expression)),lift(expVal(expression)));
@@ -106,10 +102,10 @@ SUPPORT
   addinterval :: Interval * Interval -> Interval
   addinterval(valLeft, valRight) =
     case valLeft, valRight of
-      top, _   => (top, top);
-      _  , top => (top, top);
-      bot, _   => (bot, bot);
-      _  , bot => (bot, bot);
+      bot, _   => bot;
+      _  , bot => bot;
+      top, _   => top;
+      _  , top => top;
       _  , _   => let left = drop(valLeft), right = drop(valRight) in
                     lift(left#1 + right#2, left#2 + right#1);
     endcase
@@ -118,10 +114,10 @@ SUPPORT
   subinterval :: Interval * Interval -> Interval
   subinterval(valLeft, valRight) =
     case valLeft, valRight of
-      top, _   => (top, top);
-      _  , top => (top, top);
-      bot, _   => (bot, bot);
-      _  , bot => (bot, bot);
+      bot, _   => bot;
+      _  , bot => bot;
+      top, _   => top;
+      _  , top => top;
       _  , _   => let left = drop(valLeft), right = drop(valRight) in
                     lift(left#1 - right#2, left#2 - right#1);
     endcase
@@ -130,13 +126,13 @@ SUPPORT
   multinterval :: Interval * Interval -> Interval
   multinterval(valLeft, valRight) =
     case valLeft, valRight of
-      top, _   => (top, top);
-      _  , top => (top, top);
-      bot, _   => (bot, bot);
-      _  , bot => (bot, bot);
+      bot, _   => bot;
+      _  , bot => bot;
+      top, _   => top;
+      _  , top => top;
       _  , _   => let left = drop(valLeft), right = drop(valRight) in
                   let x1 = left#1, x2 = left#2, x3 = right#1, x4 = right#2 in
-                    lift(maximum(maximum(maximum(x1/x3, x1/x4), x2/x3), x2/x4));
+                    lift(min(min(min(x1*x3, x1*x4), x2*x3), x2*x4),max(max(max(x1*x3, x1*x4), x2*x3), x2*x4));
     endcase
 
   // TODO
@@ -147,22 +143,39 @@ SUPPORT
       _  , top => (top, top);
       bot, _   => (bot, bot);
       _  , bot => (bot, bot);
-      _  , _   => let left = drop(valLeft), right = drop(valRight) in
-                  let x1 = left#1, x2 = left#2, x3 = right#1, x4 = right#2 in
-                    // TODO
+      _  , _   => if intersectioninterval(valRight,lift(0,0)) != bot then top else 
+                    let left = drop(valLeft), right = drop(valRight) in
+                      let x1 = left#1, x2 = left#2, x3 = right#1, x4 = right#2 in
+                        lift(min(min(min(x1/x3, x1/x4), x2/x3), x2/x4),max(max(max(x1/x3, x1/x4), x2/x3), x2/x4));
+                  endif
     endcase
 
   // TODO: handle corner cases?
   intersectioninterval :: Interval * Interval -> Interval
   intersectioninterval(valLeft, valRight) =
-    let left = drop(valLeft), right = drop(valRight) in
-      (max(left#1, right#1), min(left#2, right#2))
+    case valLeft, valRight of
+      bot, _   => bot;
+      _  , bot => bot;
+      top, _   => top;
+      _  , top => top;
+      _  , _   => let left = drop(valLeft), right = drop(valRight) in
+                    let x1 = left#1, x2 = left#2, x3 = right#1, x4 = right#2 in
+                      if (x3>x2 || x1>x4) then bot else
+                        lift(max(left#1, right#1), min(left#2, right#2))
+                      endif;
+    endcase
 
   // TODO: handle corner cases?
   unioninterval :: Interval * Interval -> Interval
   unioninterval(valLeft, valRight) =
-    let left = drop(valLeft), right = drop(valRight) in
-      (min(left#1, right#1), max(left#2, right#2))
+  case valLeft, valRight of
+      bot, _   => bot;
+      _  , bot => bot;
+      top, _   => top;
+      _  , top => top;
+      _  , _   => let left = drop(valLeft), right = drop(valRight) in
+                    lift(min(left#1, right#1), max(left#2, right#2));
+  endcase
 
   max :: snum * snum -> snum
   max(a,b) = if a > b then a else b endif
