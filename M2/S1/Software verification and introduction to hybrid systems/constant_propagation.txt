@@ -54,18 +54,15 @@ SUPPORT
             "+" => addinterval(valLeft,valRight);
             "-" => subinterval(valLeft,valRight);
             "*" => multinterval(valLeft,valRight);
-            "/" => if intersectioninterval(valRight,(lift(0),lift(0))) != (top,bot)
-                    then (bot,top)
-                    else divinterval(valLeft,valRight)
-                   endif;
+            "/" => divinterval(valLeft,valRight);
           endcase;
       "ARITH_UNARY" =>
         case expOp(expression) of
           "-" =>  let value <= evalAExp(expSub(expression), state) in
-                    multinterval(value,lift(-1,-1));
+                    lift(-value#2,-value#1);
         endcase;
       "VAR"   =>  state ( expVar(expression) );
-      "CONST" =>  (lift(expVal(expression)),lift(expVal(expression)));
+      "CONST" =>  lift(expVal(expression),expVal(expression));
       _       => error("Runtime Error: evalAExp applied to nonarithmetic Expression");
     endcase
 
@@ -98,7 +95,6 @@ SUPPORT
        _ => top;
      endcase
 
-  // TODO: check corner cases
   addinterval :: Interval * Interval -> Interval
   addinterval(valLeft, valRight) =
     case valLeft, valRight of
@@ -110,7 +106,6 @@ SUPPORT
                     lift(left#1 + right#2, left#2 + right#1);
     endcase
 
-  // TODO: corner cases
   subinterval :: Interval * Interval -> Interval
   subinterval(valLeft, valRight) =
     case valLeft, valRight of
@@ -122,7 +117,6 @@ SUPPORT
                     lift(left#1 - right#2, left#2 - right#1);
     endcase
 
-  // TODO: corner cases
   multinterval :: Interval * Interval -> Interval
   multinterval(valLeft, valRight) =
     case valLeft, valRight of
@@ -135,7 +129,6 @@ SUPPORT
                     lift(min(min(min(x1*x3, x1*x4), x2*x3), x2*x4),max(max(max(x1*x3, x1*x4), x2*x3), x2*x4));
     endcase
 
-  // TODO
   divinterval :: Interval * Interval -> Interval
   divinterval(valLeft, valRight) =
     case valLeft, valRight of
@@ -146,11 +139,10 @@ SUPPORT
       _  , _   => if intersectioninterval(valRight,lift(0,0)) != bot then top else 
                     let left = drop(valLeft), right = drop(valRight) in
                       let x1 = left#1, x2 = left#2, x3 = right#1, x4 = right#2 in
-                        lift(min(min(min(x1/x3, x1/x4), x2/x3), x2/x4),max(max(max(x1/x3, x1/x4), x2/x3), x2/x4));
-                  endif
+                        lift(min(min(min(x1/x3, x1/x4), x2/x3), x2/x4),max(max(max(x1/x3, x1/x4), x2/x3), x2/x4))
+                  endif;
     endcase
 
-  // TODO: handle corner cases?
   intersectioninterval :: Interval * Interval -> Interval
   intersectioninterval(valLeft, valRight) =
     case valLeft, valRight of
@@ -165,7 +157,6 @@ SUPPORT
                       endif;
     endcase
 
-  // TODO: handle corner cases?
   unioninterval :: Interval * Interval -> Interval
   unioninterval(valLeft, valRight) =
   case valLeft, valRight of
