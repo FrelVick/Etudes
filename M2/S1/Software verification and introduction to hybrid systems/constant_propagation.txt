@@ -117,7 +117,6 @@ SUPPORT
     let x1 = left#1, x2 = left#2, x3 = right#1, x4 = right#2 in
       lift(min(min(min(x1*x3, x1*x4), x2*x3), x2*x4), max(max(max(x1*x3, x1*x4), x2*x3), x2*x4));
 
-  // TODO: handle division by zero
   divinterval :: Interval * Interval -> Interval
   divinterval(valLeft, valRight) =
     if intersectioninterval(valRight, lift(0,0)) != bot then top else
@@ -156,6 +155,32 @@ SUPPORT
 
   min :: snum * snum -> snum
   min(a, b) = if a < b then a else b endif
+
+  //this function take expressions with only one variable at left part and interval at right and calculate new value of variable
+  improveleftbound :: expression * str * Interval * state -> state
+  improveleftbound(variable, operation, RightExpression, state) =
+  let OldVariableValue = state (expVar(variable)) in
+    if RightExpression = bot then bot else
+      if RightExpression = top then state else
+        let RightBounds = drop(RightExpression) in
+          let NewVariableValue =
+            case expOp(expression) of
+              ">" => intersectioninterval(OldVariableValue, flat(RightBounds#1 + 1, 1000));
+              ">="=> intersectioninterval(OldVariableValue, flat(RightBounds#1, 1000));
+              "<" => intersectioninterval(OldVariableValue, flat(-1000,RightBounds#2 - 1));
+              "<="=> intersectioninterval(OldVariableValue, flat(-1000,RightBounds#2));
+              "=" => intersectioninterval(OldVariableValue, RightExpression);
+              "!="=> unioninterval(intersectioninterval(OldVariableValue, flat(-1000,RightBounds#2 - 1)),intersectioninterval(OldVariableValue, flat(RightBounds#1 + 1, 1000)));
+            endcase in
+            if NewVariableValue = bot then bot else
+              state \ [variable -> NewVariableValue]
+            endif
+      endif
+    endif
+
+  // here we need function who take  e1 + e2 (bool operation) e3 and return new state where e1 (bool op) e3-e2 and e2 (bool op) e3-e1 for +-*/. 
+  // Also it will take care of reverse calculation (e3 (bool operation) e1 + e2). But i am not sure
+  isolatevariable :: expression * 
 
   branch :: Expression * State * bool -> State
   branch(expression, state, edge) = let valexp = evalBExp(expression, state) in
